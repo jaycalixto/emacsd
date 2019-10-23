@@ -1,6 +1,7 @@
 ;; Minimal interface
-(scroll-bar-mode -1)
-(tool-bar-mode -1)
+(when (display-graphic-p)
+  (scroll-bar-mode -1)
+  (tool-bar-mode -1))
 (tooltip-mode -1)
 (menu-bar-mode -1)
 
@@ -37,6 +38,12 @@
   (setq helm-mode-fuzzy-match t)
   (setq helm-completion-in-region-fuzzy-match t)
   (setq helm-candidate-number-limit 50))
+
+;; smartparens
+(use-package smartparens
+  :ensure t
+  :config
+  (require 'smartparens-config))
 
 ;; Which Key
 (use-package which-key
