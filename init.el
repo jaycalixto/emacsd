@@ -2,6 +2,7 @@
 (when (display-graphic-p)
   (scroll-bar-mode -1)
   (tool-bar-mode -1))
+
 (tooltip-mode -1)
 (menu-bar-mode -1)
 
@@ -18,6 +19,10 @@
   (package-refresh-contents)
   (package-install 'use-package))
 (require 'use-package)
+
+;; rainbow delimiter
+(use-package rainbow-delimiters
+ :ensure t)
 
 ;; Vim mode
 (use-package evil
@@ -54,6 +59,17 @@
   :config
   (which-key-mode))
 
+;; recentf in list
+(use-package dashboard
+  :ensure t
+  :diminish dashboard-mode
+  :config
+  (setq dashboard-items '((recents . 10)
+			  (bookmarks . 10)
+			  (registers . 10)
+			  ))
+  (dashboard-setup-startup-hook))
+
 ;; Key Bindings
 (use-package general
   :ensure t
@@ -78,6 +94,16 @@
            ;; Others
            "at" '(ansi-term :which-key "open terminal")
            ))
+
+;; company
+(use-package company
+  :ensure t)
+
+;; emacs lisp mode hooks
+(add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'emacs-lisp-mode-hook 'company-mode)
+
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
