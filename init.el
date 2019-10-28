@@ -40,7 +40,7 @@
 (use-package doom-themes
   :ensure t
   :config
-  (load-theme 'doom-one t))
+  (load-theme 'doom-acario-light t))
 
 ;; Helm
 (use-package helm
@@ -114,6 +114,14 @@
 ;; emacs lisp mode hooks
 (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'emacs-lisp-mode-hook 'company-mode)
+
+;; rust
+(use-package rust-mode
+  :ensure t)
+
+(add-hook 'rust-mode-hook
+	  (lambda ()
+	    (setq indent-tabs-mode nil)))
 
 
 (custom-set-variables
