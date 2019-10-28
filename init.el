@@ -6,6 +6,8 @@
 (tooltip-mode -1)
 (menu-bar-mode -1)
 
+(global-linum-mode t)
+
 ;; package config
 (require 'package)
 (setq package-enable-at-startup nil)
@@ -19,6 +21,10 @@
   (package-refresh-contents)
   (package-install 'use-package))
 (require 'use-package)
+
+;; all the icons
+(use-package all-the-icons
+  :ensure t)
 
 ;; rainbow delimiter
 (use-package rainbow-delimiters
@@ -93,11 +99,17 @@
            "wx" '(delete-window :which-key "delete window")
            ;; Others
            "at" '(ansi-term :which-key "open terminal")
+	   "qq" '(kill-emacs :which-key "kill emacs")
            ))
 
 ;; company
 (use-package company
   :ensure t)
+
+;; doom modeline
+(use-package doom-modeline
+  :ensure t
+  :hook (after-init . doom-modeline-mode))
 
 ;; emacs lisp mode hooks
 (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
