@@ -2,8 +2,11 @@
 (when (display-graphic-p)
   (scroll-bar-mode -1)
   (tool-bar-mode -1))
+
 (tooltip-mode -1)
 (menu-bar-mode -1)
+
+(global-linum-mode t)
 
 ;; package config
 (require 'package)
@@ -19,6 +22,14 @@
   (package-install 'use-package))
 (require 'use-package)
 
+;; all the icons
+(use-package all-the-icons
+  :ensure t)
+
+;; rainbow delimiter
+(use-package rainbow-delimiters
+ :ensure t)
+
 ;; Vim mode
 (use-package evil
   :ensure t
@@ -29,7 +40,7 @@
 (use-package doom-themes
   :ensure t
   :config
-  (load-theme 'doom-one t))
+  (load-theme 'doom-acario-light t))
 
 ;; Helm
 (use-package helm
@@ -54,6 +65,17 @@
   :config
   (which-key-mode))
 
+;; recentf in list
+(use-package dashboard
+  :ensure t
+  :diminish dashboard-mode
+  :config
+  (setq dashboard-items '((recents . 10)
+			  (bookmarks . 10)
+			  (registers . 10)
+			  ))
+  (dashboard-setup-startup-hook))
+
 ;; Key Bindings
 (use-package general
   :ensure t
@@ -77,7 +99,35 @@
            "wx" '(delete-window :which-key "delete window")
            ;; Others
            "at" '(ansi-term :which-key "open terminal")
+	   "qq" '(kill-emacs :which-key "kill emacs")
            ))
+
+;; company
+(use-package company
+  :ensure t)
+
+;; doom modeline
+(use-package doom-modeline
+  :ensure t
+  :hook (after-init . doom-modeline-mode))
+
+;; emacs lisp mode hooks
+(add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'emacs-lisp-mode-hook 'company-mode)
+
+;; rust
+(use-package rust-mode
+  :ensure t)
+
+(add-hook 'rust-mode-hook
+	  (lambda ()
+	    (setq indent-tabs-mode nil)))
+
+
+;; nim
+;; (use-package nim-mode
+;;  :ensure t)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
