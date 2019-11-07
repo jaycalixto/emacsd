@@ -123,6 +123,14 @@
 	  (lambda ()
 	    (setq indent-tabs-mode nil)))
 
+;; auto update packages
+(use-package auto-package-update
+  :ensure t
+  :config
+  (setq auto-package-update-delete-old-versions t
+        auto-package-update-interval 4)
+  (auto-package-update-maybe))
+
 
 ;; nim
 ;; (use-package nim-mode
@@ -135,7 +143,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (general which-key helm doom-themes evil use-package))))
+    (all-the-icons general which-key helm doom-themes evil use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
