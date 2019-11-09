@@ -3,6 +3,7 @@
   (scroll-bar-mode -1)
   (tool-bar-mode -1))
 
+
 (tooltip-mode -1)
 (menu-bar-mode -1)
 
@@ -12,8 +13,8 @@
 (require 'package)
 (setq package-enable-at-startup nil)
 (setq package-archives '(("org" . "http://orgmode.org/elpa/")
-                         ("gnu" . "http://elpa.gnu.org/packages/")
-                         ("melpa" . "https://melpa.org/packages/")))
+			 ("gnu" . "http://elpa.gnu.org/packages/")
+			 ("melpa" . "https://melpa.org/packages/")))
 (package-initialize)
 
 ;; Bootstrap `use-package'
@@ -28,7 +29,7 @@
 
 ;; rainbow delimiter
 (use-package rainbow-delimiters
- :ensure t)
+  :ensure t)
 
 ;; Vim mode
 (use-package evil
@@ -42,7 +43,8 @@
 (use-package doom-themes
   :ensure t
   :config
-  (load-theme 'doom-acario-light t))
+  (load-theme 'doom-acario-light t)
+  )
 
 ;; Helm
 (use-package helm
@@ -82,27 +84,34 @@
 (use-package general
   :ensure t
   :config (general-define-key
-           :states '(normal visual insert emacs)
-           :prefix "SPC"
-           :non-normal-prefix "M-SPC"
-           ;; "/" '(counsel-rg :which-key "ripgrep") ; need counsel package
-           "TAB" '(switch-to-prev-buffer :which-key "previous buffer")
-           "SPC" '(helm-M-x :which-key "M-x")
-           "pf" '(helm-find-file :which-key "find files")
-           ;; Buffers
-           "bb" '(helm-buffers-list :which-key "buffers list")
-           ;; Window
-           "wl" '(windmove-right :which-key "move right")
-           "wh" '(windmove-left :which-key "move left")
-           "wk" '(windmove-up :which-key "move up")
-           "wj" '(windmove-down :which-key "move bottom")
-           "w/" '(split-window-right :which-key "split right")
-           "w-" '(split-window-below :which-key "split bottom")
-           "wx" '(delete-window :which-key "delete window")
-           ;; Others
-           "at" '(ansi-term :which-key "open terminal")
+	   :states '(normal visual insert emacs)
+	   :prefix "SPC"
+	   :non-normal-prefix "M-SPC"
+	   ;; "/" '(counsel-rg :which-key "ripgrep") ; need counsel package
+	   "TAB" '(switch-to-prev-buffer :which-key "previous buffer")
+	   "SPC" '(helm-M-x :which-key "M-x")
+	   "pf" '(helm-find-file :which-key "find files")
+	   ;; Buffers
+	   "bb" '(helm-buffers-list :which-key "buffers list")
+	   "bd" '(evil-delete-buffer :which-key "kill buffer")
+	   ;; Window
+	   "wl" '(windmove-right :which-key "move right")
+	   "wd" '(evil-window-delete :which-key "delete window")
+	   "wh" '(windmove-left :which-key "move left")
+	   "wk" '(windmove-up :which-key "move up")
+	   "wj" '(windmove-down :which-key "move bottom")
+	   "w/" '(split-window-right :which-key "split right")
+	   "w-" '(split-window-below :which-key "split bottom")
+	   "wx" '(delete-window :which-key "delete window")
+	   ;; major modes
+	   "m" '(which-key-show-major-mode :which-key "major mode")
+	   ;; Others
+	   "at" '(ansi-term :which-key "open terminal")
 	   "qq" '(kill-emacs :which-key "kill emacs")
-           ))
+	   ))
+
+(global-set-key (kbd "C-;")
+		'comment-line)
 
 ;; company
 (use-package company
@@ -114,11 +123,11 @@
   :hook (after-init . doom-modeline-mode)
   )
 
-;; evil collection
-(use-package evil-collection
-  :ensure t
-  :init
-  (evil-collection-init))
+;; ;; evil collection
+;; (use-package evil-collection
+;;  :ensure t
+;;  :init
+;;   (evil-collection-init))
 
 ;; emacs lisp mode hooks
 (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
@@ -137,7 +146,7 @@
   :ensure t
   :config
   (setq auto-package-update-delete-old-versions t
-        auto-package-update-interval 4)
+	auto-package-update-interval 4)
   (auto-package-update-maybe))
 
 ;; nim
