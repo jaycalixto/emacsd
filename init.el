@@ -34,7 +34,9 @@
 (use-package evil
   :ensure t
   :config
-  (evil-mode 1))
+  (evil-mode 1)
+  :init
+  (setq evil-want-keybinding nil))
 
 ;; Theme
 (use-package doom-themes
@@ -109,7 +111,14 @@
 ;; doom modeline
 (use-package doom-modeline
   :ensure t
-  :hook (after-init . doom-modeline-mode))
+  :hook (after-init . doom-modeline-mode)
+  )
+
+;; evil collection
+(use-package evil-collection
+  :ensure t
+  :init
+  (evil-collection-init))
 
 ;; emacs lisp mode hooks
 (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
@@ -131,10 +140,9 @@
         auto-package-update-interval 4)
   (auto-package-update-maybe))
 
-
 ;; nim
-;; (use-package nim-mode
-;;  :ensure t)
+(use-package nim-mode
+  :ensure t)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
