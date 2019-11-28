@@ -45,11 +45,24 @@
   (setq evil-want-keybinding nil))
 
 ;; Theme
-(use-package doom-themes
+;; (use-package doom-themes
+;;   :ensure t
+;;   :config
+;;   (load-theme 'doom-acario-light t)
+;;   ;; (load-theme 'doom-one t)
+;;   ;; (load-theme 'doom-acario-dark t)
+;;   )
+
+(use-package material-theme
   :ensure t
   :config
-  (load-theme 'doom-acario-light t)
+  (load-theme 'material t)
   )
+
+;; Better font
+(setq default-frame-alist
+      (add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono 10")))
+
 
 ;; Helm
 (use-package helm
