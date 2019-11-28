@@ -6,6 +6,9 @@
 ;; disable anoying ring
 (setq visible-bell 1)
 
+;; remember last line
+(save-place-mode 1)
+
 (tooltip-mode -1)
 (menu-bar-mode -1)
 
