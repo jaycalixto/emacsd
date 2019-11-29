@@ -112,6 +112,8 @@
 	   ;; Buffers
 	   "bb" '(helm-buffers-list :which-key "buffers list")
 	   "bd" '(evil-delete-buffer :which-key "kill buffer")
+	   "bn" '(evil-next-buffer :which-key "next buffer")
+	   "bp" '(evil-prev-buffer :which-key "previous buffer")
 	   ;; Window
 	   "wl" '(windmove-right :which-key "move right")
 	   "wd" '(evil-window-delete :which-key "delete window")
@@ -122,11 +124,12 @@
 	   "w-" '(split-window-below :which-key "split bottom")
 	   "wx" '(delete-window :which-key "delete window")
 	   ;; major modes
-	   "m" '(which-key-show-major-mode :which-key "major mode")
+	   "m" '(which-key-show-major-mode :which-key "+major mode")
 	   ;; Others
 	   "at" '(ansi-term :which-key "open terminal")
 	   "qq" '(kill-emacs :which-key "kill emacs")
-	   ))
+	   )
+  )
 
 (global-set-key (kbd "C-;")
 		'comment-line)
@@ -170,6 +173,24 @@
 ;; nim
 (use-package nim-mode
   :ensure t)
+
+;; evil org mode
+(use-package dash
+  :ensure t)
+(use-package monitor
+  :ensure t)
+(use-package org-evil
+  :ensure t)
+
+;; org mode
+(use-package org
+  :ensure t
+  :general
+  (:states '(normal visual)
+	   :keymaps 'org-mode-map
+	   "cc" '(org-time-stamp :which-key "org time stamp")
+	   )
+  )
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
