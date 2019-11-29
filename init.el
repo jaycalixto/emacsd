@@ -114,6 +114,8 @@
 	   "bd" '(evil-delete-buffer :which-key "kill buffer")
 	   "bn" '(evil-next-buffer :which-key "next buffer")
 	   "bp" '(evil-prev-buffer :which-key "previous buffer")
+	   ;; Frames
+	   "fn" '(other-frame :which-key "next frame")
 	   ;; Window
 	   "wl" '(windmove-right :which-key "move right")
 	   "wd" '(evil-window-delete :which-key "delete window")
@@ -128,6 +130,8 @@
 	   ;; Others
 	   "at" '(ansi-term :which-key "open terminal")
 	   "qq" '(kill-emacs :which-key "kill emacs")
+	   ;; File
+	   "Fl" '(load-file :which-key "load file")
 	   )
   )
 
@@ -192,6 +196,11 @@
 	   )
   )
 
+;; yaml
+(use-package yaml-mode
+  :ensure t
+  )
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -199,7 +208,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (all-the-icons general which-key helm doom-themes evil use-package))))
+    (yaml-mode all-the-icons general which-key helm doom-themes evil use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
