@@ -116,6 +116,7 @@
 	   "bp" '(evil-prev-buffer :which-key "previous buffer")
 	   ;; Frames
 	   "fn" '(other-frame :which-key "next frame")
+	   "ff" '(next-multiframe-window :which-key "next multiframe window")
 	   ;; Window
 	   "wl" '(windmove-right :which-key "move right")
 	   "wd" '(evil-window-delete :which-key "delete window")
@@ -201,6 +202,11 @@
   :ensure t
   )
 
+;; markdown
+(use-package markdown-mode
+  :ensure t
+  )
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -208,7 +214,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (yaml-mode all-the-icons general which-key helm doom-themes evil use-package))))
+    (markdown-mode yaml-mode all-the-icons general which-key helm doom-themes evil use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
