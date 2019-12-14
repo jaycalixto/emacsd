@@ -219,13 +219,20 @@
 ;; nim
 (use-package nim-mode
   :ensure t
-  :config
+  :general
+  (:states '(normal visual)
+	   :keymaps 'nim-mode-map
+	   "cc" '(nim-compile :which-key "nim compile")
+	   )
+  )
+
+(defun my--nim-mode-init-hook ()
    ;; Make files in the nimble folder read only by default.
    ;; This can prevent to edit them by accident.
   (when (string-match "/\.nimble/" buffer-file-name) (read-only-mode 1))
   (flycheck-mode 1)
-
-   )
+  )
+(add-hook 'nim-mode-hook 'my--nim-mode-init-hook)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
