@@ -175,9 +175,6 @@
 	auto-package-update-interval 4)
   (auto-package-update-maybe))
 
-;; nim
-(use-package nim-mode
-  :ensure t)
 
 ;; evil org mode
 (use-package dash
@@ -218,6 +215,17 @@
   :config
   (global-flycheck-mode)
   (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc)))
+
+;; nim
+(use-package nim-mode
+  :ensure t
+  :config
+   ;; Make files in the nimble folder read only by default.
+   ;; This can prevent to edit them by accident.
+  (when (string-match "/\.nimble/" buffer-file-name) (read-only-mode 1))
+  (flycheck-mode 1)
+
+   )
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
