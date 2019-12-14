@@ -207,6 +207,18 @@
   :ensure t
   )
 
+;; magit
+(use-package magit
+  :ensure t
+  )
+
+;; flycheck
+(use-package flycheck
+  :ensure t
+  :config
+  (global-flycheck-mode)
+  (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc)))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -214,10 +226,11 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (markdown-mode yaml-mode all-the-icons general which-key helm doom-themes evil use-package))))
+    (transient magit markdown-mode yaml-mode all-the-icons general which-key helm doom-themes evil use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
