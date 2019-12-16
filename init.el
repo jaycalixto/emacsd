@@ -133,6 +133,7 @@
 	   "qq" '(kill-emacs :which-key "kill emacs")
 	   ;; File
 	   "Fl" '(load-file :which-key "load file")
+	   "Fr" '(helm-recentf :which-key "recent files")
 	   )
   (general-create-definer localleader
     :states '(normal visual)
