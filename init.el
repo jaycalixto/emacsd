@@ -133,7 +133,11 @@
 	   "qq" '(kill-emacs :which-key "kill emacs")
 	   ;; File
 	   "Fl" '(load-file :which-key "load file")
+	   "Fr" '(helm-recentf :which-key "recent files")
 	   )
+  (general-create-definer localleader
+    :states '(normal visual)
+    :prefix ",")
   )
 
 (global-set-key (kbd "C-;")
@@ -191,11 +195,9 @@
 (use-package org
   :ensure t
   :general
-  (:states '(normal visual)
-	   :keymaps 'org-mode-map
-	   "cc" '(org-time-stamp :which-key "org time stamp")
-	   )
-  )
+  (localleader :keymaps 'org-mode-map
+	       "cc" '(org-time-stamp :which-key "org time stamp")
+  ))
 
 ;; yaml
 (use-package yaml-mode
@@ -207,6 +209,16 @@
   :ensure t
   )
 
+(use-package anaconda-mode
+  :ensure t
+  :config
+  (add-hook 'python-mode-hook 'anaconda-mode)
+  )
+
+(use-package origami
+  :ensure t
+  )
+  
 ;; golden ration
 (use-package golden-ratio
   :ensure t
