@@ -133,7 +133,11 @@
 	   "qq" '(kill-emacs :which-key "kill emacs")
 	   ;; File
 	   "Fl" '(load-file :which-key "load file")
+	   "Fr" '(helm-recentf :which-key "recent files")
 	   )
+  (general-create-definer localleader
+    :states '(normal visual)
+    :prefix ",")
   )
 
 (global-set-key (kbd "C-;")
@@ -188,11 +192,9 @@
 (use-package org
   :ensure t
   :general
-  (:states '(normal visual)
-	   :keymaps 'org-mode-map
-	   "cc" '(org-time-stamp :which-key "org time stamp")
-	   )
-  )
+  (localleader :keymaps 'org-mode-map
+	       "cc" '(org-time-stamp :which-key "org time stamp")
+  ))
 
 ;; yaml
 (use-package yaml-mode
@@ -233,6 +235,22 @@
   (flycheck-mode 1)
   )
 (add-hook 'nim-mode-hook 'my--nim-mode-init-hook)
+
+(use-package anaconda-mode
+  :ensure t
+  :config
+  (add-hook 'python-mode-hook 'anaconda-mode)
+  )
+
+(use-package origami
+  :ensure t
+  )
+  
+;; golden ration
+(use-package golden-ratio
+  :ensure t
+  :init
+  (golden-ratio-mode 1))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
