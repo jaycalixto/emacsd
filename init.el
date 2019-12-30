@@ -3,6 +3,9 @@
   (scroll-bar-mode -1)
   (tool-bar-mode -1))
 
+;; work with utf 8
+(set-language-environment "UTF-8")
+
 ;; disable anoying ring
 (setq visible-bell 1)
 
@@ -204,6 +207,7 @@
 ;; markdown
 (use-package markdown-mode
   :ensure t
+  :init (setq markdown-command "pandoc")
   )
 
 ;; magit
@@ -246,11 +250,11 @@
   :ensure t
   )
   
-;; golden ration
-(use-package golden-ratio
-  :ensure t
-  :init
-  (golden-ratio-mode 1))
+;; ;; golden ration
+;; (use-package golden-ratio
+;;   :ensure t
+;;   :init
+;;   (golden-ratio-mode 1))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -259,7 +263,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (transient magit markdown-mode yaml-mode all-the-icons general which-key helm doom-themes evil use-package))))
+    (gnu-elpa-keyring-update transient magit markdown-mode yaml-mode all-the-icons general which-key helm doom-themes evil use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
