@@ -68,8 +68,8 @@
 (use-package helm
   :ensure t
   :init
-  (setq helm-mode-fuzzy-match t)
-  (setq helm-completion-in-region-fuzzy-match t)
+  (defvar helm-mode-fuzzy-match t)
+  (defvar helm-completion-in-region-fuzzy-match t)
   (setq helm-candidate-number-limit 50))
 
 ;; smartparens
@@ -84,6 +84,10 @@
   :init
   (setq which-key-separator " ")
   (setq which-key-prefix-prefix "+")
+  (setq which-key-popup-type 'side-window)
+  (setq which-key-side-window-location 'bottom)
+  (setq which-key-side-window-max-width 0.33)
+  (setq which-key-side-window-max-height 0.25)
   :config
   (which-key-mode))
 
@@ -108,16 +112,19 @@
 	   ;; "/" '(counsel-rg :which-key "ripgrep") ; need counsel package
 	   "TAB" '(switch-to-prev-buffer :which-key "previous buffer")
 	   "SPC" '(helm-M-x :which-key "M-x")
-	   "pf" '(helm-find-file :which-key "find files")
 	   ;; Buffers
+	   "b" '(nil :which-key "buffers")
+	   "bl" '(helm-mini :which-key "buffers and recent files")
 	   "bb" '(helm-buffers-list :which-key "buffers list")
 	   "bd" '(evil-delete-buffer :which-key "kill buffer")
 	   "bn" '(evil-next-buffer :which-key "next buffer")
 	   "bp" '(evil-prev-buffer :which-key "previous buffer")
 	   ;; Frames
+	   "f" '(nil :which-key "frames")
 	   "fn" '(other-frame :which-key "next frame")
 	   "ff" '(next-multiframe-window :which-key "next multiframe window")
 	   ;; Window
+	   "w" '(nil :which-key "window")
 	   "wl" '(windmove-right :which-key "move right")
 	   "wd" '(evil-window-delete :which-key "delete window")
 	   "wh" '(windmove-left :which-key "move left")
@@ -131,9 +138,12 @@
 	   ;; Others
 	   "at" '(ansi-term :which-key "open terminal")
 	   "qq" '(kill-emacs :which-key "kill emacs")
+	   "pi" '(package-install :which-key "package install")
 	   ;; File
+	   "F" '(nil :which-key "files")
 	   "Fl" '(load-file :which-key "load file")
 	   "Fr" '(helm-recentf :which-key "recent files")
+	   "Fp" '(helm-find-files :which-key "find files")
 	   )
   (general-create-definer localleader
     :states '(normal visual)
