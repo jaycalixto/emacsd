@@ -271,6 +271,39 @@
   :ensure t
   )
 
+;; dart
+;; Assuming usage with dart-mode
+;; (use-package dart-mode
+;;   :ensure-system-package (dart_language_server . "pub global activate dart_language_server")
+;;   :custom
+;;   (dart-format-on-save t)
+;;   (dart-sdk-path "/Applications/flutter/bin/cache/dart-sdk/"))
+(use-package dart-mode
+  :ensure t
+  :custom
+  (dart-format-on-save t)
+  )
+
+;; (use-package flutter
+;;   :after dart-mode
+;;   :bind (:map dart-mode-map
+;;               ("C-M-x" . #'flutter-run-or-hot-reload))
+;;   :custom
+;;   (flutter-sdk-path "/Applications/flutter/"))
+
+(use-package flutter
+  :after dart-mode
+  :ensure t
+  )
+
+;; Optional
+(use-package flutter-l10n-flycheck
+  :after flutter
+  :ensure t
+  )
+;;:config
+;;  (flutter-l10n-flycheck-setup)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
