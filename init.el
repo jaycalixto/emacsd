@@ -15,7 +15,7 @@
 (tooltip-mode -1)
 (menu-bar-mode -1)
 
-(global-linum-mode t)
+(add-hook 'prog-mode-hook 'linum-mode)
 
 ;; package config
 (require 'package)
