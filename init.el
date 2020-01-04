@@ -218,7 +218,13 @@
 (use-package markdown-mode
   :ensure t
   :init (setq markdown-command "pandoc")
-  )
+  :general
+  (localleader :keymaps 'markdown-mode-map
+    "p" '(nil :which-key "preview")
+    "pl" '(markdown-live-preview-mode :which-key "markdown live preview mode")
+    "pp" '(markdown-preview :which-key "markdown preview")
+    "o" '(markdown-other-window :which-key "markdown other window")
+    ))
 
 ;; magit
 (use-package magit
