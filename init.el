@@ -40,6 +40,7 @@
   :ensure t)
 
 ;; Vim mode
+(setq-default evil-want-C-u-scroll t)
 (use-package evil
   :ensure t
   :config
