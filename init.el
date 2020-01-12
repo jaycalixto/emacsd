@@ -91,7 +91,7 @@
   :init
   (setq which-key-separator " ")
   (setq which-key-prefix-prefix "+")
-  (setq which-key-popup-type 'side-window)
+  (setq which-key-popup-type 'minibuffer)
   (setq which-key-side-window-location 'bottom)
   (setq which-key-side-window-max-width 0.33)
   (setq which-key-side-window-max-height 0.25)
@@ -140,6 +140,14 @@
 	   "w/" '(split-window-right :which-key "split right")
 	   "w-" '(split-window-below :which-key "split bottom")
 	   "wx" '(delete-window :which-key "delete window")
+	   "wg" '(nil :which-key "workgroups")
+	   "wgn" '(wg-switch-right :which-key "next workgroup")
+	   "wgp" '(wg-switch-left :which-key "previous workgroup")
+	   "wgs" '(wg-save :which-key "workgroup save")
+	   "wgl" '(wg-load :which-key "workgroup load")
+	   "wgc" '(wg-create-workgroup :which-key "create workgroup")
+	   "wgg" '(wg-switch-to-workgroup :which-key "switch to workgroup")
+	   "wg?" '(wg-help :which-key "workgroup help")
 	   ;; git
 	   "g" '(nil :which-key "magit")
 	   "gg" '(magit-status :which-key "status")
@@ -336,6 +344,14 @@
 ;;:config
 ;;  (flutter-l10n-flycheck-setup)
 
+(use-package workgroups
+  :ensure t
+  :config
+  (workgroups-mode 1)
+  (setq wg-switch-on-load nil)
+  (wg-load "~/.emacs.d/workgroups/coding")
+  )
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -344,7 +360,7 @@
  '(dart-format-on-save t t)
  '(package-selected-packages
    (quote
-    (company-anaconda gnu-elpa-keyring-update transient magit markdown-mode yaml-mode all-the-icons general which-key helm doom-themes evil use-package))))
+    (workgroups gnu-elpa-keyring-update transient magit markdown-mode yaml-mode all-the-icons general which-key helm doom-themes evil use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
