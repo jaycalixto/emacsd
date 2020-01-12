@@ -140,14 +140,15 @@
 	   "w/" '(split-window-right :which-key "split right")
 	   "w-" '(split-window-below :which-key "split bottom")
 	   "wx" '(delete-window :which-key "delete window")
-	   "wg" '(nil :which-key "workgroups")
-	   "wgn" '(wg-switch-right :which-key "next workgroup")
-	   "wgp" '(wg-switch-left :which-key "previous workgroup")
-	   "wgs" '(wg-save :which-key "workgroup save")
-	   "wgl" '(wg-load :which-key "workgroup load")
-	   "wgc" '(wg-create-workgroup :which-key "create workgroup")
-	   "wgg" '(wg-switch-to-workgroup :which-key "switch to workgroup")
-	   "wg?" '(wg-help :which-key "workgroup help")
+	   ;; workgroups
+	   ;; "wg" '(nil :which-key "workgroups")
+	   ;; "wgn" '(wg-switch-right :which-key "next workgroup")
+	   ;; "wgp" '(wg-switch-left :which-key "previous workgroup")
+	   ;; "wgs" '(wg-save :which-key "workgroup save")
+	   ;; "wgl" '(wg-load :which-key "workgroup load")
+	   ;; "wgc" '(wg-create-workgroup :which-key "create workgroup")
+	   ;; "wgg" '(wg-switch-to-workgroup :which-key "switch to workgroup")
+	   ;; "wg?" '(wg-help :which-key "workgroup help")
 	   ;; git
 	   "g" '(nil :which-key "magit")
 	   "gg" '(magit-status :which-key "status")
@@ -286,7 +287,14 @@
   :config
   (add-hook 'python-mode-hook 'anaconda-mode)
   (add-hook 'python-mode-hook 'anaconda-eldoc-mode)
-  )
+  :general
+  (localleader :keymaps 'python-mode-map
+    "c" '(python-check :which-key "python check")
+    "r" '(nil :which-key "run")
+    "rr" '(run-python :which-key "run python shell")
+    "rb" '(python-shell-send-buffer :which-key "run buffer on python shell")
+    "rf" '(python-shell-send-file :which-key "run file on python shell")
+  ))
 
 (use-package company-anaconda
   :ensure t
@@ -344,13 +352,13 @@
 ;;:config
 ;;  (flutter-l10n-flycheck-setup)
 
-(use-package workgroups
-  :ensure t
-  :config
-  (workgroups-mode 1)
-  (setq wg-switch-on-load nil)
-  (wg-load "~/.emacs.d/workgroups/coding")
-  )
+;; (use-package workgroups
+;;   :ensure t
+;;   :config
+;;   (workgroups-mode 1)
+;;   (setq wg-switch-on-load nil)
+;;   (wg-load "~/.emacs.d/workgroups/coding")
+;;   )
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
