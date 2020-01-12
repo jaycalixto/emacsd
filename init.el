@@ -140,6 +140,15 @@
 	   "w/" '(split-window-right :which-key "split right")
 	   "w-" '(split-window-below :which-key "split bottom")
 	   "wx" '(delete-window :which-key "delete window")
+	   ;; git
+	   "g" '(nil :which-key "magit")
+	   "gg" '(magit-status :which-key "status")
+	   "gc" '(magit-commit :which-key "commit")
+	   "gs" '(magit-stage :which-key "stage")
+	   "gl" '(magit-log :which-key "log")
+	   "gr" '(nil :which-key "remote")
+	   "grp" '(magit-push :which-key "push")
+	   "grl" '(magit-pull :which-key "pull")
 	   ;; major modes
 	   "m" '(which-key-show-major-mode :which-key "+major mode")
 	   ;; Others
