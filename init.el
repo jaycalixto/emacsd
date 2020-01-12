@@ -282,6 +282,11 @@
   )
 (add-hook 'nim-mode-hook 'my--nim-mode-init-hook)
 
+(defun my--python-shell-send-buffer ()
+  "send buffer to python shell WITHOUT replacing if __name__ == main"
+  (interactive)
+  (python-shell-send-buffer 1))
+
 (use-package anaconda-mode
   :ensure t
   :config
@@ -292,7 +297,7 @@
     "c" '(python-check :which-key "python check")
     "r" '(nil :which-key "run")
     "rr" '(run-python :which-key "run python shell")
-    "rb" '(python-shell-send-buffer :which-key "run buffer on python shell")
+    "rb" '(my--python-shell-send-buffer :which-key "run buffer on python shell")
     "rf" '(python-shell-send-file :which-key "run file on python shell")
   ))
 
@@ -303,6 +308,11 @@
   (add-to-list 'company-backends 'company-anaconda)
   (add-hook 'python-mode-hook 'company-mode)
   )
+
+(use-package blacken
+  :ensure t
+  :config
+  (add-hook 'python-mode-hook 'blacken-mode))
 
 (use-package origami
   :ensure t
@@ -368,7 +378,7 @@
  '(dart-format-on-save t t)
  '(package-selected-packages
    (quote
-    (workgroups gnu-elpa-keyring-update transient magit markdown-mode yaml-mode all-the-icons general which-key helm doom-themes evil use-package))))
+    (blacken python-mode elpy workgroups gnu-elpa-keyring-update transient magit markdown-mode yaml-mode all-the-icons general which-key helm doom-themes evil use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
