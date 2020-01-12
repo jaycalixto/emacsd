@@ -12,6 +12,9 @@
 ;; remember last line
 (save-place-mode 1)
 
+;; file backups
+(setq backup-directory-alist `(("." . "~/.emacs.d/backups")))
+
 (tooltip-mode -1)
 (menu-bar-mode -1)
 
@@ -232,6 +235,10 @@
   :ensure t
   )
 
+(use-package evil-magit
+  :ensure t
+  )
+
 ;; flycheck
 (use-package flycheck
   :ensure t
@@ -261,6 +268,7 @@
   :ensure t
   :config
   (add-hook 'python-mode-hook 'anaconda-mode)
+  (add-hook 'python-mode-hook 'anaconda-eldoc-mode)
   )
 
 (use-package origami
