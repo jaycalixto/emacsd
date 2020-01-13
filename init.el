@@ -6,6 +6,9 @@
 ;; work with utf 8
 (set-language-environment "UTF-8")
 
+;; filename on frame title
+(setq-default frame-title-format '("%b [%m] - Emacs"))
+
 ;; disable anoying ring
 (setq visible-bell 1)
 
