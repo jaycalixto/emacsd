@@ -63,11 +63,31 @@
 ;;   ;; (load-theme 'doom-acario-dark t)
 ;;   )
 
-(use-package material-theme
+;; material-theme
+;; (use-package material-theme
+;;   :ensure t
+;;   :config
+;;   (load-theme 'material t))
+
+;; (use-package srcery-theme
+;;   :ensure t
+;;   :config
+;;   (load-theme 'srcery t))
+
+;; (use-package gruvbox-theme
+;;   :ensure t
+;;   :config
+;;   (load-theme 'gruvbox t))
+
+;; (use-package suscolors-theme
+;;   :ensure t
+;;   :config
+;;   (load-theme 'suscolors t))
+
+(use-package atom-one-dark-theme
   :ensure t
   :config
-  (load-theme 'material t)
-  )
+  (load-theme 'atom-one-dark t))
 
 ;; Better font
 (setq default-frame-alist
