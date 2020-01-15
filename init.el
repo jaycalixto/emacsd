@@ -322,7 +322,7 @@
     "rr" '(run-python :which-key "run python shell")
     "rb" '(my--python-shell-send-buffer :which-key "run buffer on python shell")
     "rf" '(python-shell-send-file :which-key "run file on python shell")
-  ))
+    ))
 
 (use-package company-anaconda
   :ensure t
@@ -330,6 +330,10 @@
   :config
   (add-to-list 'company-backends 'company-anaconda)
   (add-hook 'python-mode-hook 'company-mode)
+  (when (string-equal system-type "windows-nt")
+    (setq-default flycheck-python-pycompile-executable "python")
+    (setq-default flycheck-python-pylint-executable "python")
+    (setq-default flycheck-python-flake8-executable "python"))
   )
 
 (use-package blacken
@@ -396,7 +400,11 @@
 (use-package window-purpose
   :ensure t
   :config
-  (purpose-mode))
+  (purpose-mode)
+  (add-to-list 'purpose-user-mode-purposes '(python-mode . py))
+  (add-to-list 'purpose-user-mode-purposes '(inferior-python-mode . py-repl))
+  (setq purpose-use-default-configuration t)
+  (purpose-compile-user-configuration))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
