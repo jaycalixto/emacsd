@@ -310,6 +310,12 @@
   (interactive)
   (python-shell-send-buffer 1))
 
+(defun my--python-run-file-on-shell-command ()
+  "Run the current file on a separated shell command Needs this to run GUI python scripts on windows, as they won't open a window on windows"
+  (interactive)
+  (shell-command (concat "python " (buffer-file-name)))
+  )
+
 (use-package anaconda-mode
   :ensure t
   :config
@@ -319,6 +325,7 @@
   (localleader :keymaps 'python-mode-map
     "c" '(python-check :which-key "python check")
     "r" '(nil :which-key "run")
+    "rs" '(my--python-run-file-on-shell-command :which-key "run python on command shell")
     "rr" '(run-python :which-key "run python shell")
     "rb" '(my--python-shell-send-buffer :which-key "run buffer on python shell")
     "rf" '(python-shell-send-file :which-key "run file on python shell")
