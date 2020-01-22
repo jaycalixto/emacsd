@@ -273,6 +273,24 @@
     "o" '(markdown-other-window :which-key "markdown other window")
     ))
 
+;; (use-package dired-mode
+;;   :ensure t
+;;   :general
+;;   (localleader :keymaps 'dired-mode-map
+;;     "u" '(dired-up-directory :which-key "dired up directory")
+;;     "e" '(dired-view-file :which-key "dired view file")
+;;     "d" '(dired-insert-subdir :which-key "dired enter directory")))
+
+(general-define-key
+ :keymaps 'dired-mode-map
+ :states '(normal visual insert emacs)
+ :prefix "SPC"
+ :non-normal-prefix "M-SPC"
+ "d" '(nil :which-key "dired")
+ "du" '(dired-up-directory :which-key "dired up directory")
+ "de" '(dired-view-file :which-key "dired view file")
+ "dd" '(dired-insert-subdir :which-key "dired insert subdir")
+ )
 ;; magit
 (use-package magit
   :ensure t
@@ -300,8 +318,8 @@
   )
 
 (defun my--nim-mode-init-hook ()
-   ;; Make files in the nimble folder read only by default.
-   ;; This can prevent to edit them by accident.
+  ;; Make files in the nimble folder read only by default.
+  ;; This can prevent to edit them by accident.
   (when (string-match "/\.nimble/" buffer-file-name) (read-only-mode 1))
   (flycheck-mode 1)
   )
@@ -353,7 +371,7 @@
 (use-package origami
   :ensure t
   )
-  
+
 ;; ;; golden ration
 ;; (use-package golden-ratio
 ;;   :ensure t
