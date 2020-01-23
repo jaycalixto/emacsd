@@ -273,23 +273,17 @@
     "o" '(markdown-other-window :which-key "markdown other window")
     ))
 
-;; (use-package dired-mode
-;;   :ensure t
-;;   :general
-;;   (localleader :keymaps 'dired-mode-map
-;;     "u" '(dired-up-directory :which-key "dired up directory")
-;;     "e" '(dired-view-file :which-key "dired view file")
-;;     "d" '(dired-insert-subdir :which-key "dired enter directory")))
-
 (general-define-key
  :keymaps 'dired-mode-map
  :states '(normal visual insert emacs)
  :prefix "SPC"
  :non-normal-prefix "M-SPC"
  "d" '(nil :which-key "dired")
- "du" '(dired-up-directory :which-key "dired up directory")
- "de" '(dired-view-file :which-key "dired view file")
- "dd" '(dired-insert-subdir :which-key "dired insert subdir")
+ "du" '(dired-up-directory :which-key "up directory")
+ "de" '(dired-find-file :which-key "edit file")
+ "dv" '(dired-view-file :which-key "view file")
+ "do" '(dired-find-file-other-window :which-key "edit file other window")
+ "dd" '(dired-insert-subdir :which-key "insert subdir")
  )
 ;; magit
 (use-package magit
@@ -325,7 +319,7 @@
   )
 (add-hook 'nim-mode-hook 'my--nim-mode-init-hook)
 
-(defun my--python-shell-send-buffer ()
+(declare-function my--python-shell-send-buffer ()
   "send buffer to python shell WITHOUT replacing if __name__ == main"
   (interactive)
   (python-shell-send-buffer 1))
@@ -424,14 +418,14 @@
 ;;   (wg-load "~/.emacs.d/workgroups/coding")
 ;;   )
 
-(use-package window-purpose
-  :ensure t
-  :config
-  (purpose-mode)
-  (add-to-list 'purpose-user-mode-purposes '(python-mode . py))
-  (add-to-list 'purpose-user-mode-purposes '(inferior-python-mode . py-repl))
-  (setq purpose-use-default-configuration t)
-  (purpose-compile-user-configuration))
+;; (use-package window-purpose
+;;   :ensure t
+;;   :config
+;;   (purpose-mode)
+;;   (add-to-list 'purpose-user-mode-purposes '(python-mode . py))
+;;   (add-to-list 'purpose-user-mode-purposes '(inferior-python-mode . py-repl))
+;;   (setq purpose-use-default-configuration t)
+;;   (purpose-compile-user-configuration))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
