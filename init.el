@@ -196,6 +196,9 @@
 	   "Fl" '(load-file :which-key "load file")
 	   "Fr" '(helm-recentf :which-key "recent files")
 	   "Fp" '(helm-find-files :which-key "find files")
+	   ;;flycheck
+	   "!" '(nil :which-key "flycheck")
+	   "!l" '(flycheck-list-errors :which-key "list erros")
 	   )
   (general-create-definer localleader
     :states '(normal visual)
