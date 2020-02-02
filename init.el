@@ -12,8 +12,21 @@
 ;; disable anoying ring
 (setq visible-bell 1)
 
+;; send custom set variable to other file and keep init.el clean
+(setq custom-file "~/.emacs.d/custom.el")
+
 ;; remember last line
 (save-place-mode 1)
+
+;; cleaner backups
+(setq
+   backup-by-copying t      ; don't clobber symlinks
+   backup-directory-alist
+    '((".*" . "~/.emacs.d/saves/"))    ; don't litter my fs tree
+   delete-old-versions t
+   kept-new-versions 6
+   kept-old-versions 2
+   version-control t)       ; use versioned backups
 
 ;; file backups
 (setq backup-directory-alist `(("." . "~/.emacs.d/backups")))
@@ -22,6 +35,9 @@
 (menu-bar-mode -1)
 
 (add-hook 'prog-mode-hook 'linum-mode)
+
+;; better line number format
+(setq-default linum-format "%4d ")
 
 ;; package config
 (require 'package)
