@@ -383,9 +383,16 @@
   :config
   (add-hook 'python-mode-hook 'blacken-mode))
 
-(use-package origami
+(use-package pyvenv
   :ensure t
   )
+
+(use-package kivy-mode
+  :ensure t)
+
+;; (use-package origami
+;;   :ensure t
+;;   )
 
 ;; ;; golden ration
 ;; (use-package golden-ratio
