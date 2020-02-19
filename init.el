@@ -159,6 +159,7 @@
 	   :non-normal-prefix "M-SPC"
 	   ;; "/" '(counsel-rg :which-key "ripgrep") ; need counsel package
 	   "TAB" '(switch-to-prev-buffer :which-key "previous buffer")
+	   "'" '(switch-to-next-buffer :which-key "next buffer")
 	   "SPC" '(helm-M-x :which-key "M-x")
 	   ;; Buffers
 	   "b" '(nil :which-key "buffers")
