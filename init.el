@@ -159,6 +159,7 @@
 	   :non-normal-prefix "M-SPC"
 	   ;; "/" '(counsel-rg :which-key "ripgrep") ; need counsel package
 	   "TAB" '(switch-to-prev-buffer :which-key "previous buffer")
+	   "'" '(switch-to-next-buffer :which-key "next buffer")
 	   "SPC" '(helm-M-x :which-key "M-x")
 	   ;; Buffers
 	   "b" '(nil :which-key "buffers")
@@ -384,9 +385,16 @@
   (setq-default blacken-line-length 79)
   (add-hook 'python-mode-hook 'blacken-mode))
 
-(use-package origami
+(use-package pyvenv
   :ensure t
   )
+
+(use-package kivy-mode
+  :ensure t)
+
+;; (use-package origami
+;;   :ensure t
+;;   )
 
 ;; ;; golden ration
 ;; (use-package golden-ratio
