@@ -381,6 +381,7 @@
 (use-package blacken
   :ensure t
   :config
+  (setq-default blacken-line-length 79)
   (add-hook 'python-mode-hook 'blacken-mode))
 
 (use-package origami
