@@ -329,6 +329,7 @@
   :general
   (:states '(normal visual)
 	   :keymaps 'nim-mode-map
+	   :prefix "SPC"
 	   "cc" '(nim-compile :which-key "nim compile")
 	   )
   )
@@ -402,9 +403,21 @@
 ;;   :init
 ;;   (golden-ratio-mode 1))
 
+(defun my--lua-run-love-shell-command ()
+  "Run love on the current dir on a separated shell command"
+  (interactive)
+  (shell-command (concat "love " default-directory))
+  )
+
 ;; lua mode
 (use-package lua-mode
   :ensure t
+  :general
+  (:states '(normal visual)
+	   :keymaps 'lua-mode-map
+	   :prefix "SPC"
+	   "rr" '(my--lua-run-love-shell-command :which-key "run love2d")
+	   )
   )
 
 ;; dart
