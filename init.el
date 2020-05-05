@@ -87,10 +87,15 @@
 ;;   :config
 ;;   (load-theme 'material t))
 
-(use-package srcery-theme
+;; (use-package srcery-theme
+;;   :ensure t
+;;   :config
+;;   (load-theme 'srcery t))
+
+(use-package flatland-theme
   :ensure t
   :config
-  (load-theme 'srcery t))
+  (load-theme 'flatland t))
 
 ;; (use-package gruvbox-theme
 ;;   :ensure t
@@ -144,6 +149,7 @@
   :ensure t
   :diminish dashboard-mode
   :config
+  (setq dashboard-startup-banner 2)
   (setq dashboard-items '((recents . 10)
 			  (bookmarks . 10)
 			  (registers . 10)
