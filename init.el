@@ -252,7 +252,9 @@
 
 ;; rust
 (use-package rust-mode
-  :ensure t)
+  :ensure t
+  :config
+  (setq-default rust-format-on-save t))
 
 (add-hook 'rust-mode-hook
 	  (lambda ()
