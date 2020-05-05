@@ -87,10 +87,15 @@
 ;;   :config
 ;;   (load-theme 'material t))
 
-(use-package srcery-theme
+;; (use-package srcery-theme
+;;   :ensure t
+;;   :config
+;;   (load-theme 'srcery t))
+
+(use-package flatland-theme
   :ensure t
   :config
-  (load-theme 'srcery t))
+  (load-theme 'flatland t))
 
 ;; (use-package gruvbox-theme
 ;;   :ensure t
@@ -144,6 +149,7 @@
   :ensure t
   :diminish dashboard-mode
   :config
+  (setq dashboard-startup-banner 2)
   (setq dashboard-items '((recents . 10)
 			  (bookmarks . 10)
 			  (registers . 10)
@@ -161,6 +167,11 @@
 	   "TAB" '(switch-to-prev-buffer :which-key "previous buffer")
 	   "'" '(switch-to-next-buffer :which-key "next buffer")
 	   "SPC" '(helm-M-x :which-key "M-x")
+	   ;; help
+	   "h" '(nil :which-key "help")
+	   "hv" '(describe-variable :which-key "describe variable")
+	   "hf" '(describe-function :which-key "describe function")
+	   "hk" '(describe-key :which-key "describe key")
 	   ;; Buffers
 	   "b" '(nil :which-key "buffers")
 	   "bl" '(helm-mini :which-key "buffers and recent files")
@@ -247,7 +258,9 @@
 
 ;; rust
 (use-package rust-mode
-  :ensure t)
+  :ensure t
+  :config
+  (setq-default rust-format-on-save t))
 
 (add-hook 'rust-mode-hook
 	  (lambda ()
@@ -258,7 +271,7 @@
   :ensure t
   :config
   (setq auto-package-update-delete-old-versions t
-	auto-package-update-interval 4)
+	auto-package-update-interval 30)
   (auto-package-update-maybe))
 
 
