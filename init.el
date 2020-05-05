@@ -161,6 +161,11 @@
 	   "TAB" '(switch-to-prev-buffer :which-key "previous buffer")
 	   "'" '(switch-to-next-buffer :which-key "next buffer")
 	   "SPC" '(helm-M-x :which-key "M-x")
+	   ;; help
+	   "h" '(nil :which-key "help")
+	   "hv" '(describe-variable :which-key "describe variable")
+	   "hf" '(describe-function :which-key "describe function")
+	   "hk" '(describe-key :which-key "describe key")
 	   ;; Buffers
 	   "b" '(nil :which-key "buffers")
 	   "bl" '(helm-mini :which-key "buffers and recent files")
