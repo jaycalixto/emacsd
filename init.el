@@ -195,6 +195,7 @@
 	   "w/" '(split-window-right :which-key "split right")
 	   "w-" '(split-window-below :which-key "split bottom")
 	   "wx" '(delete-window :which-key "delete window")
+	   "wt" '(neotree-toggle :which-key "nerdtree toggle")
 	   ;; workgroups
 	   ;; "wg" '(nil :which-key "workgroups")
 	   ;; "wgn" '(wg-switch-right :which-key "next workgroup")
@@ -494,6 +495,46 @@
 ;;   (add-to-list 'purpose-user-mode-purposes '(inferior-python-mode . py-repl))
 ;;   (setq purpose-use-default-configuration t)
 ;;   (purpose-compile-user-configuration))
+
+(use-package neotree
+  :ensure t
+  :config
+  (setq-default neo-theme (if (display-graphic-p) 'nerd 'arrows))
+  (setq-default neo-smart-open t)
+  (evil-define-key 'normal neotree-mode-map (kbd "TAB") 'neotree-quick-look)
+  (evil-define-key 'normal neotree-mode-map (kbd "q") 'neotree-hide)
+  (evil-define-key 'normal neotree-mode-map (kbd "RET") 'neotree-enter)
+  (evil-define-key 'normal neotree-mode-map (kbd "g") 'neotree-refresh)
+  (evil-define-key 'normal neotree-mode-map (kbd "j") 'neotree-next-line)
+  (evil-define-key 'normal neotree-mode-map (kbd "k") 'neotree-previous-line)
+  (evil-define-key 'normal neotree-mode-map (kbd "A") 'neotree-stretch-toggle)
+  (evil-define-key 'normal neotree-mode-map (kbd "H") 'neotree-hidden-file-toggle)
+  ;; :general
+  ;; (:states '(normal visual)
+  ;; 	   :keymaps 'neotree-mode-map
+  ;; 	   "L" '(neotree-enter :which-key "neotree enter")
+  ;; 	   )
+  )
+
+;;use-package winum?
+
+;; (use-package treemacs
+;;   :ensure t
+;;   :defer t
+;;   :config
+;;   :general
+;;   (:states '(normal visual)
+;; 	   :keymaps 'treemacs-mode-map
+;; 	   "tt" '(treemacs :which-key "treemacs"))
+;;   )
+
+;; (use-package treemacs-evil
+;;   :after treemacs evil
+;;   :ensure t)
+
+;; (use-package treemacs-magit
+;;   :after treemacs magit
+;;   :ensure t)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
