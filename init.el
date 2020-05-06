@@ -92,10 +92,15 @@
 ;;   :config
 ;;   (load-theme 'srcery t))
 
-(use-package flatland-theme
+;; (use-package flatland-theme
+;;   :ensure t
+;;   :config
+;;   (load-theme 'flatland t))
+
+(use-package sublime-themes
   :ensure t
   :config
-  (load-theme 'flatland t))
+  (load-theme 'spolsky t))
 
 ;; (use-package gruvbox-theme
 ;;   :ensure t
