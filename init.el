@@ -195,7 +195,11 @@
 	   "w/" '(split-window-right :which-key "split right")
 	   "w-" '(split-window-below :which-key "split bottom")
 	   "wx" '(delete-window :which-key "delete window")
-	   "wt" '(neotree-toggle :which-key "nerdtree toggle")
+	   ;; neotree
+	   "t" '(nil :which-key "neotree")
+	   "tt" '(neotree-toggle :which-key "neotree toggle")
+	   "ts" '(neotree-show :which-key "neotree show")
+	   "th" '(neotree-hide :which-key "neotree hide")
 	   ;; workgroups
 	   ;; "wg" '(nil :which-key "workgroups")
 	   ;; "wgn" '(wg-switch-right :which-key "next workgroup")
@@ -500,7 +504,6 @@
   :ensure t
   :config
   (setq-default neo-theme (if (display-graphic-p) 'nerd 'arrows))
-  (setq-default neo-smart-open t)
   (evil-define-key 'normal neotree-mode-map (kbd "TAB") 'neotree-quick-look)
   (evil-define-key 'normal neotree-mode-map (kbd "q") 'neotree-hide)
   (evil-define-key 'normal neotree-mode-map (kbd "RET") 'neotree-enter)
@@ -509,11 +512,12 @@
   (evil-define-key 'normal neotree-mode-map (kbd "k") 'neotree-previous-line)
   (evil-define-key 'normal neotree-mode-map (kbd "A") 'neotree-stretch-toggle)
   (evil-define-key 'normal neotree-mode-map (kbd "H") 'neotree-hidden-file-toggle)
-  ;; :general
-  ;; (:states '(normal visual)
-  ;; 	   :keymaps 'neotree-mode-map
-  ;; 	   "L" '(neotree-enter :which-key "neotree enter")
-  ;; 	   )
+  :general
+  (:states '(normal visual)
+	   :keymaps 'neotree-mode-map
+	   :prefix "SPC"
+	   "cc" '(neotree-change-root :which-key "neotree change root")
+	   )
   )
 
 ;;use-package winum?
