@@ -276,6 +276,20 @@
 	  (lambda ()
 	    (setq indent-tabs-mode nil)))
 
+(use-package racer
+  :ensure t
+  :config
+  (setq-default company-tooltip-align-annotations t)
+  :general
+  (:states '(normal emacs)
+	   :keymaps 'rust-mode-map
+	   "C-SPC" '(company-indent-or-complete-common :which-key "company complete"))
+  )
+
+(add-hook 'rust-mode-hook #'racer-mode)
+(add-hook 'racer-mode-hook #'eldoc-mode)
+(add-hook 'racer-mode-hook #'company-mode)
+
 ;; auto update packages
 (use-package auto-package-update
   :ensure t
@@ -414,6 +428,7 @@
     (setq-default flycheck-python-pylint-executable "python")
     (setq-default flycheck-python-flake8-executable "python"))
   )
+
 
 (use-package blacken
   :ensure t
