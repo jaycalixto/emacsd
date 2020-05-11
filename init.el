@@ -237,6 +237,8 @@
 	   ;;flycheck
 	   "!" '(nil :which-key "flycheck")
 	   "!l" '(flycheck-list-errors :which-key "list erros")
+	   ;; emacs
+	   "xf" '(find-file :which-key "find file")
 	   )
   (general-create-definer localleader
     :states '(normal visual)
