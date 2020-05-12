@@ -539,6 +539,8 @@
 	   :keymaps 'neotree-mode-map
 	   :prefix "SPC"
 	   "cc" '(neotree-change-root :which-key "neotree change root")
+	   "cr" '(neotree-rename-node :which-key "neotree rename node")
+	   "cn" '(neotree-create-node :which-key "neotree create node")
 	   )
   )
 
