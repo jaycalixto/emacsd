@@ -76,8 +76,8 @@
 ;; (use-package doom-themes
 ;;   :ensure t
 ;;   :config
-;;   (load-theme 'doom-acario-light t)
-;;   ;; (load-theme 'doom-one t)
+;;  ;; (load-theme 'doom-acario-light t)
+;;   (load-theme 'doom-one t)
 ;;   ;; (load-theme 'doom-acario-dark t)
 ;;   )
 
@@ -97,10 +97,10 @@
 ;;   :config
 ;;   (load-theme 'flatland t))
 
-(use-package sublime-themes
-  :ensure t
-  :config
-  (load-theme 'spolsky t))
+;; (use-package sublime-themes
+;;   :ensure t
+;;   :config
+;;   (load-theme 'spolsky t))
 
 ;; (use-package gruvbox-theme
 ;;   :ensure t
@@ -112,10 +112,10 @@
 ;;   :config
 ;;   (load-theme 'suscolors t))
 
-;; (use-package atom-one-dark-theme
-;;   :ensure t
-;;   :config
-;;   (load-theme 'atom-one-dark t))
+(use-package atom-one-dark-theme
+  :ensure t
+  :config
+  (load-theme 'atom-one-dark t))
 
 ;; Better font
 (setq default-frame-alist
