@@ -79,8 +79,8 @@
 ;; (use-package doom-themes
 ;;   :ensure t
 ;;   :config
-;;   (load-theme 'doom-acario-light t)
-;;   ;; (load-theme 'doom-one t)
+;;  ;; (load-theme 'doom-acario-light t)
+;;   (load-theme 'doom-one t)
 ;;   ;; (load-theme 'doom-acario-dark t)
 ;;   )
 
@@ -100,10 +100,10 @@
 ;;   :config
 ;;   (load-theme 'flatland t))
 
-(use-package sublime-themes
-  :ensure t
-  :config
-  (load-theme 'spolsky t))
+;; (use-package sublime-themes
+;;   :ensure t
+;;   :config
+;;   (load-theme 'spolsky t))
 
 ;; (use-package gruvbox-theme
 ;;   :ensure t
@@ -115,10 +115,10 @@
 ;;   :config
 ;;   (load-theme 'suscolors t))
 
-;; (use-package atom-one-dark-theme
-;;   :ensure t
-;;   :config
-;;   (load-theme 'atom-one-dark t))
+(use-package atom-one-dark-theme
+  :ensure t
+  :config
+  (load-theme 'atom-one-dark t))
 
 ;; Better font
 (setq default-frame-alist
@@ -542,6 +542,8 @@
 	   :keymaps 'neotree-mode-map
 	   :prefix "SPC"
 	   "cc" '(neotree-change-root :which-key "neotree change root")
+	   "cr" '(neotree-rename-node :which-key "neotree rename node")
+	   "cn" '(neotree-create-node :which-key "neotree create node")
 	   )
   )
 
