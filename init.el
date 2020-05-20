@@ -18,6 +18,9 @@
 ;; remember last line
 (save-place-mode 1)
 
+;; save buffers/frames/etc
+(desktop-save-mode 1)
+
 ;; cleaner backups
 (setq
    backup-by-copying t      ; don't clobber symlinks
