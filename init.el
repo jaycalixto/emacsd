@@ -372,11 +372,17 @@
   (with-eval-after-load 'rust-mode
     (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)))
 
-(use-package flycheck-inline
+;; (use-package flycheck-inline
+;;   :ensure t
+;;   :config
+;;   (with-eval-after-load 'flycheck
+;;     (add-hook 'flycheck-mode-hook #'flycheck-inline-mode)))
+
+(use-package flycheck-pos-tip
   :ensure t
   :config
   (with-eval-after-load 'flycheck
-    (add-hook 'flycheck-mode-hook #'flycheck-inline-mode)))
+    (add-hook 'flycheck-mode-hook #'flycheck-pos-tip-mode)))
 
 ;; nim
 (use-package nim-mode
