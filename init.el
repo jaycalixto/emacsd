@@ -288,6 +288,7 @@
   :general
   (:states '(normal emacs)
 	   :keymaps 'rust-mode-map
+	   "gd" '(racer-find-definition :which-key "racer go to definition")
 	   "C-SPC" '(company-indent-or-complete-common :which-key "company complete"))
   )
 
