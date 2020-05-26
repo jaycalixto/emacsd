@@ -288,6 +288,7 @@
   :general
   (:states '(normal emacs)
 	   :keymaps 'rust-mode-map
+	   "gd" '(racer-find-definition :which-key "racer go to definition")
 	   "C-SPC" '(company-indent-or-complete-common :which-key "company complete"))
   )
 
@@ -371,11 +372,17 @@
   (with-eval-after-load 'rust-mode
     (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)))
 
-(use-package flycheck-inline
+;; (use-package flycheck-inline
+;;   :ensure t
+;;   :config
+;;   (with-eval-after-load 'flycheck
+;;     (add-hook 'flycheck-mode-hook #'flycheck-inline-mode)))
+
+(use-package flycheck-pos-tip
   :ensure t
   :config
   (with-eval-after-load 'flycheck
-    (add-hook 'flycheck-mode-hook #'flycheck-inline-mode)))
+    (add-hook 'flycheck-mode-hook #'flycheck-pos-tip-mode)))
 
 ;; nim
 (use-package nim-mode
@@ -546,6 +553,18 @@
 	   "cn" '(neotree-create-node :which-key "neotree create node")
 	   )
   )
+
+(defun my-put-file-name-on-clipboard ()
+  "Put the current file name on the clipboard"
+  (interactive)
+  (let ((filename (if (equal major-mode 'dired-mode)
+                      default-directory
+                    (buffer-file-name))))
+    (when filename
+      (with-temp-buffer
+        (insert filename)
+        (clipboard-kill-region (point-min) (point-max)))
+      (message filename))))
 
 ;;use-package winum?
 
