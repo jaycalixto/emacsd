@@ -218,15 +218,15 @@
 	   ;; "wgg" '(wg-switch-to-workgroup :which-key "switch to workgroup")
 	   ;; "wg?" '(wg-help :which-key "workgroup help")
 	   ;; git
-	   "g" '(nil :which-key "magit")
-	   "gg" '(magit-status :which-key "status")
-	   "gc" '(magit-commit :which-key "commit")
-	   "gs" '(magit-stage :which-key "stage")
-	   "gl" '(magit-log :which-key "log")
-	   "gr" '(nil :which-key "remote")
-	   "grp" '(magit-push :which-key "push")
-	   "grl" '(magit-pull :which-key "pull")
-	   ;; major modes
+	   ;; "g" '(nil :which-key "magit")
+	   ;; "gg" '(magit-status :which-key "status")
+	   ;; "gc" '(magit-commit :which-key "commit")
+	   ;; "gs" '(magit-stage :which-key "stage")
+	   ;; "gl" '(magit-log :which-key "log")
+	   ;; "gr" '(nil :which-key "remote")
+	   ;; "grp" '(magit-push :which-key "push")
+	   ;; "grl" '(magit-pull :which-key "pull")
+	   ;; ;; major modes
 	   "m" '(which-key-show-major-mode :which-key "+major mode")
 	   ;; Others
 	   "at" '(ansi-term :which-key "open terminal")
@@ -350,14 +350,14 @@
  "do" '(dired-find-file-other-window :which-key "edit file other window")
  "dd" '(dired-insert-subdir :which-key "insert subdir")
  )
-;; magit
-(use-package magit
-  :ensure t
-  )
+;; ;; magit
+;; (use-package magit
+;;   :ensure t
+;;   )
 
-(use-package evil-magit
-  :ensure t
-  )
+;; (use-package evil-magit
+;;   :ensure t
+;;   )
 
 ;; flycheck
 (use-package flycheck
