@@ -532,6 +532,10 @@
 ;;   (setq purpose-use-default-configuration t)
 ;;   (purpose-compile-user-configuration))
 
+(use-package gdscript-mode
+  :ensure t
+  )
+
 (use-package neotree
   :ensure t
   :config
