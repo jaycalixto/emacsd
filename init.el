@@ -420,14 +420,19 @@
   (add-hook 'python-mode-hook 'anaconda-mode)
   (add-hook 'python-mode-hook 'anaconda-eldoc-mode)
   :general
-  (localleader :keymaps 'python-mode-map
-    "c" '(python-check :which-key "python check")
-    "r" '(nil :which-key "run")
-    "rs" '(my--python-run-file-on-shell-command :which-key "run python on command shell")
-    "rr" '(run-python :which-key "run python shell")
-    "rb" '(my--python-shell-send-buffer :which-key "run buffer on python shell")
-    "rf" '(python-shell-send-file :which-key "run file on python shell")
-    ))
+  (:states '(normal visual)
+	   :keymaps 'python-mode-map
+	   :prefix "SPC"
+	   "c" '(nil :which-key "python mode")
+	   "cv" '(python-check :which-key "python check")
+	   "cc" '(my--python-shell-send-buffer :which-key "run buffer on python shell")
+	   "cp" '(run-python :which-key "run python shell")
+	   "cf" '(python-shell-send-file :which-key "run file on python shell")
+	   "cs" '(my--python-run-file-on-shell-command :which-key "run python on command shell")
+	   "c<" '(python-indent-shift-left :which-key "python indent shift left")
+	   "c>" '(python-indent-shift-right :which-key "python indent shift right")
+	   )
+  )
 
 (use-package company-anaconda
   :ensure t
