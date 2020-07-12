@@ -23,13 +23,13 @@
 
 ;; cleaner backups
 (setq
-   backup-by-copying t      ; don't clobber symlinks
-   backup-directory-alist
-    '((".*" . "~/.emacs.d/saves/"))    ; don't litter my fs tree
-   delete-old-versions t
-   kept-new-versions 6
-   kept-old-versions 2
-   version-control t)       ; use versioned backups
+ backup-by-copying t      ; don't clobber symlinks
+ backup-directory-alist
+ '((".*" . "~/.emacs.d/saves/"))    ; don't litter my fs tree
+ delete-old-versions t
+ kept-new-versions 6
+ kept-old-versions 2
+ version-control t)       ; use versioned backups
 
 ;; file backups
 (setq backup-directory-alist `(("." . "~/.emacs.d/backups")))
@@ -71,8 +71,8 @@
   :config
   (evil-mode 1)
   (defalias #'forward-evil-word #'forward-evil-symbol)
-    ;; make evil-search-word look for symbol rather than word boundaries
-    (setq-default evil-symbol-word-search t)
+  ;; make evil-search-word look for symbol rather than word boundaries
+  (setq-default evil-symbol-word-search t)
   (setq evil-want-keybinding nil))
 
 ;; Theme
@@ -318,8 +318,8 @@
   :ensure t
   :general
   (localleader :keymaps 'org-mode-map
-	       "cc" '(org-time-stamp :which-key "org time stamp")
-  ))
+    "cc" '(org-time-stamp :which-key "org time stamp")
+    ))
 
 ;; yaml
 (use-package yaml-mode
@@ -404,9 +404,9 @@
 (add-hook 'nim-mode-hook 'my--nim-mode-init-hook)
 
 (declare-function my--python-shell-send-buffer ()
-  "send buffer to python shell WITHOUT replacing if __name__ == main"
-  (interactive)
-  (python-shell-send-buffer 1))
+		  "send buffer to python shell WITHOUT replacing if __name__ == main"
+		  (interactive)
+		  (python-shell-send-buffer 1))
 
 (defun my--python-run-file-on-shell-command ()
   "Run the current file on a separated shell command Needs this to run GUI python scripts on windows, as they won't open a window on windows"
@@ -562,12 +562,12 @@
   "Put the current file name on the clipboard"
   (interactive)
   (let ((filename (if (equal major-mode 'dired-mode)
-                      default-directory
-                    (buffer-file-name))))
+		      default-directory
+		    (buffer-file-name))))
     (when filename
       (with-temp-buffer
-        (insert filename)
-        (clipboard-kill-region (point-min) (point-max)))
+	(insert filename)
+	(clipboard-kill-region (point-min) (point-max)))
       (message filename))))
 
 ;;use-package winum?
