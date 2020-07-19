@@ -19,7 +19,7 @@
 (save-place-mode 1)
 
 ;; save buffers/frames/etc
-(desktop-save-mode 1)
+;; (desktop-save-mode 1)
 
 ;; cleaner backups
 (setq
