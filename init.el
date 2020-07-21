@@ -6,6 +6,9 @@
 ;; work with utf 8
 (set-language-environment "UTF-8")
 
+;; save buffers/frames/etc
+(desktop-save-mode 1)
+
 ;; filename on frame title
 (setq-default frame-title-format '("%b [%m] - Emacs"))
 
@@ -18,8 +21,6 @@
 ;; remember last line
 (save-place-mode 1)
 
-;; save buffers/frames/etc
-;; (desktop-save-mode 1)
 
 ;; cleaner backups
 (setq
@@ -153,16 +154,16 @@
   (which-key-mode))
 
 ;; recentf in list
-(use-package dashboard
-  :ensure t
-  :diminish dashboard-mode
-  :config
-  (setq dashboard-startup-banner 2)
-  (setq dashboard-items '((recents . 10)
-			  (bookmarks . 10)
-			  (registers . 10)
-			  ))
-  (dashboard-setup-startup-hook))
+;; (use-package dashboard
+;;   :ensure t
+;;   :diminish dashboard-mode
+;;   :config
+;;   (setq dashboard-startup-banner 2)
+;;   (setq dashboard-items '((recents . 10)
+;; 			  (bookmarks . 10)
+;; 			  (registers . 10)
+;; 			  ))
+;;   (dashboard-setup-startup-hook))
 
 ;; Key Bindings
 (use-package general
@@ -239,7 +240,7 @@
 	   "Fp" '(helm-find-files :which-key "find files")
 	   ;;flycheck
 	   "!" '(nil :which-key "flycheck")
-	   "!l" '(flycheck-list-errors :which-key "list erros")
+	   "!l" '(flycheck-list-errors :which-key "list errors")
 	   ;; emacs
 	   "xf" '(find-file :which-key "find file")
 	   )
@@ -364,7 +365,15 @@
   :ensure t
   :config
   (global-flycheck-mode)
-  (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc)))
+  (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc))
+  (add-to-list 'display-buffer-alist
+	       `(,(rx bos "*Flycheck errors*" eos)
+		 (display-buffer-reuse-window
+		  display-buffer-in-side-window)
+		 (side            . bottom)
+		 (reusable-frames . visible)
+		 (window-height   . 0.25)))
+  )
 
 (use-package flycheck-rust
   :ensure t
@@ -594,3 +603,5 @@
 ;; (use-package treemacs-magit
 ;;   :after treemacs magit
 ;;   :ensure t)
+
+
