@@ -21,6 +21,8 @@
 ;; remember last line
 (save-place-mode 1)
 
+;; initial mode for scratch buffer
+(setq initial-major-mode 'org-mode)
 
 ;; cleaner backups
 (setq
@@ -495,6 +497,12 @@
 	   "rr" '(my--lua-run-love-shell-command :which-key "run love2d")
 	   )
   )
+
+(use-package persistent-scratch
+  :ensure t
+  :config
+  (persistent-scratch-setup-default)
+  (persistent-scratch-autosave-mode 1))
 
 ;; dart
 ;; Assuming usage with dart-mode
