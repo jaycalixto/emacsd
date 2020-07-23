@@ -185,7 +185,7 @@
 	   "b" '(nil :which-key "buffers")
 	   "bl" '(helm-mini :which-key "buffers and recent files")
 	   "bb" '(helm-buffers-list :which-key "buffers list")
-	   "bd" '(evil-delete-buffer :which-key "kill buffer")
+	   "bd" '(kill-this-buffer :which-key "kill buffer")
 	   "bn" '(evil-next-buffer :which-key "next buffer")
 	   "bp" '(evil-prev-buffer :which-key "previous buffer")
 	   ;; Frames
