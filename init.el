@@ -232,6 +232,8 @@
 	   ;; ;; major modes
 	   "m" '(which-key-show-major-mode :which-key "+major mode")
 	   ;; Others
+	   "r" '(nil :which-key "none")
+	   "rs" '(nil :which-key "none")
 	   "at" '(ansi-term :which-key "open terminal")
 	   "qq" '(kill-emacs :which-key "kill emacs")
 	   "pi" '(package-install :which-key "package install")
