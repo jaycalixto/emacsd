@@ -236,7 +236,7 @@
 	   "rs" '(nil :which-key "none")
 	   "at" '(ansi-term :which-key "open terminal")
 	   "qq" '(kill-emacs :which-key "kill emacs")
-	   "pi" '(package-install :which-key "package install")
+	   ;; "pi" '(package-install :which-key "package install")
 	   ;; File
 	   "F" '(nil :which-key "files")
 	   "Fl" '(load-file :which-key "load file")
@@ -593,6 +593,19 @@
 	(insert filename)
 	(clipboard-kill-region (point-min) (point-max)))
       (message filename))))
+
+;; projectile
+(use-package projectile
+  :ensure t
+  :general
+  (:states '(normal visual)
+	   :keymaps 'projectile-mode-map
+	   :prefix "SPC"
+	   "p" '(projectile-command-map :which-key "projectile command")
+	   )
+  :config
+  (projectile-mode +1)
+  )
 
 ;;use-package winum?
 
