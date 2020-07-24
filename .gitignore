@@ -60,3 +60,4 @@ places
 url
 anaconda-mode
 custom.el
+.persistent-scratch
