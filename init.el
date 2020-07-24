@@ -231,8 +231,6 @@
 	   ;; "grp" '(magit-push :which-key "push")
 	   ;; "grl" '(magit-pull :which-key "pull")
 	   ;; ;; major modes
-	   "r" '(nil :which-key "none")
-	   "rs" '(nil :which-key "none")
 	   "m" '(which-key-show-major-mode :which-key "+major mode")
 	   ;; Others
 	   "r" '(nil :which-key "none")
