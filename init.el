@@ -71,6 +71,7 @@
   :ensure t
   :config
   (evil-mode 1)
+  (evil-set-initial-state 'help-mode 'normal)
   (defalias #'forward-evil-word #'forward-evil-symbol)
   ;; make evil-search-word look for symbol rather than word boundaries
   (setq-default evil-symbol-word-search t)
@@ -185,7 +186,7 @@
 	   "b" '(nil :which-key "buffers")
 	   "bl" '(helm-mini :which-key "buffers and recent files")
 	   "bb" '(helm-buffers-list :which-key "buffers list")
-	   "bd" '(evil-delete-buffer :which-key "kill buffer")
+	   "bd" '(kill-this-buffer :which-key "kill buffer")
 	   "bn" '(evil-next-buffer :which-key "next buffer")
 	   "bp" '(evil-prev-buffer :which-key "previous buffer")
 	   ;; Frames
@@ -228,6 +229,8 @@
 	   ;; "grp" '(magit-push :which-key "push")
 	   ;; "grl" '(magit-pull :which-key "pull")
 	   ;; ;; major modes
+	   "r" '(nil :which-key "none")
+	   "rs" '(nil :which-key "none")
 	   "m" '(which-key-show-major-mode :which-key "+major mode")
 	   ;; Others
 	   "at" '(ansi-term :which-key "open terminal")
