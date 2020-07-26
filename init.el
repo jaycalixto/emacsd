@@ -565,35 +565,46 @@
   )
 
 ;; Themes
-;; (use-package material-theme
-;;   :ensure t
-;;   )
+(use-package material-theme
+  :ensure t
+  :defer t)
 
-;; (use-package srcery-theme
-;;   :ensure t
-;;   )
+(use-package srcery-theme
+  :ensure t
+  :defer t
+  )
 
-;; (use-package flatland-theme
-;;   :ensure t
-;;   )
+(use-package flatland-theme
+  :ensure t
+  :defer t
+  )
 
-;; (use-package sublime-themes
-;;   :ensure t
-;;   )
+(use-package sublime-themes
+  :ensure t
+  :defer t
+  )
 
 (use-package gruvbox-theme
   :ensure t
-  :config
-  (load-theme 'gruvbox-light-hard t))
+  :defer t)
 
-;; (use-package suscolors-theme
-;;   :ensure t
-;;   )
+(use-package suscolors-theme
+  :ensure t
+  :defer t
+  )
 
-;; (use-package atom-one-dark-theme
-;;   :ensure t
-;;   :config
-;;   (load-theme 'atom-one-dark t))
+(use-package atom-one-dark-theme
+  :ensure t
+  :defer t)
 
-;; (load-theme 'adwaita t)
-;; (load-theme 'atom-one-dark t)
+(defvar my--theme
+  (list
+   'adwaita
+   'atom-one-dark
+   'gruvbox-light-hard
+   'srcery))
+
+(defun my--load-theme ()
+    (load-theme (nth 2 my--theme) t))
+
+(add-hook 'emacs-startup-hook 'my--load-theme)
