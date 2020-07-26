@@ -79,50 +79,53 @@
   (setq-default evil-symbol-word-search t)
   (setq evil-want-keybinding nil))
 
-;; Theme
-;; (use-package doom-themes
-;;   :ensure t
-;;   :config
-;;  ;; (load-theme 'doom-acario-light t)
-;;   (load-theme 'doom-one t)
-;;   ;; (load-theme 'doom-acario-dark t)
-;;   )
-
+;; Themes
 ;; material-theme
-;; (use-package material-theme
-;;   :ensure t
-;;   :config
-;;   (load-theme 'material t))
+(use-package material-theme
+  :ensure t
+  :config
+  ;; (load-theme 'material t)
+  )
 
-;; (use-package srcery-theme
-;;   :ensure t
-;;   :config
-;;   (load-theme 'srcery t))
+(use-package srcery-theme
+  :ensure t
+  :config
+  ;; (load-theme 'srcery t)
+  )
 
-;; (use-package flatland-theme
-;;   :ensure t
-;;   :config
-;;   (load-theme 'flatland t))
+(use-package flatland-theme
+  :ensure t
+  :config
+  ;; (load-theme 'flatland t)
+  )
 
-;; (use-package sublime-themes
-;;   :ensure t
-;;   :config
-;;   (load-theme 'spolsky t))
+(use-package sublime-themes
+  :ensure t
+  :config
+  ;; (load-theme 'spolsky t)
+  )
 
-;; (use-package gruvbox-theme
-;;   :ensure t
-;;   :config
-;;   (load-theme 'gruvbox t))
+(use-package gruvbox-theme
+  :ensure t
+  :config
+  ;; (load-theme 'gruvbox t)
+  ;; (load-theme 'gruvbox-light-hard t)
+  )
 
-;; (use-package suscolors-theme
-;;   :ensure t
-;;   :config
-;;   (load-theme 'suscolors t))
+(use-package suscolors-theme
+  :ensure t
+  :config
+  ;; (load-theme 'suscolors t)
+  )
 
 (use-package atom-one-dark-theme
   :ensure t
   :config
-  (load-theme 'atom-one-dark t))
+  ;; (load-theme 'atom-one-dark t)
+  )
+
+;; (load-theme 'adwaita t)
+(load-theme 'gruvbox-light-hard t)
 
 ;; Better font
 (setq default-frame-alist
