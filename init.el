@@ -562,6 +562,7 @@
 	   )
   :config
   (projectile-mode +1)
+  (setq-default projectile-indexing-method 'native)
   )
 
 ;; Themes
