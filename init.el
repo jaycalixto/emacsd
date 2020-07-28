@@ -168,32 +168,13 @@
 	   "tt" '(neotree-toggle :which-key "neotree toggle")
 	   "ts" '(neotree-show :which-key "neotree show")
 	   "th" '(neotree-hide :which-key "neotree hide")
-	   ;; workgroups
-	   ;; "wg" '(nil :which-key "workgroups")
-	   ;; "wgn" '(wg-switch-right :which-key "next workgroup")
-	   ;; "wgp" '(wg-switch-left :which-key "previous workgroup")
-	   ;; "wgs" '(wg-save :which-key "workgroup save")
-	   ;; "wgl" '(wg-load :which-key "workgroup load")
-	   ;; "wgc" '(wg-create-workgroup :which-key "create workgroup")
-	   ;; "wgg" '(wg-switch-to-workgroup :which-key "switch to workgroup")
-	   ;; "wg?" '(wg-help :which-key "workgroup help")
-	   ;; git
-	   ;; "g" '(nil :which-key "magit")
-	   ;; "gg" '(magit-status :which-key "status")
-	   ;; "gc" '(magit-commit :which-key "commit")
-	   ;; "gs" '(magit-stage :which-key "stage")
-	   ;; "gl" '(magit-log :which-key "log")
-	   ;; "gr" '(nil :which-key "remote")
-	   ;; "grp" '(magit-push :which-key "push")
-	   ;; "grl" '(magit-pull :which-key "pull")
-	   ;; ;; major modes
+	   ;; major modes
 	   "m" '(which-key-show-major-mode :which-key "+major mode")
 	   ;; Others
 	   "r" '(nil :which-key "none")
 	   "rs" '(nil :which-key "none")
 	   "at" '(ansi-term :which-key "open terminal")
 	   "qq" '(kill-emacs :which-key "kill emacs")
-	   ;; "pi" '(package-install :which-key "package install")
 	   ;; File
 	   "F" '(nil :which-key "files")
 	   "Fl" '(load-file :which-key "load file")
@@ -204,6 +185,7 @@
 	   "!l" '(flycheck-list-errors :which-key "list errors")
 	   ;; emacs
 	   "xf" '(find-file :which-key "find file")
+	   "xb" '(switch-to-buffer :which-key "switch to buffer")
 	   )
   (general-create-definer localleader
     :states '(normal visual)
@@ -222,12 +204,6 @@
   :ensure t
   :hook (after-init . doom-modeline-mode)
   )
-
-;; ;; evil collection
-;; (use-package evil-collection
-;;  :ensure t
-;;  :init
-;;   (evil-collection-init))
 
 ;; emacs lisp mode hooks
 (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
@@ -293,12 +269,14 @@
   :ensure t
   :init (setq markdown-command "pandoc")
   :general
-  (localleader :keymaps 'markdown-mode-map
-    "p" '(nil :which-key "preview")
-    "pl" '(markdown-live-preview-mode :which-key "markdown live preview mode")
-    "pp" '(markdown-preview :which-key "markdown preview")
-    "o" '(markdown-other-window :which-key "markdown other window")
-    ))
+  (:states '(normal visual)
+	   :keymaps 'markdown-mode-map
+	   :prefix "SPC"
+	   "c" '(nil :which-key "markdown mode")
+	   "cl" '(markdown-live-preview-mode :which-key "markdown live preview mode")
+	   "cp" '(markdown-preview :which-key "markdown preview")
+	   "co" '(markdown-other-window :which-key "markdown other window")
+	   ))
 
 (general-define-key
  :keymaps 'dired-mode-map
