@@ -599,13 +599,15 @@
   :defer t)
 
 (defvar my--theme
-  (list
-   'adwaita
-   'atom-one-dark
-   'gruvbox-light-hard
-   'srcery))
+  (custom-available-themes))
+
+(defun my--rnth (seq)
+  (nth (random (length seq)) seq))
 
 (defun my--load-theme ()
-    (load-theme (nth 2 my--theme) t))
+  (interactive)
+  ;; (load-theme (my--rnth my--theme) t)
+  (load-theme 'adwaita t)
+  )
 
 (add-hook 'emacs-startup-hook 'my--load-theme)
