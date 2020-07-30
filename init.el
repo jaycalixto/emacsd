@@ -112,18 +112,6 @@
   :config
   (which-key-mode))
 
-;; recentf in list
-;; (use-package dashboard
-;;   :ensure t
-;;   :diminish dashboard-mode
-;;   :config
-;;   (setq dashboard-startup-banner 2)
-;;   (setq dashboard-items '((recents . 10)
-;; 			  (bookmarks . 10)
-;; 			  (registers . 10)
-;; 			  ))
-;;   (dashboard-setup-startup-hook))
-
 ;; Key Bindings
 (use-package general
   :ensure t
@@ -168,32 +156,13 @@
 	   "tt" '(neotree-toggle :which-key "neotree toggle")
 	   "ts" '(neotree-show :which-key "neotree show")
 	   "th" '(neotree-hide :which-key "neotree hide")
-	   ;; workgroups
-	   ;; "wg" '(nil :which-key "workgroups")
-	   ;; "wgn" '(wg-switch-right :which-key "next workgroup")
-	   ;; "wgp" '(wg-switch-left :which-key "previous workgroup")
-	   ;; "wgs" '(wg-save :which-key "workgroup save")
-	   ;; "wgl" '(wg-load :which-key "workgroup load")
-	   ;; "wgc" '(wg-create-workgroup :which-key "create workgroup")
-	   ;; "wgg" '(wg-switch-to-workgroup :which-key "switch to workgroup")
-	   ;; "wg?" '(wg-help :which-key "workgroup help")
-	   ;; git
-	   ;; "g" '(nil :which-key "magit")
-	   ;; "gg" '(magit-status :which-key "status")
-	   ;; "gc" '(magit-commit :which-key "commit")
-	   ;; "gs" '(magit-stage :which-key "stage")
-	   ;; "gl" '(magit-log :which-key "log")
-	   ;; "gr" '(nil :which-key "remote")
-	   ;; "grp" '(magit-push :which-key "push")
-	   ;; "grl" '(magit-pull :which-key "pull")
-	   ;; ;; major modes
+	   ;; major modes
 	   "m" '(which-key-show-major-mode :which-key "+major mode")
 	   ;; Others
 	   "r" '(nil :which-key "none")
 	   "rs" '(nil :which-key "none")
 	   "at" '(ansi-term :which-key "open terminal")
 	   "qq" '(kill-emacs :which-key "kill emacs")
-	   ;; "pi" '(package-install :which-key "package install")
 	   ;; File
 	   "F" '(nil :which-key "files")
 	   "Fl" '(load-file :which-key "load file")
@@ -204,6 +173,7 @@
 	   "!l" '(flycheck-list-errors :which-key "list errors")
 	   ;; emacs
 	   "xf" '(find-file :which-key "find file")
+	   "xb" '(switch-to-buffer :which-key "switch to buffer")
 	   )
   (general-create-definer localleader
     :states '(normal visual)
@@ -222,12 +192,6 @@
   :ensure t
   :hook (after-init . doom-modeline-mode)
   )
-
-;; ;; evil collection
-;; (use-package evil-collection
-;;  :ensure t
-;;  :init
-;;   (evil-collection-init))
 
 ;; emacs lisp mode hooks
 (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
@@ -293,12 +257,14 @@
   :ensure t
   :init (setq markdown-command "pandoc")
   :general
-  (localleader :keymaps 'markdown-mode-map
-    "p" '(nil :which-key "preview")
-    "pl" '(markdown-live-preview-mode :which-key "markdown live preview mode")
-    "pp" '(markdown-preview :which-key "markdown preview")
-    "o" '(markdown-other-window :which-key "markdown other window")
-    ))
+  (:states '(normal visual)
+	   :keymaps 'markdown-mode-map
+	   :prefix "SPC"
+	   "c" '(nil :which-key "markdown mode")
+	   "cl" '(markdown-live-preview-mode :which-key "markdown live preview mode")
+	   "cp" '(markdown-preview :which-key "markdown preview")
+	   "co" '(markdown-other-window :which-key "markdown other window")
+	   ))
 
 (general-define-key
  :keymaps 'dired-mode-map
@@ -312,14 +278,6 @@
  "do" '(dired-find-file-other-window :which-key "edit file other window")
  "dd" '(dired-insert-subdir :which-key "insert subdir")
  )
-;; ;; magit
-;; (use-package magit
-;;   :ensure t
-;;   )
-
-;; (use-package evil-magit
-;;   :ensure t
-;;   )
 
 ;; flycheck
 (use-package flycheck
@@ -341,12 +299,6 @@
   :config
   (with-eval-after-load 'rust-mode
     (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)))
-
-;; (use-package flycheck-inline
-;;   :ensure t
-;;   :config
-;;   (with-eval-after-load 'flycheck
-;;     (add-hook 'flycheck-mode-hook #'flycheck-inline-mode)))
 
 (use-package flycheck-pos-tip
   :ensure t
@@ -430,16 +382,6 @@
 (use-package kivy-mode
   :ensure t)
 
-;; (use-package origami
-;;   :ensure t
-;;   )
-
-;; ;; golden ration
-;; (use-package golden-ratio
-;;   :ensure t
-;;   :init
-;;   (golden-ratio-mode 1))
-
 (defun my--lua-run-love-shell-command ()
   "Run love on the current dir on a separated shell command"
   (interactive)
@@ -464,24 +406,11 @@
   (persistent-scratch-autosave-mode 1))
 
 ;; dart
-;; Assuming usage with dart-mode
-;; (use-package dart-mode
-;;   :ensure-system-package (dart_language_server . "pub global activate dart_language_server")
-;;   :custom
-;;   (dart-format-on-save t)
-;;   (dart-sdk-path "/Applications/flutter/bin/cache/dart-sdk/"))
 (use-package dart-mode
   :ensure t
   :custom
   (dart-format-on-save t)
   )
-
-;; (use-package flutter
-;;   :after dart-mode
-;;   :bind (:map dart-mode-map
-;;               ("C-M-x" . #'flutter-run-or-hot-reload))
-;;   :custom
-;;   (flutter-sdk-path "/Applications/flutter/"))
 
 (use-package flutter
   :after dart-mode
@@ -493,52 +422,12 @@
   :after flutter
   :ensure t
   )
-;;:config
-;;  (flutter-l10n-flycheck-setup)
-
-;; (use-package workgroups
-;;   :ensure t
-;;   :config
-;;   (workgroups-mode 1)
-;;   (setq wg-switch-on-load nil)
-;;   (wg-load "~/.emacs.d/workgroups/coding")
-;;   )
-
-;; (use-package window-purpose
-;;   :ensure t
-;;   :config
-;;   (purpose-mode)
-;;   (add-to-list 'purpose-user-mode-purposes '(python-mode . py))
-;;   (add-to-list 'purpose-user-mode-purposes '(inferior-python-mode . py-repl))
-;;   (setq purpose-use-default-configuration t)
-;;   (purpose-compile-user-configuration))
 
 (use-package gdscript-mode
   :ensure t
   :defer t
   )
 
-(use-package neotree
-  :ensure t
-  :config
-  (setq-default neo-theme (if (display-graphic-p) 'nerd 'arrows))
-  (evil-define-key 'normal neotree-mode-map (kbd "TAB") 'neotree-quick-look)
-  (evil-define-key 'normal neotree-mode-map (kbd "q") 'neotree-hide)
-  (evil-define-key 'normal neotree-mode-map (kbd "RET") 'neotree-enter)
-  (evil-define-key 'normal neotree-mode-map (kbd "g") 'neotree-refresh)
-  (evil-define-key 'normal neotree-mode-map (kbd "j") 'neotree-next-line)
-  (evil-define-key 'normal neotree-mode-map (kbd "k") 'neotree-previous-line)
-  (evil-define-key 'normal neotree-mode-map (kbd "A") 'neotree-stretch-toggle)
-  (evil-define-key 'normal neotree-mode-map (kbd "H") 'neotree-hidden-file-toggle)
-  :general
-  (:states '(normal visual)
-	   :keymaps 'neotree-mode-map
-	   :prefix "SPC"
-	   "cc" '(neotree-change-root :which-key "neotree change root")
-	   "cr" '(neotree-rename-node :which-key "neotree rename node")
-	   "cn" '(neotree-create-node :which-key "neotree create node")
-	   )
-  )
 
 (defun my-put-file-name-on-clipboard ()
   "Put the current file name on the clipboard"
