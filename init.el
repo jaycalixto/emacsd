@@ -607,7 +607,7 @@
 (defun my--load-theme ()
   (interactive)
   ;; (load-theme (my--rnth my--theme) t)
-  (load-theme 'adwaita t)
+  (load-theme 'atom-one-dark t)
   )
 
 (add-hook 'emacs-startup-hook 'my--load-theme)
