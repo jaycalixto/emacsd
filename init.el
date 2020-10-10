@@ -459,10 +459,6 @@
   )
 
 ;; Themes
-(use-package material-theme
-  :ensure t
-  :defer t)
-
 (use-package srcery-theme
   :ensure t
   :defer t
@@ -491,16 +487,42 @@
   :ensure t
   :defer t)
 
-(defvar my--theme
-  (custom-available-themes))
-
-(defun my--rnth (seq)
-  (nth (random (length seq)) seq))
-
 (defun my--load-theme ()
   (interactive)
-  ;; (load-theme (my--rnth my--theme) t)
-  (load-theme 'atom-one-dark t)
+  ;; (load-theme 'adwaita t) ;; * light
+  ;; (load-theme 'atom-one-dark t) ;; *
+  (load-theme 'brin t) ;; *
+  ;; (load-theme 'deeper-blue t)
+  ;; (load-theme 'dichromacy t) ;; light
+  ;; (load-theme 'dorsey t)
+  ;; (load-theme 'flatland t) ;; *
+  ;; (load-theme 'fogus t)
+  ;; (load-theme 'graham t)
+  ;; (load-theme 'granger t) ;; *
+  ;; (load-theme 'gruvbox t) ;; *
+  ;; (load-theme 'gruvbox-dark-hard t) ;; *
+  ;; (load-theme 'gruvbox-light-hard t) ;; light
+  ;; (load-theme 'gruvbox-light-soft t) ;; light
+  ;; (load-theme 'hickey t)
+  ;; (load-theme 'junio t) ;; *
+  ;; (load-theme 'leuven t) ;; light
+  ;; (load-theme 'light-blue t)
+  ;; (load-theme 'manoj-dark t)
+  ;; (load-theme 'mccarthy t) ;; light
+  ;; (load-theme 'misterioso t)
+  ;; (load-theme 'odersky t) ;; *
+  ;; (load-theme 'ritchie t) ;; light
+  ;; (load-theme 'spolsky t) ;; *
+  ;; (load-theme 'srcery t) ;; *
+  ;; (load-theme 'suscolors t) ;; *
+  ;; (load-theme 'tango t) ;; * light
+  ;; (load-theme 'tango-dark t) ;; comments are too saturated
+  ;; (load-theme 'tsdh-dark t) ;; *
+  ;; (load-theme 'tsdh-light t) ;; light
+  ;; (load-theme 'wheatgrass t)
+  ;; (load-theme 'whiteboard t) ;; * light
+  ;; (load-theme 'wilson t) ;; *
+  ;; (load-theme 'wombat t) ;; *
   )
 
 (add-hook 'emacs-startup-hook 'my--load-theme)
