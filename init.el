@@ -174,6 +174,9 @@
 	   ;; emacs
 	   "xf" '(find-file :which-key "find file")
 	   "xb" '(switch-to-buffer :which-key "switch to buffer")
+	   ;; helm
+	   "i" '(nil :which-key "helm")
+	   "ii" '(helm-imenu :which-key "helm imenu")
 	   )
   (general-create-definer localleader
     :states '(normal visual)
