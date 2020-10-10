@@ -415,16 +415,16 @@
   (dart-format-on-save t)
   )
 
-(use-package flutter
-  :after dart-mode
-  :ensure t
-  )
+;; (use-package flutter
+;;   :after dart-mode
+;;   :ensure t
+;;   )
 
-;; Optional
-(use-package flutter-l10n-flycheck
-  :after flutter
-  :ensure t
-  )
+;; ;; Optional
+;; (use-package flutter-l10n-flycheck
+;;   :after flutter
+;;   :ensure t
+;;   )
 
 (use-package gdscript-mode
   :ensure t
