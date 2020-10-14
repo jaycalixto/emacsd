@@ -458,6 +458,10 @@
   (setq-default projectile-indexing-method 'native)
   )
 
+
+;; config js mode
+(setq-default js-indent-level 2)
+
 ;; Themes
 (use-package srcery-theme
   :ensure t
