@@ -67,6 +67,11 @@
 (use-package rainbow-delimiters
   :ensure t)
 
+;; origami mode
+(use-package origami
+  :ensure t
+  :defer t)
+
 ;; Vim mode
 (require 'evil)
 (setq-default evil-want-C-u-scroll t)
