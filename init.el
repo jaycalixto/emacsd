@@ -10,7 +10,7 @@
 (desktop-save-mode 1)
 
 ;; filename on frame title
-(setq-default frame-title-format '("%b [%m] - Emacs"))
+(setq-default frame-title-format '("%b [%m] - Emacs " emacs-version))
 
 ;; disable anoying ring
 (setq visible-bell 1)
@@ -252,9 +252,17 @@
 (use-package org
   :ensure t
   :general
-  (localleader :keymaps 'org-mode-map
-    "cc" '(org-time-stamp :which-key "org time stamp")
-    ))
+  (:states '(normal visual)
+	   :keymaps 'org-mode-map
+	   :prefix "SPC"
+	   "c" '(nil :which-key "org mode")
+	   "ct" '(org-todo :which-key "org TODO")
+	   "cct" '(org-table-create :which-key "create table")
+	   "cs" '(org-sort :which-key "org sort"))
+  ;; (localleader :keymaps 'org-mode-map
+  ;;   "cc" '(org-time-stamp :which-key "org time stamp")
+  ;;   )
+  )
 
 ;; yaml
 (use-package yaml-mode
