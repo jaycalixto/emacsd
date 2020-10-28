@@ -205,6 +205,7 @@
 ;; emacs lisp mode hooks
 (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'emacs-lisp-mode-hook 'company-mode)
+(add-hook 'emacs-lisp-mode-hook 'electric-pair-mode)
 
 ;; rust
 (use-package rust-mode
@@ -330,9 +331,7 @@
   (:states '(normal visual)
 	   :keymaps 'nim-mode-map
 	   :prefix "SPC"
-	   "cc" '(nim-compile :which-key "nim compile")
-	   )
-  )
+	   "cc" '(nim-compile :which-key "nim compile")))
 
 (defun my--nim-mode-init-hook ()
   ;; Make files in the nimble folder read only by default.
@@ -341,6 +340,9 @@
   (flycheck-mode 1)
   )
 (add-hook 'nim-mode-hook 'my--nim-mode-init-hook)
+
+(use-package flycheck-nim
+  :ensure t)
 
 ;; racket
 (use-package racket-mode
