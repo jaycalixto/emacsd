@@ -346,6 +346,10 @@
 (use-package racket-mode
   :ensure t
   :defer t
+  :config
+  (add-hook 'racket-mode-hook 'electric-pair-mode)
+  (add-hook 'racket-mode-hook 'company-mode)
+  (add-hook 'racket-mode-hook 'rainbow-delimiters-mode)
   :general
   (:states '(normal visual)
 	   :keymaps 'racket-mode-map
