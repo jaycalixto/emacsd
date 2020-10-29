@@ -331,6 +331,7 @@
   (:states '(normal visual)
 	   :keymaps 'nim-mode-map
 	   :prefix "SPC"
+	   "c" '(nil :which-key "nim mode")
 	   "cc" '(nim-compile :which-key "nim compile")))
 
 (defun my--nim-mode-init-hook ()
