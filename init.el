@@ -520,7 +520,12 @@
   :config
   (projectile-mode +1)
   (setq-default projectile-indexing-method 'native)
-  )
+  (projectile-register-project-type 'nim '("nimpro.nimble")
+				    :project-file "nimpro.nimble"
+				    :compile "nimble build"
+				    :run "nimble run"
+				    :test "nimble test"
+				    :test-suffix ".spec"))
 
 
 ;; config js mode
