@@ -90,6 +90,26 @@
 (setq default-frame-alist
       (add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono 10")))
 
+(defun my--kill-compilation-buffers ()
+  (interactive)
+  (progn
+    (if (get-buffer "*compilation*")
+	(progn
+	  (kill-buffer "*compilation*")))))
+
+(defun my--kill-help-buffers ()
+  (interactive)
+  (progn
+    (if (get-buffer "*Help*")
+	(progn
+	  (kill-buffer "*Help*")))))
+
+(defun my--kill-extra-buffers ()
+  (interactive)
+  (progn
+    (my--kill-help-buffers)
+    (my--kill-compilation-buffers)))
+
 
 ;; Helm
 (use-package helm
@@ -169,6 +189,8 @@
 	   "rs" '(nil :which-key "none")
 	   "at" '(ansi-term :which-key "open terminal")
 	   "qq" '(kill-emacs :which-key "kill emacs")
+	   ;; kills
+	   "çç" '(my--kill-extra-buffers :whick-key "kill buffers/windows")
 	   ;; File
 	   "F" '(nil :which-key "files")
 	   "Fl" '(load-file :which-key "load file")
