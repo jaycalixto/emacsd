@@ -90,25 +90,18 @@
 (setq default-frame-alist
       (add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono 10")))
 
-(defun my--kill-compilation-buffers ()
-  (interactive)
+(defun my--kill-named-buffer (name)
   (progn
-    (if (get-buffer "*compilation*")
+    (if (get-buffer name)
 	(progn
-	  (kill-buffer "*compilation*")))))
-
-(defun my--kill-help-buffers ()
-  (interactive)
-  (progn
-    (if (get-buffer "*Help*")
-	(progn
-	  (kill-buffer "*Help*")))))
+	  (kill-buffer name)))))
 
 (defun my--kill-extra-buffers ()
   (interactive)
   (progn
-    (my--kill-help-buffers)
-    (my--kill-compilation-buffers)))
+    (my--kill-named-buffer "*compilation*")
+    (my--kill-named-buffer "*Compile-Log*")
+    (my--kill-named-buffer "*Help*")))
 
 
 ;; Helm
@@ -346,6 +339,20 @@
   (with-eval-after-load 'flycheck
     (add-hook 'flycheck-mode-hook #'flycheck-pos-tip-mode)))
 
+;; (use-package indent-guide
+;;   :ensure t
+;;   :defer t)
+
+(use-package highlight-indent-guides
+  :ensure t
+  :config
+  (progn
+    (setq-default highlight-indent-guides-method 'character)
+    (set-face-background 'highlight-indent-guides-odd-face "darkgray")
+    (set-face-background 'highlight-indent-guides-even-face "dimgray")
+    (set-face-foreground 'highlight-indent-guides-character-face "dimgray"))
+  :defer t)
+
 ;; nim
 (use-package nim-mode
   :ensure t
@@ -361,6 +368,11 @@
   ;; This can prevent to edit them by accident.
   (when (string-match "/\.nimble/" buffer-file-name) (read-only-mode 1))
   (flycheck-mode 1)
+  (setq nim-smie-indent-stoppers nil
+	nim-smie-indent-dedenters nil)
+  ;; (indent-guide-mode)
+  (highlight-indent-guides-mode)
+  (company-mode)
   )
 (add-hook 'nim-mode-hook 'my--nim-mode-init-hook)
 
