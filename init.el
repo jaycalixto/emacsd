@@ -367,7 +367,8 @@
 	   :keymaps 'nim-mode-map
 	   :prefix "SPC"
 	   "c" '(nil :which-key "nim mode")
-	   "cc" '(nim-compile :which-key "nim compile")))
+	   "cc" '(my--nim-compile :which-key "nim compile")))
+
 
 (defun my--nim-mode-init-hook ()
   ;; Make files in the nimble folder read only by default.
@@ -378,8 +379,8 @@
 	nim-smie-indent-dedenters nil)
   ;; (indent-guide-mode)
   (highlight-indent-guides-mode)
-  (company-mode)
-  )
+  (company-mode))
+
 (add-hook 'nim-mode-hook 'my--nim-mode-init-hook)
 
 (use-package flycheck-nim
@@ -490,29 +491,9 @@
   (persistent-scratch-setup-default)
   (persistent-scratch-autosave-mode 1))
 
-;; dart
-(use-package dart-mode
-  :ensure t
-  :custom
-  (dart-format-on-save t)
-  )
-
-;; (use-package flutter
-;;   :after dart-mode
-;;   :ensure t
-;;   )
-
-;; ;; Optional
-;; (use-package flutter-l10n-flycheck
-;;   :after flutter
-;;   :ensure t
-;;   )
-
 (use-package gdscript-mode
   :ensure t
-  :defer t
-  )
-
+  :defer t)
 
 (defun my-put-file-name-on-clipboard ()
   "Put the current file name on the clipboard"
@@ -552,18 +533,15 @@
 ;; Themes
 (use-package srcery-theme
   :ensure t
-  :defer t
-  )
+  :defer t)
 
 (use-package flatland-theme
   :ensure t
-  :defer t
-  )
+  :defer t)
 
 (use-package sublime-themes
   :ensure t
-  :defer t
-  )
+  :defer t)
 
 (use-package gruvbox-theme
   :ensure t
@@ -571,8 +549,7 @@
 
 (use-package suscolors-theme
   :ensure t
-  :defer t
-  )
+  :defer t)
 
 (use-package atom-one-dark-theme
   :ensure t
