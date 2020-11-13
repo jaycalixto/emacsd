@@ -355,6 +355,11 @@
   :defer t)
 
 ;; nim
+(defun my--nim-compile ()
+  (interactive)
+  (nim-compile (concat "nim c -r --verbosity:0 --hint[Processing]:off "
+		       "--excessiveStackTrace:on " buffer-file-name)))
+
 (use-package nim-mode
   :ensure t
   :general
