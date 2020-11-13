@@ -99,6 +99,7 @@
 (defun my--kill-extra-buffers ()
   (interactive)
   (progn
+    (my--kill-named-buffer "*nim-compile*")
     (my--kill-named-buffer "*compilation*")
     (my--kill-named-buffer "*Compile-Log*")
     (my--kill-named-buffer "*Help*")))
