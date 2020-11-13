@@ -156,7 +156,7 @@
 	   "bp" '(evil-prev-buffer :which-key "previous buffer")
 	   ;; Frames
 	   "f" '(nil :which-key "frames")
-	   "fc" '(new-frame :which-key "new frame")
+	   "fc" '(make-frame :which-key "new frame")
 	   "fd" '(delete-frame :which-key "delete frame")
 	   "fn" '(other-frame :which-key "next frame")
 	   "ff" '(next-multiframe-window :which-key "next multiframe window")
