@@ -398,13 +398,11 @@
   (:states '(normal visual)
 	   :keymaps 'racket-mode-map
 	   :prefix "SPC"
-	   "cr" '(racket-run :which-key "racket run")
-	   )
+	   "cr" '(racket-run :which-key "racket run"))
   (:states '(normal visual)
 	   :keymaps 'racket-repl-mode-map
-	   "C-w" '(evil-window-map :which-key "evil windows")
-	   )
-  )
+	   "C-w" '(evil-window-map :which-key "evil windows")))
+
 (defun my--racket-repl-mode-hook ()
   (remove-hook 'kill-buffer-hook 'comint-write-input-ring t)
   (remove-hook 'kill-emacs-hook 'racket--repl-save-all-histories t)
@@ -508,14 +506,14 @@
       (message filename))))
 
 ;; projectile
+(require 'projectile)
 (use-package projectile
   :ensure t
   :general
   (:states '(normal visual)
 	   :keymaps 'projectile-mode-map
 	   :prefix "SPC"
-	   "p" '(projectile-command-map :which-key "projectile command")
-	   )
+	   "p" '(projectile-command-map :which-key "projectile command"))
   :config
   (projectile-mode +1)
   (setq-default projectile-indexing-method 'native)
