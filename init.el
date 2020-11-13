@@ -157,7 +157,7 @@
 	   "bp" '(evil-prev-buffer :which-key "previous buffer")
 	   ;; Frames
 	   "f" '(nil :which-key "frames")
-	   "fc" '(new-frame :which-key "new frame")
+	   "fc" '(make-frame :which-key "new frame")
 	   "fd" '(delete-frame :which-key "delete frame")
 	   "fn" '(other-frame :which-key "next frame")
 	   "ff" '(next-multiframe-window :which-key "next multiframe window")
@@ -554,10 +554,11 @@
   :defer t)
 
 (defun my--load-theme ()
-  (interactive)
+  (if (file-exists-p "~/.emacs.d/local.el")
+    (load "~/.emacs.d/local.el"))
   ;; (load-theme 'adwaita t) ;; * light
   ;; (load-theme 'atom-one-dark t) ;; *
-  (load-theme 'brin t) ;; *
+  ;; (load-theme 'brin t) ;; *
   ;; (load-theme 'deeper-blue t)
   ;; (load-theme 'dichromacy t) ;; light
   ;; (load-theme 'dorsey t)
@@ -590,5 +591,6 @@
   ;; (load-theme 'wilson t) ;; *
   ;; (load-theme 'wombat t) ;; *
   )
+
 
 (add-hook 'emacs-startup-hook 'my--load-theme)
