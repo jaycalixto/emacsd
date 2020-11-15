@@ -72,8 +72,12 @@
   :ensure t
   :defer t)
 
+(use-package lsp-mode
+  :ensure t
+  :defer t)
+
 ;; Vim mode
-(require 'evil)
+;; (require 'evil)
 (setq-default evil-want-C-u-scroll t)
 (use-package evil
   :ensure t
