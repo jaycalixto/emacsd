@@ -383,7 +383,8 @@
 	nim-smie-indent-dedenters nil)
   ;; (indent-guide-mode)
   (highlight-indent-guides-mode)
-  (company-mode))
+  (company-mode)
+  (lsp))
 
 (add-hook 'nim-mode-hook 'my--nim-mode-init-hook)
 
