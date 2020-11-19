@@ -511,7 +511,7 @@
       (message filename))))
 
 ;; projectile
-(require 'projectile)
+;; (require 'projectile)
 (use-package projectile
   :ensure t
   :general
