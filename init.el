@@ -61,11 +61,13 @@
 
 ;; all the icons
 (use-package all-the-icons
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;; rainbow delimiter
 (use-package rainbow-delimiters
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;; origami mode
 (use-package origami
@@ -74,7 +76,10 @@
 
 (use-package lsp-mode
   :ensure t
-  :defer t)
+  :defer t
+  :config
+  (setq-default lsp-enable-snippet nil)
+  (setq-default lsp-log-io nil))
 
 ;; Vim mode
 ;; (require 'evil)
@@ -88,7 +93,6 @@
   ;; make evil-search-word look for symbol rather than word boundaries
   (setq-default evil-symbol-word-search t)
   (setq evil-want-keybinding nil))
-
 
 ;; Better font
 (setq default-frame-alist
@@ -120,6 +124,7 @@
 ;; smartparens
 (use-package smartparens
   :ensure t
+  :defer t
   :config
   (require 'smartparens-config))
 
@@ -214,13 +219,13 @@
 
 ;; company
 (use-package company
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;; doom modeline
 (use-package doom-modeline
   :ensure t
-  :hook (after-init . doom-modeline-mode)
-  )
+  :hook (after-init . doom-modeline-mode))
 
 ;; emacs lisp mode hooks
 (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
@@ -231,7 +236,8 @@
 (use-package rust-mode
   :ensure t
   :config
-  (setq-default rust-format-on-save t))
+  (setq-default rust-format-on-save t)
+  :defer t)
 
 (add-hook 'rust-mode-hook
 	  (lambda ()
@@ -241,12 +247,12 @@
   :ensure t
   :config
   (setq-default company-tooltip-align-annotations t)
+  :defer t
   :general
   (:states '(normal emacs)
 	   :keymaps 'rust-mode-map
 	   "gd" '(racer-find-definition :which-key "racer go to definition")
-	   "C-SPC" '(company-indent-or-complete-common :which-key "company complete"))
-  )
+	   "C-SPC" '(company-indent-or-complete-common :which-key "company complete")))
 
 (add-hook 'rust-mode-hook #'racer-mode)
 (add-hook 'racer-mode-hook #'eldoc-mode)
@@ -260,7 +266,6 @@
 	auto-package-update-interval 30)
   (auto-package-update-maybe))
 
-
 ;; evil org mode
 (use-package dash
   :ensure t)
@@ -272,6 +277,7 @@
 ;; org mode
 (use-package org
   :ensure t
+  :defer t
   :general
   (:states '(normal visual)
 	   :keymaps 'org-mode-map
@@ -279,20 +285,17 @@
 	   "c" '(nil :which-key "org mode")
 	   "ct" '(org-todo :which-key "org TODO")
 	   "cct" '(org-table-create :which-key "create table")
-	   "cs" '(org-sort :which-key "org sort"))
-  ;; (localleader :keymaps 'org-mode-map
-  ;;   "cc" '(org-time-stamp :which-key "org time stamp")
-  ;;   )
-  )
+	   "cs" '(org-sort :which-key "org sort")))
 
 ;; yaml
 (use-package yaml-mode
   :ensure t
-  )
+  :defer t)
 
 ;; markdown
 (use-package markdown-mode
   :ensure t
+  :defer t
   :init (setq markdown-command "pandoc")
   :general
   (:states '(normal visual)
@@ -301,8 +304,7 @@
 	   "c" '(nil :which-key "markdown mode")
 	   "cl" '(markdown-live-preview-mode :which-key "markdown live preview mode")
 	   "cp" '(markdown-preview :which-key "markdown preview")
-	   "co" '(markdown-other-window :which-key "markdown other window")
-	   ))
+	   "co" '(markdown-other-window :which-key "markdown other window")))
 
 (general-define-key
  :keymaps 'dired-mode-map
@@ -320,6 +322,7 @@
 ;; flycheck
 (use-package flycheck
   :ensure t
+  :defer t
   :config
   (global-flycheck-mode)
   (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc))
@@ -329,24 +332,21 @@
 		  display-buffer-in-side-window)
 		 (side            . bottom)
 		 (reusable-frames . visible)
-		 (window-height   . 0.25)))
-  )
+		 (window-height   . 0.25))))
 
 (use-package flycheck-rust
   :ensure t
+  :defer t
   :config
   (with-eval-after-load 'rust-mode
     (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)))
 
 (use-package flycheck-pos-tip
   :ensure t
+  :defer t
   :config
   (with-eval-after-load 'flycheck
     (add-hook 'flycheck-mode-hook #'flycheck-pos-tip-mode)))
-
-;; (use-package indent-guide
-;;   :ensure t
-;;   :defer t)
 
 (use-package highlight-indent-guides
   :ensure t
@@ -366,6 +366,7 @@
 
 (use-package nim-mode
   :ensure t
+  :defer t
   :general
   (:states '(normal visual)
 	   :keymaps 'nim-mode-map
@@ -410,8 +411,8 @@
 
 (defun my--racket-repl-mode-hook ()
   (remove-hook 'kill-buffer-hook 'comint-write-input-ring t)
-  (remove-hook 'kill-emacs-hook 'racket--repl-save-all-histories t)
-  )
+  (remove-hook 'kill-emacs-hook 'racket--repl-save-all-histories t))
+
 (add-hook 'racket-repl-mode-hook 'my--racket-repl-mode-hook)
 
 (declare-function my--python-shell-send-buffer ()
@@ -422,11 +423,11 @@
 (defun my--python-run-file-on-shell-command ()
   "Run the current file on a separated shell command Needs this to run GUI python scripts on windows, as they won't open a window on windows"
   (interactive)
-  (shell-command (concat "python " (buffer-file-name)))
-  )
+  (shell-command (concat "python " (buffer-file-name))))
 
 (use-package anaconda-mode
   :ensure t
+  :defer t
   :config
   (add-hook 'python-mode-hook 'anaconda-mode)
   (add-hook 'python-mode-hook 'anaconda-eldoc-mode)
@@ -441,34 +442,34 @@
 	   "cf" '(python-shell-send-file :which-key "run file on python shell")
 	   "cs" '(my--python-run-file-on-shell-command :which-key "run python on command shell")
 	   "c<" '(python-indent-shift-left :which-key "python indent shift left")
-	   "c>" '(python-indent-shift-right :which-key "python indent shift right")
-	   )
-  )
+	   "c>" '(python-indent-shift-right :which-key "python indent shift right")))
 
 (use-package company-anaconda
   :ensure t
   :after company
+  :defer t
   :config
   (add-to-list 'company-backends 'company-anaconda)
   (add-hook 'python-mode-hook 'company-mode)
   (when (string-equal system-type "windows-nt")
     (setq-default flycheck-python-pycompile-executable "python")
     (setq-default flycheck-python-pylint-executable "python")
-    (setq-default flycheck-python-flake8-executable "python"))
-  )
+    (setq-default flycheck-python-flake8-executable "python")))
 
 
 (use-package blacken
   :ensure t
+  :defer t
   :config
   (setq-default blacken-line-length 79)
   (add-hook 'python-mode-hook 'blacken-mode))
 
 (use-package pyvenv
   :ensure t
-  )
+  :defer t)
 
 (use-package kivy-mode
+  :defer t
   :ensure t)
 
 (defun my--lua-run-love-shell-command ()
@@ -480,16 +481,16 @@
 ;; lua mode
 (use-package lua-mode
   :ensure t
+  :defer t
   :general
   (:states '(normal visual)
 	   :keymaps 'lua-mode-map
 	   :prefix "SPC"
-	   "rr" '(my--lua-run-love-shell-command :which-key "run love2d")
-	   )
-  )
+	   "rr" '(my--lua-run-love-shell-command :which-key "run love2d")))
 
 (use-package persistent-scratch
   :ensure t
+  :defer t
   :config
   (persistent-scratch-setup-default)
   (persistent-scratch-autosave-mode 1))
@@ -511,9 +512,9 @@
       (message filename))))
 
 ;; projectile
-;; (require 'projectile)
 (use-package projectile
   :ensure t
+  :defer t
   :general
   (:states '(normal visual)
 	   :keymaps 'projectile-mode-map
@@ -529,6 +530,7 @@
 				    :test "nimble test"
 				    :test-suffix ".spec"))
 
+(require 'projectile)
 
 ;; config js mode
 (setq-default js-indent-level 2)
