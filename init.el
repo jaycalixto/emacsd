@@ -407,10 +407,10 @@
 
 (add-hook 'nim-mode-hook 'my--nim-mode-init-hook)
 
-;; (use-package flycheck-nim
-;;   :defer t
-;;   :ensure t)
-;; (require 'flycheck-nim)
+(use-package flycheck-nim
+  :defer t
+  :ensure t)
+(require 'flycheck-nim)
 
 ;; (use-package flycheck-nimsuggest
 ;;   :defer t
