@@ -379,18 +379,44 @@
   ;; Make files in the nimble folder read only by default.
   ;; This can prevent to edit them by accident.
   (when (string-match "/\.nimble/" buffer-file-name) (read-only-mode 1))
+  ;; (nimsuggest-mode 1)
   (flycheck-mode 1)
   (setq nim-smie-indent-stoppers nil
 	nim-smie-indent-dedenters nil)
   ;; (indent-guide-mode)
   (highlight-indent-guides-mode)
+  ;; (lsp)
   (company-mode)
-  (lsp))
+
+  (defun nimsuggest--get-temp-file-name ()
+    "Get temp file name."
+    (mapconcat 'directory-file-name
+	       `(,(nimsuggest--get-dirty-dir)
+		 ,(cl-case system-type
+		    ((ms-dos windows-nt cygwin)
+		     ;; For bug #119, convert ":" to "꞉" (U+A789)
+		     (concat "/"
+			     (replace-regexp-in-string
+			      ":" "-"
+			      buffer-file-name)))
+		    (t ; for *nix system
+		     buffer-file-name)))
+	       ""))
+
+  )
 
 (add-hook 'nim-mode-hook 'my--nim-mode-init-hook)
 
-(use-package flycheck-nim
-  :ensure t)
+;; (use-package flycheck-nim
+;;   :defer t
+;;   :ensure t)
+;; (require 'flycheck-nim)
+
+;; (use-package flycheck-nimsuggest
+;;   :defer t
+;;   :ensure t
+;;   :config
+;;   (add-hook 'nimsuggest-mode-hook 'flycheck-nimsuggest-setup))
 
 ;; racket
 (use-package racket-mode
