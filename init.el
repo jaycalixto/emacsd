@@ -514,6 +514,12 @@
 	   :prefix "SPC"
 	   "rr" '(my--lua-run-love-shell-command :which-key "run love2d")))
 
+
+;; elixir
+(use-package alchemist
+  :ensure t
+  :defer t)
+
 (use-package persistent-scratch
   :ensure t
   :defer t
