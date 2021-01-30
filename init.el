@@ -504,6 +504,11 @@
   (shell-command (concat "love " default-directory))
   )
 
+;; elixir
+(use-package alchemist
+  :ensure t
+  :defer t)
+
 ;; lua mode
 (use-package lua-mode
   :ensure t
