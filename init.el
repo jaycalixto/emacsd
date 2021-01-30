@@ -519,9 +519,8 @@
 	   :prefix "SPC"
 	   "rr" '(my--lua-run-love-shell-command :which-key "run love2d")))
 
-
-;; elixir
-(use-package alchemist
+;; fsharp
+(use-package fsharp-mode
   :ensure t
   :defer t)
 
