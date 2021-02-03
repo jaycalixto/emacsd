@@ -412,34 +412,6 @@
   :ensure t)
 (require 'flycheck-nim)
 
-;; (use-package flycheck-nimsuggest
-;;   :defer t
-;;   :ensure t
-;;   :config
-;;   (add-hook 'nimsuggest-mode-hook 'flycheck-nimsuggest-setup))
-
-;; racket
-(use-package racket-mode
-  :ensure t
-  :defer t
-  :config
-  (add-hook 'racket-mode-hook 'electric-pair-mode)
-  (add-hook 'racket-mode-hook 'company-mode)
-  (add-hook 'racket-mode-hook 'rainbow-delimiters-mode)
-  :general
-  (:states '(normal visual)
-	   :keymaps 'racket-mode-map
-	   :prefix "SPC"
-	   "cr" '(racket-run :which-key "racket run"))
-  (:states '(normal visual)
-	   :keymaps 'racket-repl-mode-map
-	   "C-w" '(evil-window-map :which-key "evil windows")))
-
-(defun my--racket-repl-mode-hook ()
-  (remove-hook 'kill-buffer-hook 'comint-write-input-ring t)
-  (remove-hook 'kill-emacs-hook 'racket--repl-save-all-histories t))
-
-(add-hook 'racket-repl-mode-hook 'my--racket-repl-mode-hook)
 
 (declare-function my--python-shell-send-buffer ()
 		  "send buffer to python shell WITHOUT replacing if __name__ == main"
