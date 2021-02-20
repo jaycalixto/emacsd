@@ -501,9 +501,23 @@
 	   "rr" '(my--lua-run-love-shell-command :which-key "run love2d")))
 
 ;; fsharp
+(use-package eglot
+  :ensure t
+  :defer t)
+
 (use-package fsharp-mode
   :ensure t
   :defer t)
+
+(use-package eglot-fsharp
+  :ensure t
+  :defer t)
+
+(require 'eglot-fsharp)
+
+(defun my--eglot-fsharp ()
+  (interactive)
+  (message (eglot-fsharp--path-to-server)))
 
 (use-package persistent-scratch
   :ensure t
