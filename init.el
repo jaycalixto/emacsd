@@ -353,9 +353,9 @@
   :config
   (progn
     (setq-default highlight-indent-guides-method 'character)
-    (set-face-background 'highlight-indent-guides-odd-face "darkgray")
+    (set-face-background 'highlight-indent-guides-odd-face "gray")
     (set-face-background 'highlight-indent-guides-even-face "dimgray")
-    (set-face-foreground 'highlight-indent-guides-character-face "dimgray"))
+    (set-face-foreground 'highlight-indent-guides-character-face "lightgray"))
   :defer t)
 
 ;; nim
@@ -507,17 +507,16 @@
 
 (use-package fsharp-mode
   :ensure t
-  :defer t)
+  :defer t
+  :config
+  (add-hook 'fsharp-mode 'eglot)
+  (add-hook 'fsharp-mode 'company-mode))
 
 (use-package eglot-fsharp
   :ensure t
   :defer t)
 
 (require 'eglot-fsharp)
-
-(defun my--eglot-fsharp ()
-  (interactive)
-  (message (eglot-fsharp--path-to-server)))
 
 (use-package persistent-scratch
   :ensure t
