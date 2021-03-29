@@ -207,15 +207,9 @@
 	   "xb" '(switch-to-buffer :which-key "switch to buffer")
 	   ;; helm
 	   "i" '(nil :which-key "helm")
-	   "ii" '(helm-imenu :which-key "helm imenu")
-	   )
-  (general-create-definer localleader
-    :states '(normal visual)
-    :prefix ",")
-  )
+	   "ii" '(helm-imenu :which-key "helm imenu")))
 
-(global-set-key (kbd "C-;")
-		'comment-line)
+(global-set-key (kbd "C-;") 'comment-line)
 
 ;; company
 (use-package company
@@ -231,32 +225,6 @@
 (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'emacs-lisp-mode-hook 'company-mode)
 (add-hook 'emacs-lisp-mode-hook 'electric-pair-mode)
-
-;; rust
-(use-package rust-mode
-  :ensure t
-  :config
-  (setq-default rust-format-on-save t)
-  :defer t)
-
-(add-hook 'rust-mode-hook
-	  (lambda ()
-	    (setq indent-tabs-mode nil)))
-
-(use-package racer
-  :ensure t
-  :config
-  (setq-default company-tooltip-align-annotations t)
-  :defer t
-  :general
-  (:states '(normal emacs)
-	   :keymaps 'rust-mode-map
-	   "gd" '(racer-find-definition :which-key "racer go to definition")
-	   "C-SPC" '(company-indent-or-complete-common :which-key "company complete")))
-
-(add-hook 'rust-mode-hook #'racer-mode)
-(add-hook 'racer-mode-hook #'eldoc-mode)
-(add-hook 'racer-mode-hook #'company-mode)
 
 ;; auto update packages
 (use-package auto-package-update
@@ -333,13 +301,6 @@
 		 (side            . bottom)
 		 (reusable-frames . visible)
 		 (window-height   . 0.25))))
-
-(use-package flycheck-rust
-  :ensure t
-  :defer t
-  :config
-  (with-eval-after-load 'rust-mode
-    (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)))
 
 (use-package flycheck-pos-tip
   :ensure t
@@ -465,10 +426,6 @@
 (use-package pyvenv
   :ensure t
   :defer t)
-
-(use-package kivy-mode
-  :defer t
-  :ensure t)
 
 (defun my--lua-run-love-shell-command ()
   "Run love on the current dir on a separated shell command"
