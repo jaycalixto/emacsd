@@ -74,6 +74,9 @@
   :ensure t
   :defer t)
 
+(require 'origami)
+(global-origami-mode)
+
 (use-package lsp-mode
   :ensure t
   :defer t
