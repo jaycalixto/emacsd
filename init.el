@@ -562,8 +562,15 @@
 
 (require 'projectile)
 
-;; config js mode
+;; js mode
+(use-package js2-mode
+  :ensure t
+  :defer t
+  :config
+  (add-hook 'javascript-mode 'js2-mode)
+  (setq-default js2-strict-missing-semi-warning nil))
 (setq-default js-indent-level 2)
+
 
 ;; Themes
 (use-package srcery-theme
