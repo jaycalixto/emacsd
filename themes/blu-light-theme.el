@@ -16,12 +16,13 @@
    `(border-color ((,class (:background "#FF0000"))))
    `(default ((,class (:background "#F9F9F9" :foreground "#383A42"))))
    `(fringe ((,class (:background "#F9F9F9"))))
-   `(mode-line
-     ((,class
-       (:box (:line-width -1 :style released-button)
-	     :background "#E8E8E8" :foreground "#383A42"))))
+
+   ;; mode-line
+   `(mode-line ((,class (:foreground "#383A42" :background "#E8E8E8"))))
    `(mode-line-inactive
-     ((,class (:foreground "#D5D7D8" :background ,"#F9F9F9"))))
+     ((,class (:inherit mode-line :background "#F9F9F9" :foreground "#D5D7D8" :box "#E8E8E8"))))
+   `(mode-line-buffer-id ((,class (:foreground unspecified :bold t))))
+
    `(header-line ((,class (:foreground "#E8E8E8" :background "#383A42"))))
 
    `(minibuffer-prompt
