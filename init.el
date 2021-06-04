@@ -167,6 +167,17 @@
 (load-theme 'blu-light t)
 ;; (load-theme 'rebecca t)
 
+;; modeline
+(use-package mood-line
+  :ensure t
+  :defer t
+  :init
+  (mood-line-mode)
+  :config
+  (progn
+    (display-time-mode)
+    (column-number-mode)))
+
 ;; whitespace mode
 (use-package whitespace
   :defer t
