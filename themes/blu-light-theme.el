@@ -9,24 +9,44 @@
 (deftheme blu-light
   "My custom light theme.")
 
-(let ((class '((class color) (min-colors 89))))
+(let* ((class '((class color) (min-colors 89)))
+       (col00 "#F9F9F9") ;; background
+       (col01 "#383A42") ;; foreground
+       (col02 "#A0A1A7") ;; comment
+       (col03 "#0098DD") ;; keyword
+       (col04 "#23974A") ;; function/method
+       (col05 "#A04A48") ;; property
+       (col06 "#C5A332") ;; string
+       (col07 "#CE33C0") ;; number
+       (col08 "#823FF1") ;; constant
+       (col09 "#275FE4") ;; markup tag
+       (col10 "#DF631C") ;; markup attribute
+       (col11 "#D52753") ;; class/type/interface
+       (col12 "#7A82DA") ;; operator/punctuation
+
+       (bkg col00)
+       (black col01)
+       (blu "#0099E1")
+       (red "#FF0000")
+       (bkg-mid "#E8E8E8"))
+
   (custom-theme-set-faces
    'blu-light
-   `(cursor ((,class (:background "#383A42"))))
-   `(border-color ((,class (:background "#FF0000"))))
-   `(default ((,class (:background "#F9F9F9" :foreground "#383A42"))))
-   `(fringe ((,class (:background "#F9F9F9"))))
+   `(cursor ((,class (:background ,black))))
+   `(border-color ((,class (:background ,red))))
+   `(default ((,class (:background ,bkg :foreground ,black))))
+   `(fringe ((,class (:background ,bkg))))
 
    ;; mode-line
-   `(mode-line ((,class (:foreground "#383A42" :background "#E8E8E8"))))
+   `(mode-line ((,class (:foreground ,black :background ,bkg-mid :overline ,blu))))
    `(mode-line-inactive
-     ((,class (:inherit mode-line :background "#F9F9F9" :foreground "#D5D7D8" :box "#E8E8E8"))))
+     ((,class (:background ,bkg :foreground "#D5D7D8" :box ,bkg-mid))))
    `(mode-line-buffer-id ((,class (:foreground unspecified :bold t))))
 
-   `(header-line ((,class (:foreground "#E8E8E8" :background "#383A42"))))
+   `(header-line ((,class (:foreground ,bkg-mid :background ,black))))
 
    `(minibuffer-prompt
-     ((,class (:foreground "#383A42" :bold t))))
+     ((,class (:foreground ,black :bold t))))
    `(region ((,class (:foreground unspecified :background "#D2ECFF"))))
    `(dired-header
      ((,class (:bold t :foreground "#275FE4"))))
@@ -45,7 +65,7 @@
    `(font-lock-type-face ((,class (:foreground "#D52753" :bold nil))))
    `(font-lock-variable-name-face ((,class (:foreground "#FF0000" :bold t))))
    `(font-lock-warning-face ((,class (:foreground "#DF631C" :bold t))))
-         
+   
    ;; whitespace
    `(whitespace-space ((,class (:background nil :foreground "#D5D7D8"))))
    `(whitespace-newline ((,class (:background  nil :foreground "#D5D7D8"))))
