@@ -2,6 +2,9 @@
 ;; collection.  The default is 800 kilobytes.  Measured in bytes.
 (setq gc-cons-threshold (* 50 1000 1000))
 
+;; Configs
+(setq-default my--font "Hack 10") ;; DejaVu Sans Mono 10
+
 ;; disable startup buffer
 (setq inhibit-splash-screen t)
 
@@ -46,7 +49,7 @@
 
 ;; Better font
 (setq default-frame-alist
-      (add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono 10")))
+      (add-to-list 'default-frame-alist `(font . ,my--font)))
 
 ;; make frame start bigger and more centralized
 (when window-system
