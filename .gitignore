@@ -62,3 +62,4 @@ anaconda-mode
 custom.el
 .persistent-scratch
 /local.el
+ido.last

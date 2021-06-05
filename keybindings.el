@@ -1,3 +1,7 @@
+(defun my--open-init-el ()
+  (interactive)
+  (find-file user-init-file))
+
 ;; evil mode
 (use-package evil
   :ensure t
@@ -23,7 +27,7 @@
    ;; "/" '(counsel-rg :which-key "ripgrep") ; need counsel package
    "TAB" '(switch-to-prev-buffer :which-key "previous buffer")
    "'" '(switch-to-next-buffer :which-key "next buffer")
-   "SPC" '(helm-M-x :which-key "M-x")
+   "SPC" '(execute-extended-command :which-key "M-x")
    ;; help
    "h" '(nil :which-key "help")
    "hv" '(describe-variable :which-key "describe variable")
@@ -31,17 +35,17 @@
    "hk" '(describe-key :which-key "describe key")
    ;; Buffers
    "b" '(nil :which-key "buffers")
-   "bl" '(helm-mini :which-key "buffers and recent files")
-   "bb" '(helm-buffers-list :which-key "buffers list")
+   ;; "bl" '(helm-mini :which-key "buffers and recent files")
+   "bb" '(ido-switch-buffer :which-key "buffers list")
    "bd" '(kill-this-buffer :which-key "kill buffer")
    "bn" '(evil-next-buffer :which-key "next buffer")
    "bp" '(evil-prev-buffer :which-key "previous buffer")
    ;; Frames
-   "f" '(nil :which-key "frames")
-   "fc" '(make-frame :which-key "new frame")
-   "fd" '(delete-frame :which-key "delete frame")
-   "fn" '(other-frame :which-key "next frame")
-   "ff" '(next-multiframe-window :which-key "next multiframe window")
+   ;; "r" '(nil :which-key "frames")
+   ;; "rc" '(make-frame :which-key "new frame")
+   ;; "rd" '(delete-frame :which-key "delete frame")
+   ;; "rn" '(other-frame :which-key "next frame")
+   ;; "rf" '(next-multiframe-window :which-key "next multiframe window")
    ;; Window
    "w" '(nil :which-key "window")
    "wl" '(windmove-right :which-key "move right")
@@ -67,10 +71,11 @@
    ;; kills
    ;; "çç" '(my--kill-extra-buffers :whick-key "kill buffers/windows")
    ;; File
-   "F" '(nil :which-key "files")
-   "Fl" '(load-file :which-key "load file")
-   "Fr" '(helm-recentf :which-key "recent files")
-   "Fp" '(helm-find-files :which-key "find files")
+   "f" '(nil :which-key "files")
+   "ff" '(my--open-init-el :which-key "open init.el")
+   "fl" '(load-file :which-key "load file")
+   "fr" '(helm-recentf :which-key "recent files")
+   "fp" '(helm-find-files :which-key "find files")
    ;;flycheck
    "!" '(nil :which-key "flycheck")
    "!l" '(flycheck-list-errors :which-key "list errors")
@@ -80,3 +85,5 @@
    ;; helm
    "i" '(nil :which-key "helm")
    "ii" '(helm-imenu :which-key "helm imenu")))
+
+(global-set-key (kbd "C-;") 'comment-line)

@@ -38,7 +38,9 @@
    `(fringe ((,class (:background ,bkg))))
 
    ;; mode-line
-   `(mode-line ((,class (:foreground ,black :background ,bkg-mid :overline ,blu))))
+   `(mode-line
+     ((,class
+       (:foreground ,black :background ,bkg-mid :overline ,blu :box nil))))
    `(mode-line-inactive
      ((,class (:background ,bkg :foreground "#D5D7D8" :box ,bkg-mid))))
    `(mode-line-buffer-id ((,class (:foreground unspecified :bold t))))

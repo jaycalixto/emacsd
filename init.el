@@ -22,9 +22,6 @@
 ;; send custom set variable to other file and keep init.el clean
 (setq custom-file "~/.emacs.d/custom.el")
 
-;; start by opening init.el
-;; (setq initial-buffer-choice user-init-file)
-
 ;; filename on frame title
 (setq frame-title-format '("%b [%m] - Emacs " emacs-version))
 
@@ -56,6 +53,10 @@
   (set-frame-position (selected-frame) 350 50)
   (set-frame-size (selected-frame) 120 55))
 
+(defun my--load-file-from-home (filename)
+  (load-file
+   (expand-file-name filename user-emacs-directory)))
+
 ;; package config
 (require 'package)
 (setq package-enable-at-startup nil)
@@ -73,16 +74,14 @@
 ;; rainbow delimiter
 (use-package rainbow-delimiters
   :ensure t
-  :defer t
-  :init
-  (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
+  :defer t)
 
 ;; modeline
 (use-package mood-line
   :ensure t
   :defer t
   :init
-  (mood-line-mode)
+  (mood-line-mode t)
   :config
   (progn
     (display-time-mode)
@@ -91,8 +90,8 @@
 ;; whitespace mode
 (use-package whitespace
   :defer t
-  :init
-  (add-hook 'prog-mode-hook 'whitespace-mode)
+  ;;:init
+  ;;(add-hook 'prog-mode-hook 'whitespace-mode)
   :config
   (progn
     (setq whitespace-style
@@ -102,11 +101,53 @@
     (setq whitespace-line-column 100)))
 
 ;; keybindings
-(load-file "keybindings.el")
+(my--load-file-from-home "keybindings.el")
+
+;; ido
+(use-package ido
+  :ensure t
+  :defer t
+  ;; :init
+  ;; (ido-mode t)
+  :config
+  (progn
+    (require 'recentf)
+    (recentf-mode t)
+    (setq ido-separator "\n")
+    (setq recentf-max-saved-items 200)
+    (setq ido-use-virtual-buffers t))
+  :hook
+  (after-init . ido-mode))
+
+;; autocompletion
+;; TODO fix autocompletion colors on blu theme
+(use-package company
+  :ensure t
+  :defer t)
+
+;; Which Key
+(use-package which-key
+  :ensure t
+  :defer t
+  :config
+  (progn 
+    (setq which-key-separator " ")
+    (setq which-key-prefix-prefix "+")
+    (setq which-key-popup-type 'minibuffer)
+    (setq which-key-side-window-location 'bottom)
+    (setq which-key-side-window-max-width 0.33)
+    (setq which-key-side-window-max-height 0.25))
+  :hook
+  (after-init . which-key-mode))
+
+;; languages and major modes
+(my--load-file-from-home "langs/elisp.el")
+;; (my--load-file-from-home "langs/elixir.el")
 
 ;; theme (load theme last so i imediatly can tell if there's something wrong)
-(add-to-list 'custom-theme-load-path
-	     (expand-file-name "themes" user-emacs-directory))
+(add-to-list
+ 'custom-theme-load-path
+ (expand-file-name "themes" user-emacs-directory))
 
 (load-theme 'blu-light t)
 ;; (load-theme 'rebecca t)
