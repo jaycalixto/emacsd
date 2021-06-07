@@ -28,6 +28,7 @@
        (black col01)
        (blu "#0099E1")
        (red "#FF0000")
+       (bkg-light "#F1F1F1")
        (bkg-mid "#E8E8E8"))
 
   (custom-theme-set-faces
@@ -117,7 +118,12 @@
    `(gnus-cite-2 ((,class (:foreground "#0084C8"))))
 
    `(diff-added ((,class (:bold t :foreground "#4E9A06"))))
-   `(diff-removed ((,class (:bold t :foreground "#F5666D"))))))
+   `(diff-removed ((,class (:bold t :foreground "#F5666D"))))
+
+   ;; company
+   `(company-tooltip ((,class (:background ,bkg-light :foreground ,black))))
+   `(company-tooltip-selection ((,class (:background ,blu :foreground ,bkg))))
+   ))
 
 (provide-theme 'blu-light)
 

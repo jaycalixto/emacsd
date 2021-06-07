@@ -45,7 +45,7 @@
 (add-hook 'prog-mode-hook 'linum-mode)
 
 ;; better line number format
-(setq-default linum-format "%03d")
+(setq-default linum-format "%3d")
 
 ;; Better font
 (setq default-frame-alist
@@ -145,6 +145,7 @@
 
 ;; languages and major modes
 (my--load-file-from-home "langs/elisp.el")
+(my--load-file-from-home "langs/clisp.el")
 ;; (my--load-file-from-home "langs/elixir.el")
 
 ;; theme (load theme last so i imediatly can tell if there's something wrong)
