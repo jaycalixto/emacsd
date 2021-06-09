@@ -7,7 +7,6 @@
   :ensure t
   :defer t
   :config
-  ;; TODO make this work on linux
   (progn
     (load (expand-file-name "~/quicklisp/slime-helper.el"))
     (setq inferior-lisp-program "ccl")))
