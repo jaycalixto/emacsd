@@ -19,6 +19,7 @@
 ;; general
 (use-package general
   :ensure t
+  :after evil
   :config
   (general-define-key
    :states '(normal visual insert emacs)
