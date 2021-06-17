@@ -143,6 +143,10 @@
   :hook
   (after-init . which-key-mode))
 
+(use-package auto-highlight-symbol
+  :ensure t
+  :defer t)
+
 ;; languages and major modes
 (my--load-file-from-home "langs/elisp.el")
 (my--load-file-from-home "langs/clisp.el")

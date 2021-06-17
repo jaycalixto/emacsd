@@ -6,6 +6,7 @@
     (add-hook 'lisp-mode-hook 'company-mode)
     (add-hook 'lisp-mode-hook 'show-paren-mode)
     (add-hook 'lisp-mode-hook 'electric-pair-mode)
+    (add-hook 'lisp-mode-hook 'auto-highlight-symbol-mode)
     (add-hook 'lisp-mode-hook 'rainbow-delimiters-mode)
     (general-evil-define-key 'normal lisp-mode-map
       :prefix "SPC"
