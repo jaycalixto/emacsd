@@ -14,5 +14,7 @@
       "cc" '(slime-eval-buffer :which-key "eval buffer")))
   :config
   (progn
-    (load (expand-file-name "~/quicklisp/slime-helper.el"))
-    (setq inferior-lisp-program "ccl")))
+    (setq file-slime-helper (expand-file-name "~/quicklisp/slime-helper.el"))
+    (when (file-exists-p file-slime-helper)
+      ((load file-slime-helper)
+       (setq inferior-lisp-program "ccl")))))

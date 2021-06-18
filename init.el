@@ -3,7 +3,7 @@
 (setq gc-cons-threshold (* 50 1000 1000))
 
 ;; Configs
-(setq-default my--font "Hack 10") ;; DejaVu Sans Mono 10
+(setq-default my--font "Cascadia Code 10") ;; DejaVu Sans Mono 10
 
 ;; disable startup buffer
 (setq inhibit-splash-screen t)
