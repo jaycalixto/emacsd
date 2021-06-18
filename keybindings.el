@@ -70,6 +70,9 @@
    ;;flycheck
    "!" '(nil :which-key "flycheck")
    "!l" '(flycheck-list-errors :which-key "list errors")
+   ;; misc
+   "=" '(nil :which-key "misc commands")
+   "==" '(whitespace-mode :which-key "toggle whitespace mode")
    ;; emacs
    "xf" '(find-file :which-key "find file")
    "xb" '(switch-to-buffer :which-key "switch to buffer")))

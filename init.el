@@ -3,7 +3,9 @@
 (setq gc-cons-threshold (* 50 1000 1000))
 
 ;; Configs
-(setq-default my--font "Cascadia Code 10") ;; DejaVu Sans Mono 10
+;; (setq-default my--font "Cascadia Code 10") ;; DejaVu Sans Mono 10
+;; (setq-default my--font "Lucida Sans Typewriter 10") ;; DejaVu Sans Mono 10
+(setq-default my--font "Consolas 12") ;; DejaVu Sans Mono 10
 
 ;; disable startup buffer
 (setq inhibit-splash-screen t)
@@ -150,6 +152,7 @@
 ;; languages and major modes
 (my--load-file-from-home "langs/elisp.el")
 (my--load-file-from-home "langs/clisp.el")
+(my--load-file-from-home "langs/javascript.el")
 ;; (my--load-file-from-home "langs/elixir.el")
 
 ;; theme (load theme last so i imediatly can tell if there's something wrong)
@@ -157,8 +160,10 @@
  'custom-theme-load-path
  (expand-file-name "themes" user-emacs-directory))
 
-(load-theme 'blu-light t)
-;; (load-theme 'rebecca t)
+;; (load-theme 'blu-light t)
+(load-theme 'rebecca t)
+;; (load-theme 'srcery t)
+;; (load-theme 'atom-one-dark t)
 
 ;; Make gc pauses faster by decreasing the threshold.
 (setq gc-cons-threshold (* 2 1000 1000))
