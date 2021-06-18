@@ -149,6 +149,13 @@
   :ensure t
   :defer t)
 
+(use-package flycheck
+  :ensure t
+  :defer t
+  :init (global-flycheck-mode)
+  :config
+  (setq-default flycheck-temp-prefix ".flycheck"))
+
 ;; languages and major modes
 (my--load-file-from-home "langs/elisp.el")
 (my--load-file-from-home "langs/clisp.el")
