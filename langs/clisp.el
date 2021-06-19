@@ -16,5 +16,6 @@
   (progn
     (setq file-slime-helper (expand-file-name "~/quicklisp/slime-helper.el"))
     (when (file-exists-p file-slime-helper)
-      ((load file-slime-helper)
-       (setq inferior-lisp-program "ccl")))))
+      (progn
+	(load file-slime-helper)
+	(setq inferior-lisp-program "ccl")))))
