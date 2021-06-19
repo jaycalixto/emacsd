@@ -4,8 +4,8 @@
 
 ;; Configs
 ;; (setq-default my--font "Cascadia Code 10") ;; DejaVu Sans Mono 10
-;; (setq-default my--font "Lucida Sans Typewriter 10") ;; DejaVu Sans Mono 10
-(setq-default my--font "Consolas 12") ;; DejaVu Sans Mono 10
+(setq-default my--font "Lucida Console 12") ;; DejaVu Sans Mono 10
+;; (setq-default my--font "Consolas 12") ;; DejaVu Sans Mono 10
 
 ;; disable startup buffer
 (setq inhibit-splash-screen t)
@@ -56,7 +56,7 @@
 ;; make frame start bigger and more centralized
 (when window-system
   (set-frame-position (selected-frame) 350 50)
-  (set-frame-size (selected-frame) 120 55))
+  (set-frame-size (selected-frame) 120 50))
 
 (defun my--load-file-from-home (filename)
   (load-file
@@ -95,8 +95,6 @@
 ;; whitespace mode
 (use-package whitespace
   :defer t
-  ;;:init
-  ;;(add-hook 'prog-mode-hook 'whitespace-mode)
   :config
   (progn
     (setq whitespace-style
@@ -112,8 +110,6 @@
 (use-package ido
   :ensure t
   :defer t
-  ;; :init
-  ;; (ido-mode t)
   :config
   (progn
     (require 'recentf)
@@ -125,7 +121,6 @@
   (after-init . ido-mode))
 
 ;; autocompletion
-;; TODO fix autocompletion colors on blu theme
 (use-package company
   :ensure t
   :defer t)
@@ -135,7 +130,7 @@
   :ensure t
   :defer t
   :config
-  (progn 
+  (progn
     (setq which-key-separator " ")
     (setq which-key-prefix-prefix "+")
     (setq which-key-popup-type 'minibuffer)
@@ -152,7 +147,6 @@
 (use-package flycheck
   :ensure t
   :defer t
-  :init (global-flycheck-mode)
   :config
   (setq-default flycheck-temp-prefix ".flycheck"))
 

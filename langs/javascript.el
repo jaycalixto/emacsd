@@ -33,10 +33,6 @@
 
 (add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode))
 
-;; adjust indents for web-mode to 2 spaces
-
-(add-hook 'web-mode-hook  'my-web-mode-hook)
-
 ;; use local eslint from node_modules before global
 ;; http://emacs.stackexchange.com/questions/21205/flycheck-with-file-relative-eslint-executable
 (defun my/use-eslint-from-node-modules ()
