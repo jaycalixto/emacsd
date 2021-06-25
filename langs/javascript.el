@@ -19,11 +19,19 @@
 ;;   :ensure t
 ;;   :defer t)
 
+(use-package css-mode
+  :ensure t
+  :defer t
+  :config
+  (company-mode))
+
 (use-package web-mode
   :ensure t
   :defer t
   :init
-  (setq-default indent-tabs-mode nil))
+  (setq-default indent-tabs-mode nil)
+  :config
+  (company-mode))
   ;; :after 'flycheck)
   ;; :config
   ;; (progn
