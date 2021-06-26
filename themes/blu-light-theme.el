@@ -61,7 +61,7 @@
 
    `(font-lock-builtin-face ((,class (:foreground "#23974A" :bold t))))
    `(font-lock-constant-face ((,class (:foreground "#823FF1"))))
-   `(font-lock-comment-face ((,class (:foreground "#A0A1A7" :bold t))))
+   `(font-lock-comment-face ((,class (:foreground "#A0A1A7" :bold nil :italic t))))
    `(font-lock-function-name-face ((,class (:foreground "#0000FF" :bold t))))
    `(font-lock-keyword-face ((,class (:bold t :foreground "#0098DD"))))
    `(font-lock-string-face ((,class (:foreground "#C5A332"))))

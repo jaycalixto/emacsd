@@ -4,8 +4,12 @@
 
 ;; Configs
 ;; (setq-default my--font "Cascadia Code 10") ;; DejaVu Sans Mono 10
-(setq-default my--font "Lucida Console 12") ;; DejaVu Sans Mono 10
+;; (setq-default my--font (cond system-type ('gnu/linux "NanumGothic"))"Lucida Console 12") ;; DejaVu Sans Mono 10
 ;; (setq-default my--font "Consolas 12") ;; DejaVu Sans Mono 10
+(setq-default my--font
+              (if (eq system-type 'gnu/linux)
+                  "DejaVuSans Mono 10"
+                "Lucida Console 12"))
 
 ;; disable startup buffer
 (setq inhibit-splash-screen t)
@@ -162,8 +166,11 @@
  (expand-file-name "themes" user-emacs-directory))
 
 ;; (load-theme 'blu-light t)
-(load-theme 'rebecca t)
-;; (load-theme 'srcery t)
+(if (eq system-type 'gnu/linux)
+    (load-theme 'blu-light t)
+  (load-theme 'rebecca t))
+;; (load-theme 'rebecca t)
+;; ;; (load-theme 'srcery t)
 ;; (load-theme 'atom-one-dark t)
 
 ;; Make gc pauses faster by decreasing the threshold.
