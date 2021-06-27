@@ -11,9 +11,16 @@
 
 ;; (add-hook 'flycheck-mode-hook #'my/disable-js-flycheck-checkers)
 
-;; (use-package js2-mode
-;;   :ensure t
-;;   :defer t)
+(use-package js2-mode
+  :ensure t
+  :defer t
+  :config
+  (progn
+    (setq-default indent-tabs-mode nil)
+    (company-mode +1)
+    (rainbow-delimiters-mode)))
+
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
 ;; (use-package json-mode
 ;;   :ensure t
