@@ -17,10 +17,12 @@
   :config
   (progn
     (setq-default indent-tabs-mode nil)
-    (company-mode +1)
-    (rainbow-delimiters-mode)))
+    (setq-default js-indent-level 2)))
 
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+(add-hook 'js2-mode-hook #'company-mode)
+(add-hook 'js2-mode-hook #'rainbow-delimiters-mode)
+(add-hook 'js2-mode-hook #'lsp-deferred)
 
 ;; (use-package json-mode
 ;;   :ensure t
@@ -38,7 +40,9 @@
   :init
   (setq-default indent-tabs-mode nil)
   :config
-  (company-mode))
+  (progn
+    (setq-default web-mode-code-indent-offset 2)
+    (setq-default web-mode-markup-indent-offset 2)))
   ;; :after 'flycheck)
   ;; :config
   ;; (progn
@@ -49,6 +53,9 @@
 
 
 (add-hook 'web-mode-hook #'flycheck-mode)
+(add-hook 'web-mode-hook #'company-mode)
+(add-hook 'web-mode-hook #'electric-pair-mode)
+(add-hook 'web-mode-hook #'lsp-deferred)
 
 (add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode))
 

@@ -154,6 +154,19 @@
   :config
   (setq-default flycheck-temp-prefix ".flycheck"))
 
+;; Language Server Protocol
+(use-package lsp-mode
+  :ensure t
+  :defer t
+  :hook
+  (lsp-mode . lsp-enable-which-key-integration)
+  :commands (lsp lsp-deferred))
+
+(use-package lsp-ui
+  :ensure t
+  :defer t
+  :commands lsp-ui-mode)
+
 ;; languages and major modes
 (my--load-file-from-home "langs/elisp.el")
 (my--load-file-from-home "langs/clisp.el")
