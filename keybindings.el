@@ -73,6 +73,7 @@
    ;; misc
    "=" '(nil :which-key "misc commands")
    "==" '(whitespace-mode :which-key "toggle whitespace mode")
+   "[" '(imenu-list-smart-toggle :which-key "toggle imenu list")
    ;; emacs
    "xf" '(find-file :which-key "find file")
    "xb" '(switch-to-buffer :which-key "switch to buffer")))

@@ -186,6 +186,16 @@
 ;; ;; (load-theme 'srcery t)
 ;; (load-theme 'atom-one-dark t)
 
+;; imenu list
+(use-package imenu-list
+  :ensure t
+  :defer t
+  :commands imenu-list-smart-toggle
+  :config
+  (progn
+    (setq-default imenu-list-focus-after-activation t)
+    (setq-default imenu-list-auto-resize t)
+    (setq-default imenu-list-position 'right)))
 ;; Make gc pauses faster by decreasing the threshold.
 (setq gc-cons-threshold (* 2 1000 1000))
 
