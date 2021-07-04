@@ -196,6 +196,13 @@
     (setq-default imenu-list-focus-after-activation t)
     (setq-default imenu-list-auto-resize t)
     (setq-default imenu-list-position 'right)))
+
+;; start server
+(add-hook 'emacs-startup-hook
+          (lambda ()
+            (require 'server)
+            (unless (server-running-p) (server-start))))
+
 ;; Make gc pauses faster by decreasing the threshold.
 (setq gc-cons-threshold (* 2 1000 1000))
 
