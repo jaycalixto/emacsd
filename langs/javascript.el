@@ -17,12 +17,12 @@
   :config
   (progn
     (setq-default indent-tabs-mode nil)
-    (setq-default js-indent-level 2)))
+    (setq-default js-indent-level 2)
+    (add-hook 'js2-mode-hook #'company-mode)
+    (add-hook 'js2-mode-hook #'rainbow-delimiters-mode)
+    (add-hook 'js2-mode-hook #'lsp-deferred)))
 
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-(add-hook 'js2-mode-hook #'company-mode)
-(add-hook 'js2-mode-hook #'rainbow-delimiters-mode)
-(add-hook 'js2-mode-hook #'lsp-deferred)
 
 ;; (use-package json-mode
 ;;   :ensure t
@@ -42,20 +42,20 @@
   :config
   (progn
     (setq-default web-mode-code-indent-offset 2)
-    (setq-default web-mode-markup-indent-offset 2)))
-  ;; :after 'flycheck)
-  ;; :config
-  ;; (progn
-  ;;   (flycheck-add-mode 'javascript-eslint 'web-mode)))
-  ;;   ;; (setq web-mode-markup-indent-offset 4)
-    ;; (setq web-mode-css-indent-offset 4)
-    ;; (setq web-mode-code-indent-offset 4)))
+    (setq-default web-mode-markup-indent-offset 2)
+    (add-hook 'web-mode-hook #'flycheck-mode)
+    (add-hook 'web-mode-hook #'company-mode)
+    (add-hook 'web-mode-hook #'electric-pair-mode)
+    (add-hook 'web-mode-hook #'lsp-deferred)))
+;; :after 'flycheck)
+;; :config
+;; (progn
+;;   (flycheck-add-mode 'javascript-eslint 'web-mode)))
+;;   ;; (setq web-mode-markup-indent-offset 4)
+;; (setq web-mode-css-indent-offset 4)
+;; (setq web-mode-code-indent-offset 4)))
 
 
-(add-hook 'web-mode-hook #'flycheck-mode)
-(add-hook 'web-mode-hook #'company-mode)
-(add-hook 'web-mode-hook #'electric-pair-mode)
-(add-hook 'web-mode-hook #'lsp-deferred)
 
 (add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode))
 
