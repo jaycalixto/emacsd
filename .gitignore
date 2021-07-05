@@ -63,3 +63,5 @@ custom.el
 .persistent-scratch
 /local.el
 ido.last
+.lsp-eslint-choices
+.lsp-session-v1
