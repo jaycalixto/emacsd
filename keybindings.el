@@ -61,7 +61,7 @@
    "m" '(which-key-show-major-mode :which-key "+major mode")
    ;; Others
    "at" '(ansi-term :which-key "open terminal")
-   "qq" '(kill-emacs :which-key "kill emacs")
+   "qq" '(save-buffers-kill-terminal :which-key "kill emacs")
    ;; File
    "f" '(nil :which-key "files")
    "ff" '(my--open-init-el :which-key "open init.el")

@@ -16,11 +16,11 @@
   :defer t
   :config
   (progn
-    (setq-default indent-tabs-mode nil)
-    (setq-default js-indent-level 2)
     (add-hook 'js2-mode-hook #'company-mode)
     (add-hook 'js2-mode-hook #'rainbow-delimiters-mode)
-    (add-hook 'js2-mode-hook #'lsp-deferred)))
+    (add-hook 'js2-mode-hook #'lsp-deferred)
+    (setq-default indent-tabs-mode nil)
+    (setq-default js-indent-level 2)))
 
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
