@@ -32,7 +32,7 @@
   :ensure t
   :defer t
   :config
-  (company-mode))
+  (add-hook 'css-mode #'company-mode))
 
 (use-package web-mode
   :ensure t
