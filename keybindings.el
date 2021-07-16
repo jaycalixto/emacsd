@@ -41,6 +41,7 @@
    "bd" '(kill-this-buffer :which-key "kill buffer")
    "bn" '(evil-next-buffer :which-key "next buffer")
    "bp" '(evil-prev-buffer :which-key "previous buffer")
+   "bm" '(buffer-menu :which-key "buffer menu")
    ;; Frames
    ;; "r" '(nil :which-key "frames")
    ;; "rc" '(make-frame :which-key "new frame")
