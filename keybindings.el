@@ -36,11 +36,11 @@
    "hk" '(describe-key :which-key "describe key")
    ;; Buffers
    "b" '(nil :which-key "buffers")
-   "bb" '(ido-switch-buffer :which-key "buffers list")
-   "bl" '(ido-switch-buffer :which-key "buffers list")
+   "bl" '(ido-switch-buffer :which-key "switch buffer")
    "bd" '(kill-this-buffer :which-key "kill buffer")
    "bn" '(evil-next-buffer :which-key "next buffer")
    "bp" '(evil-prev-buffer :which-key "previous buffer")
+   "bb" '(list-buffers :which-key "list buffers")
    ;; Frames
    ;; "r" '(nil :which-key "frames")
    ;; "rc" '(make-frame :which-key "new frame")
