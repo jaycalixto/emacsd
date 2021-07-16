@@ -16,11 +16,11 @@
     (setq-default evil-symbol-word-search t)
     (setq evil-want-keybinding nil)))
 
-;; general
-(use-package general
-  :ensure t
-  :after evil
-  :config
+(defun buffer-files-menu ()
+  (interactive)
+  (buffer-menu t))
+
+(defun general-define-standard-keys ()
   (general-define-key
    :states '(normal visual insert emacs)
    :prefix "SPC"
@@ -42,6 +42,7 @@
    "bp" '(evil-prev-buffer :which-key "previous buffer")
    "bb" '(list-buffers :which-key "list buffers")
    "bm" '(buffer-menu :which-key "buffer menu")
+   "bf" '(buffer-files-menu :which-key "buffer menu visiting files")
    ;; Frames
    ;; "r" '(nil :which-key "frames")
    ;; "rc" '(make-frame :which-key "new frame")
@@ -63,6 +64,9 @@
    ;; Others
    "at" '(ansi-term :which-key "open terminal")
    "qq" '(save-buffers-kill-terminal :which-key "kill emacs")
+   ;; emacs
+   "e" '(nil :which-key "emacs")
+   "ep" '(list-packages :which-key "list packages")
    ;; File
    "f" '(nil :which-key "files")
    "ff" '(my--open-init-el :which-key "open init.el")
@@ -78,5 +82,19 @@
    ;; emacs
    "xf" '(find-file :which-key "find file")
    "xb" '(switch-to-buffer :which-key "switch to buffer")))
+
+(defun general-define-buffer-list-keys ()
+  (general-define-key
+   :states 'normal
+   :keymaps 'Buffer-menu-mode-map
+   "RET" '(Buffer-menu-this-window :which-key "buffer menu this window")))
+
+;; general
+(use-package general
+  :ensure t
+  :after evil
+  :config
+  (progn
+    (general-define-standard-keys)))
 
 (global-set-key (kbd "C-;") 'comment-line)
