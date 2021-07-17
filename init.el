@@ -173,19 +173,6 @@
 (my--load-file-from-home "langs/javascript.el")
 ;; (my--load-file-from-home "langs/elixir.el")
 
-;; theme (load theme last so i imediatly can tell if there's something wrong)
-(add-to-list
- 'custom-theme-load-path
- (expand-file-name "themes" user-emacs-directory))
-
-;; (load-theme 'blu-light t)
-(if (eq system-type 'gnu/linux)
-    (load-theme 'blu-light t)
-  (load-theme 'rebecca t))
-;; (load-theme 'rebecca t)
-;; ;; (load-theme 'srcery t)
-;; (load-theme 'atom-one-dark t)
-
 ;; imenu list
 (use-package imenu-list
   :ensure t
@@ -202,6 +189,19 @@
           (lambda ()
             (require 'server)
             (unless (server-running-p) (server-start))))
+
+;; theme (load theme last so i imediatly can tell if there's something wrong)
+(add-to-list
+ 'custom-theme-load-path
+ (expand-file-name "themes" user-emacs-directory))
+
+;; (load-theme 'blu-light t)
+(if (eq system-type 'gnu/linux)
+    (load-theme 'blu-light t)
+  (load-theme 'rebecca t))
+;; (load-theme 'rebecca t)
+;; ;; (load-theme 'srcery t)
+;; (load-theme 'atom-one-dark t)
 
 ;; Make gc pauses faster by decreasing the threshold.
 (setq gc-cons-threshold (* 2 1000 1000))
