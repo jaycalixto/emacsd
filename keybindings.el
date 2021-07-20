@@ -6,7 +6,10 @@
 (use-package evil
   :ensure t
   :init
-  (setq evil-want-C-u-scroll t)
+  (progn
+    (setq-default evil-overriding-maps
+                  '((Buffer-menu-mode-map . nil)))
+    (setq evil-want-C-u-scroll t))
   :config
   (progn
     (evil-mode 1)
