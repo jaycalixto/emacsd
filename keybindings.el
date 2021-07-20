@@ -50,6 +50,7 @@
    ;; "rf" '(next-multiframe-window :which-key "next multiframe window")
    ;; Window
    "w" '(nil :which-key "window")
+   "wf" '(other-frame :which-key "other frame")
    "wl" '(windmove-right :which-key "move right")
    "wd" '(evil-window-delete :which-key "delete window")
    "wh" '(windmove-left :which-key "move left")
