@@ -168,9 +168,12 @@
   :commands lsp-ui-mode)
 
 ;; languages and major modes
+;; (my--load-file-from-home "langs/ada.el")
 (my--load-file-from-home "langs/elisp.el")
 (my--load-file-from-home "langs/clisp.el")
 (my--load-file-from-home "langs/javascript.el")
+(my--load-file-from-home "langs/c.el")
+;; (my--load-file-from-home "langs/zig.el")
 ;; (my--load-file-from-home "langs/elixir.el")
 
 ;; imenu list
