@@ -6,7 +6,10 @@
 (use-package evil
   :ensure t
   :init
-  (setq evil-want-C-u-scroll t)
+  (progn
+    (setq-default evil-overriding-maps
+                  '((Buffer-menu-mode-map . nil)))
+    (setq evil-want-C-u-scroll t))
   :config
   (progn
     (evil-mode 1)
@@ -51,6 +54,7 @@
    ;; "rf" '(next-multiframe-window :which-key "next multiframe window")
    ;; Window
    "w" '(nil :which-key "window")
+   "wf" '(other-frame :which-key "other frame")
    "wl" '(windmove-right :which-key "move right")
    "wd" '(evil-window-delete :which-key "delete window")
    "wh" '(windmove-left :which-key "move left")
