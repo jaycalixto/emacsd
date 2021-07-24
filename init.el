@@ -173,6 +173,7 @@
 (my--load-file-from-home "langs/clisp.el")
 (my--load-file-from-home "langs/javascript.el")
 (my--load-file-from-home "langs/c.el")
+;; (my--load-file-from-home "langs/sml.el")
 ;; (my--load-file-from-home "langs/zig.el")
 ;; (my--load-file-from-home "langs/elixir.el")
 
