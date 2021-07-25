@@ -173,6 +173,7 @@
 (my--load-file-from-home "langs/clisp.el")
 (my--load-file-from-home "langs/javascript.el")
 (my--load-file-from-home "langs/c.el")
+(my--load-file-from-home "langs/gdscript.el")
 ;; (my--load-file-from-home "langs/sml.el")
 ;; (my--load-file-from-home "langs/zig.el")
 ;; (my--load-file-from-home "langs/elixir.el")
@@ -192,6 +193,7 @@
 (add-hook 'emacs-startup-hook
           (lambda ()
             (require 'server)
+            (message "starting server")
             (unless (server-running-p) (server-start))))
 
 ;; theme (load theme last so i imediatly can tell if there's something wrong)
