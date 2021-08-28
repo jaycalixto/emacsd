@@ -205,7 +205,7 @@
 ;; (load-theme 'blu-light t)
 (if (eq system-type 'gnu/linux)
     (load-theme 'blu-light t)
-  (load-theme 'rebecca t))
+  (load-theme 'arjen-grey t))
 ;; (load-theme 'rebecca t)
 ;; ;; (load-theme 'srcery t)
 ;; (load-theme 'atom-one-dark t)
