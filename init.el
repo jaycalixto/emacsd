@@ -66,6 +66,9 @@
   (load-file
    (expand-file-name filename user-emacs-directory)))
 
+;; revert buffers a when file changed in disk
+(global-auto-revert-mode t)
+
 ;; package config
 (require 'package)
 (setq package-enable-at-startup nil)
