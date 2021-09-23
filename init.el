@@ -178,6 +178,7 @@
 (my--load-file-from-home "langs/c.el")
 ;; (my--load-file-from-home "langs/gdscript.el")
 (my--load-file-from-home "langs/org.el")
+(my--load-file-from-home "langs/scala.el")
 ;; (my--load-file-from-home "langs/sml.el")
 ;; (my--load-file-from-home "langs/zig.el")
 ;; (my--load-file-from-home "langs/elixir.el")
@@ -205,11 +206,12 @@
  'custom-theme-load-path
  (expand-file-name "themes" user-emacs-directory))
 
+(load-theme 'arjen-grey t)
 ;; (load-theme 'blu-light t)
-(if (eq system-type 'gnu/linux)
-    (load-theme 'blu-light t)
-  (load-theme 'arjen-grey t))
-;; (load-theme 'rebecca t)
+;; (if (eq system-type 'gnu/linux)
+;;     (load-theme 'blu-light t)
+;;   (load-theme 'arjen-grey t))
+;; ;; (load-theme 'rebecca t)
 ;; ;; (load-theme 'srcery t)
 ;; (load-theme 'atom-one-dark t)
 
