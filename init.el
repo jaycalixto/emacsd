@@ -161,6 +161,8 @@
 (use-package lsp-mode
   :ensure t
   :defer t
+  :config
+  (setq-default lsp-enable-snippet nil)
   :hook
   (lsp-mode . lsp-enable-which-key-integration)
   :commands (lsp lsp-deferred))
