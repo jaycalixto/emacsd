@@ -187,7 +187,8 @@
 ;; (my--load-file-from-home "langs/sml.el")
 (my--load-file-from-home "langs/zig.el")
 ;; (my--load-file-from-home "langs/elixir.el")
-(my--load-file-from-home "langs/clojure.el")
+;; (my--load-file-from-home "langs/clojure.el")
+(my--load-file-from-home "langs/lua.el")
 
 ;; imenu list
 (use-package imenu-list
