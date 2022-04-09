@@ -5,6 +5,7 @@
   (progn
     (add-hook 'zig-mode-hook #'electric-pair-mode)
     (add-hook 'zig-mode-hook #'rainbow-delimiters-mode)
+    (add-hook 'zig-mode-hook #'lsp-deferred)
     (add-hook 'zig-mode-hook #'company-mode))
   :general
   (:keymaps 'zig-mode-map
