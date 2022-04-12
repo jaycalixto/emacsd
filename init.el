@@ -180,7 +180,7 @@
 (my--load-file-from-home "langs/javascript.el")
 (my--load-file-from-home "langs/typescript.el")
 ;; (my--load-file-from-home "langs/c.el")
-;; (my--load-file-from-home "langs/svelte.el")
+(my--load-file-from-home "langs/svelte.el")
 ;; (my--load-file-from-home "langs/gdscript.el")
 (my--load-file-from-home "langs/org.el")
 ;; (my--load-file-from-home "langs/scala.el")
