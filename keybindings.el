@@ -47,11 +47,11 @@
    "bm" '(buffer-menu :which-key "buffer menu")
    "bf" '(buffer-files-menu :which-key "buffer menu visiting files")
    ;; Frames
-   ;; "r" '(nil :which-key "frames")
-   ;; "rc" '(make-frame :which-key "new frame")
-   ;; "rd" '(delete-frame :which-key "delete frame")
-   ;; "rn" '(other-frame :which-key "next frame")
-   ;; "rf" '(next-multiframe-window :which-key "next multiframe window")
+   "r" '(nil :which-key "frames")
+   "rc" '(make-frame :which-key "new frame")
+   "rd" '(delete-frame :which-key "delete frame")
+   "rn" '(other-frame :which-key "next frame")
+   "rf" '(next-multiframe-window :which-key "next multiframe window")
    ;; Window
    "w" '(nil :which-key "window")
    "wf" '(other-frame :which-key "other frame")
