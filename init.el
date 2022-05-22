@@ -174,21 +174,22 @@
 
 ;; languages and major modes
 ;; (my--load-file-from-home "langs/ada.el")
-(my--load-file-from-home "langs/elisp.el")
+;; (my--load-file-from-home "langs/c.el")
 ;; (my--load-file-from-home "langs/clisp.el")
+;; (my--load-file-from-home "langs/clojure.el")
+(my--load-file-from-home "langs/elisp.el")
+;; (my--load-file-from-home "langs/elixir.el")
+;; (my--load-file-from-home "langs/gdscript.el")
 ;; (my--load-file-from-home "langs/scheme.el")
 (my--load-file-from-home "langs/javascript.el")
-;; (my--load-file-from-home "langs/typescript.el")
-;; (my--load-file-from-home "langs/c.el")
-;; (my--load-file-from-home "langs/svelte.el")
-;; (my--load-file-from-home "langs/gdscript.el")
+;; (my--load-file-from-home "langs/lua.el")
 (my--load-file-from-home "langs/org.el")
+(my--load-file-from-home "langs/rust.el")
 ;; (my--load-file-from-home "langs/scala.el")
 ;; (my--load-file-from-home "langs/sml.el")
+;; (my--load-file-from-home "langs/svelte.el")
+;; (my--load-file-from-home "langs/typescript.el")
 (my--load-file-from-home "langs/zig.el")
-;; (my--load-file-from-home "langs/elixir.el")
-;; (my--load-file-from-home "langs/clojure.el")
-;; (my--load-file-from-home "langs/lua.el")
 
 ;; imenu list
 (use-package imenu-list
