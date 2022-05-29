@@ -214,14 +214,14 @@
  'custom-theme-load-path
  (expand-file-name "themes" user-emacs-directory))
 
-(load-theme 'arjen-grey t)
+;; (load-theme 'arjen-grey t)
 ;; (load-theme 'blu-light t)
 ;; (if (eq system-type 'gnu/linux)
 ;;     (load-theme 'blu-light t)
 ;;   (load-theme 'arjen-grey t))
-;; ;; (load-theme 'rebecca t)
-;; ;; (load-theme 'srcery t)
-;; (load-theme 'atom-one-dark t)
+;; (load-theme 'rebecca t)
+;; (load-theme 'srcery t)
+(load-theme 'atom-one-dark t)
 
 ;; Make gc pauses faster by decreasing the threshold.
 (setq gc-cons-threshold (* 2 1000 1000))
