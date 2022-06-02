@@ -229,4 +229,6 @@
 ;; show total startup time
 (add-hook 'emacs-startup-hook
 	  (lambda ()
-	    (message "emacs started in %s" (emacs-init-time))))
+            (message (emacs-version))
+            (message "emacs started in %s" (emacs-init-time))))
+
