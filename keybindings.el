@@ -9,6 +9,7 @@
   (progn
     (setq-default evil-overriding-maps
                   '((Buffer-menu-mode-map . nil)))
+    (setq-default evil-undo-system 'undo-redo)
     (setq evil-want-C-u-scroll t))
   :config
   (progn
