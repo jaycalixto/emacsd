@@ -188,7 +188,7 @@
 ;; (my--load-file-from-home "langs/scala.el")
 ;; (my--load-file-from-home "langs/sml.el")
 ;; (my--load-file-from-home "langs/svelte.el")
-;; (my--load-file-from-home "langs/typescript.el")
+(my--load-file-from-home "langs/typescript.el")
 (my--load-file-from-home "langs/zig.el")
 
 ;; imenu list
