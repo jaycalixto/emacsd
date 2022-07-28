@@ -32,7 +32,7 @@
 (setq custom-file "~/.emacs.d/custom.el")
 
 ;; filename on frame title
-(setq frame-title-format '("%b [%m] - Emacs " emacs-version))
+(setq frame-title-format '("%b [%f] - Emacs " emacs-version))
 
 ;; work with utf 8
 (set-language-environment "UTF-8")
