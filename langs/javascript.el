@@ -18,6 +18,7 @@
   (progn
     (add-hook 'js2-mode-hook #'company-mode)
     (add-hook 'js2-mode-hook #'rainbow-delimiters-mode)
+    (add-hook 'js2-mode-hook #'electric-pair-mode)
     (add-hook 'js2-mode-hook #'lsp-deferred)
     (setq-default indent-tabs-mode nil)
     (setq-default js-indent-level 2)))

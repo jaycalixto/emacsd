@@ -1,10 +1,11 @@
 (defun after-rust-mode-loaded ()
   (progn
+    (electric-pair-mode)
+    (lsp-deferred)
     (setq indent-tabs-mode nill)
     (prettify-symbols-mode)
     (flycheck-mode)
     (rainbow-delimiters-mode)
-    (electrict-pair-mode)
     (company-mode)))
 
 (use-package rust-mode
