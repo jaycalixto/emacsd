@@ -155,7 +155,9 @@
   :ensure t
   :defer t
   :config
-  (setq-default flycheck-temp-prefix ".flycheck"))
+  (progn
+    (setq-default flycheck-temp-prefix ".flycheck")
+    (flycheck-add-mode 'typescript-tslint 'web-mode)))
 
 ;; Language Server Protocol
 (use-package lsp-mode
