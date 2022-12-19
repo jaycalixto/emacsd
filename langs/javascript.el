@@ -47,7 +47,8 @@
     (add-hook 'web-mode-hook #'flycheck-mode)
     (add-hook 'web-mode-hook #'company-mode)
     (add-hook 'web-mode-hook #'electric-pair-mode)
-    (add-hook 'web-mode-hook #'lsp-deferred)))
+    ;; (add-hook 'web-mode-hook #'lsp-deferred)
+    ))
 ;; :after 'flycheck)
 ;; :config
 ;; (progn
