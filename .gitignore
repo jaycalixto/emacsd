@@ -65,3 +65,4 @@ custom.el
 ido.last
 .lsp-eslint-choices
 .lsp-session-v1
+eln-cache/
