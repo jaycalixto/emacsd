@@ -182,7 +182,7 @@
 (my--load-file-from-home "langs/elisp.el")
 ;; (my--load-file-from-home "langs/elixir.el")
 ;; (my--load-file-from-home "langs/gdscript.el")
-;; (my--load-file-from-home "langs/scheme.el")
+(my--load-file-from-home "langs/scheme.el")
 (my--load-file-from-home "langs/javascript.el")
 ;; (my--load-file-from-home "langs/lua.el")
 (my--load-file-from-home "langs/org.el")
