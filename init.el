@@ -193,7 +193,7 @@
 (my--load-file-from-home "langs/typescript.el")
 ;; (my--load-file-from-home "langs/zig.el")
 ;; (my--load-file-from-home "langs/cmake.el")
-(my--load-file-from-home "langs/carp.el")
+;; (my--load-file-from-home "langs/carp.el")
 
 ;; imenu list
 (use-package imenu-list
