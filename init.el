@@ -2,6 +2,10 @@
 ;; collection.  The default is 800 kilobytes.  Measured in bytes.
 (setq gc-cons-threshold (* 50 1000 1000))
 
+;; safe local variables
+(put 'my--compiler 'safe-local-variable #'stringp)
+(put 'my--term 'safe-local-variable #'stringp)
+
 ;; Configs
 ;; (setq-default my--font "Cascadia Code 10") ;; DejaVu Sans Mono 10
 ;; (setq-default my--font (cond system-type ('gnu/linux "NanumGothic"))"Lucida Console 12") ;; DejaVu Sans Mono 10
@@ -181,7 +185,7 @@
 ;; (my--load-file-from-home "langs/clojure.el")
 (my--load-file-from-home "langs/elisp.el")
 ;; (my--load-file-from-home "langs/elixir.el")
-;; (my--load-file-from-home "langs/gdscript.el")
+(my--load-file-from-home "langs/gdscript.el")
 (my--load-file-from-home "langs/scheme.el")
 (my--load-file-from-home "langs/javascript.el")
 ;; (my--load-file-from-home "langs/lua.el")
