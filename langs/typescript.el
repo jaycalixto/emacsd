@@ -1,3 +1,7 @@
+(use-package web-mode
+  :ensure t
+  :defer t)
+
 (use-package tide
   :ensure t
   :defer t)

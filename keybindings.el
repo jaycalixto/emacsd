@@ -72,11 +72,13 @@
    ;; emacs
    "e" '(nil :which-key "emacs")
    "ep" '(list-packages :which-key "list packages")
+   "er" '(restart-emacs :which-key "restart emacs")
    ;; File
    "f" '(nil :which-key "files")
    "ff" '(my--open-init-el :which-key "open init.el")
    "fl" '(load-file :which-key "load file")
    "fo" '(ido-find-file :which-key "find files")
+   "fr" '(recentf-open-files :which-key "open recent files")
    ;;flycheck
    "!" '(nil :which-key "flycheck")
    "!l" '(flycheck-list-errors :which-key "list errors")
@@ -94,7 +96,7 @@
    :keymaps 'Buffer-menu-mode-map
    "RET" '(Buffer-menu-this-window :which-key "buffer menu this window")))
 
-;; general
+;; General
 (use-package general
   :ensure t
   :after evil
