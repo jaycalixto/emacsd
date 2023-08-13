@@ -501,24 +501,24 @@
    ;; cider
    ;;----------------------------------------------------------------------------
    `(cider-enlightened
-     ((,srcery-class (:background nil :box (:color ,srcery-yellow :line-width -1 :style nil) :foreground ,srcery-yellow))
-      (,srcery-256-class (:background nil :box (:color ,srcery-256-yellow :line-width -1 :style nil) :foreground ,srcery-256-yellow))))
+     ((,srcery-class (:background unspecified :box (:color ,srcery-yellow :line-width -1 :style nil) :foreground ,srcery-yellow))
+      (,srcery-256-class (:background unspecified :box (:color ,srcery-256-yellow :line-width -1 :style nil) :foreground ,srcery-256-yellow))))
 
    `(cider-enlightened-face
-     ((,srcery-class (:background nil :box (:color ,srcery-bright-black :line-width -1 :style nil) :foreground ,srcery-blue))
-      (,srcery-256-class (:background nil :box (:color ,srcery-256-bright-black :line-width -1 :style nil) :foreground ,srcery-256-blue))))
+     ((,srcery-class (:background unspecified :box (:color ,srcery-bright-black :line-width -1 :style nil) :foreground ,srcery-blue))
+      (,srcery-256-class (:background unspecified :box (:color ,srcery-256-bright-black :line-width -1 :style nil) :foreground ,srcery-256-blue))))
 
    `(cider-enlightened-local
      ((,srcery-class (:foreground ,srcery-bright-yellow))
       (,srcery-256-class (:foreground ,srcery-256-bright-yellow))))
 
    `(cider-instrumented-face
-     ((,srcery-class (:background nil :box (:color ,srcery-red :line-width -1 :style nil) :foreground ,srcery-red))
-      (,srcery-256-class (:background nil :box (:color ,srcery-256-red :line-width -1 :style nil) :foreground ,srcery-256-red))))
+     ((,srcery-class (:background unspecified :box (:color ,srcery-red :line-width -1 :style nil) :foreground ,srcery-red))
+      (,srcery-256-class (:background unspecified :box (:color ,srcery-256-red :line-width -1 :style nil) :foreground ,srcery-256-red))))
 
    `(cider-result-overlay-face
-     ((,srcery-class (:background nil :box (:color ,srcery-blue :line-width -1 :style nil) :foreground ,srcery-blue))
-      (,srcery-256-class (:background nil :box (:color ,srcery-256-blue :line-width -1 :style nil) :foreground ,srcery-256-blue))))
+     ((,srcery-class (:background unspecified :box (:color ,srcery-blue :line-width -1 :style nil) :foreground ,srcery-blue))
+      (,srcery-256-class (:background unspecified :box (:color ,srcery-256-blue :line-width -1 :style nil) :foreground ,srcery-256-blue))))
 
    `(cider-test-error-face
      ((,srcery-class (:background ,srcery-bright-orange :foreground ,srcery-black))
@@ -668,28 +668,28 @@
    ;; diff
    ;;----------------------------------------------------------------------------
    `(diff-added
-     ((,srcery-class :background nil :foreground ,srcery-green)
-      (,srcery-256-class :background nil :foreground ,srcery-256-green)))
+     ((,srcery-class :background unspecified :foreground ,srcery-green)
+      (,srcery-256-class :background unspecified :foreground ,srcery-256-green)))
 
    `(diff-changed
-     ((,srcery-class :background nil :foreground ,srcery-red)
-      (,srcery-256-class :background nil :foreground ,srcery-256-red)))
+     ((,srcery-class :background unspecified :foreground ,srcery-red)
+      (,srcery-256-class :background unspecified :foreground ,srcery-256-red)))
 
    `(diff-header
      ((,srcery-class :background ,srcery-gray-2 :foreground ,srcery-yellow)
       (,srcery-256-class :background ,srcery-256-gray-2 :foreground ,srcery-256-yellow)))
 
    `(diff-indicator-added
-     ((,srcery-class :background nil :foreground ,srcery-green)
-      (,srcery-256-class :background nil :foreground ,srcery-256-green)))
+     ((,srcery-class :background unspecified :foreground ,srcery-green)
+      (,srcery-256-class :background unspecified :foreground ,srcery-256-green)))
 
    `(diff-indicator-changed
-     ((,srcery-class :background nil :foreground ,srcery-red)
-      (,srcery-256-class :background nil :foreground ,srcery-256-red)))
+     ((,srcery-class :background unspecified :foreground ,srcery-red)
+      (,srcery-256-class :background unspecified :foreground ,srcery-256-red)))
 
    `(diff-indicator-removed
-     ((,srcery-class :background nil :foreground ,srcery-red)
-      (,srcery-256-class :background nil :foreground ,srcery-256-red)))
+     ((,srcery-class :background unspecified :foreground ,srcery-red)
+      (,srcery-256-class :background unspecified :foreground ,srcery-256-red)))
 
    `(diff-refine-added
      ((,srcery-class :background ,srcery-green :foreground ,srcery-black)
@@ -704,8 +704,8 @@
       (,srcery-256-class :background ,srcery-256-red :foreground ,srcery-256-bright-white)))
 
    `(diff-removed
-     ((,srcery-class :background nil :foreground ,srcery-red)
-      (,srcery-256-class :background nil :foreground ,srcery-256-red)))
+     ((,srcery-class :background unspecified :foreground ,srcery-red)
+      (,srcery-256-class :background unspecified :foreground ,srcery-256-red)))
 
    ;;----------------------------------------------------------------------------
    ;; diff-hl
@@ -1500,8 +1500,8 @@
       (,srcery-256-class (:foreground ,srcery-256-bright-blue :background ,(if srcery-transparent-background nil srcery-256-black) :weight bold))))
 
    `(helm-grep-match
-     ((,srcery-class (:foreground nil :background nil :inherit helm-match))
-      (,srcery-256-class (:foreground nil :background nil :inherit helm-match))))
+     ((,srcery-class (:foreground nil :background unspecified :inherit helm-match))
+      (,srcery-256-class (:foreground nil :background unspecified :inherit helm-match))))
 
    `(helm-header
      ((,srcery-class (:foreground ,srcery-bright-white :background ,srcery-black :underline nil :box nil))
@@ -1646,8 +1646,8 @@
       (,srcery-256-class (:foreground ,srcery-256-red))))
 
    `(info-reference-item
-     ((,srcery-class (:background nil :underline t :weight bold))
-      (,srcery-256-class (:background nil :underline t :weight bold))))
+     ((,srcery-class (:background unspecified :underline t :weight bold))
+      (,srcery-256-class (:background unspecified :underline t :weight bold))))
 
    `(info-string
      ((,srcery-class (:foreground ,srcery-bright-green))
@@ -2695,8 +2695,8 @@
       (,srcery-256-class (:foreground ,srcery-256-bright-white))))
 
    `(spacemacs-transient-state-title-face
-     ((,srcery-class (:background nil :foreground ,srcery-green :box nil :weight bold))
-      (,srcery-256-class (:background nil :foreground ,srcery-256-green :box nil :weight bold))))
+     ((,srcery-class (:background unspecified :foreground ,srcery-green :box nil :weight bold))
+      (,srcery-256-class (:background unspecified :foreground ,srcery-256-green :box nil :weight bold))))
 
    `(spacemacs-ido-navigation-ts-face
      ((,srcery-class (:foreground ,srcery-yellow))
@@ -2877,8 +2877,8 @@
       (,srcery-256-class (:foreground ,srcery-256-yellow :weight bold))))
 
    `(which-key-separator-face
-     ((,srcery-class (:background nil :foreground ,srcery-bright-green))
-      (,srcery-256-class (:background nil :foreground ,srcery-256-bright-green))))
+     ((,srcery-class (:background unspecified :foreground ,srcery-bright-green))
+      (,srcery-256-class (:background unspecified :foreground ,srcery-256-bright-green))))
 
    `(which-key-special-key-face
      ((,srcery-class (:background ,srcery-yellow :foreground ,srcery-black))
@@ -2897,36 +2897,36 @@
    ;; whitespace-mode
    ;;----------------------------------------------------------------------------
    `(whitespace-empty
-     ((,srcery-class (:background nil :foreground ,srcery-yellow))
-      (,srcery-256-class (:background nil :foreground ,srcery-256-yellow))))
+     ((,srcery-class (:background unspecified :foreground ,srcery-yellow))
+      (,srcery-256-class (:background unspecified :foreground ,srcery-256-yellow))))
 
    `(whitespace-indentation
-     ((,srcery-class (:background nil :foreground ,srcery-bright-orange))
-      (,srcery-256-class (:background nil :foreground ,srcery-256-bright-orange))))
+     ((,srcery-class (:background unspecified :foreground ,srcery-bright-orange))
+      (,srcery-256-class (:background unspecified :foreground ,srcery-256-bright-orange))))
 
    `(whitespace-line
-     ((,srcery-class (:background nil :foreground ,srcery-green))
-      (,srcery-256-class (:background nil :foreground ,srcery-256-green))))
+     ((,srcery-class (:background unspecified :foreground ,srcery-green))
+      (,srcery-256-class (:background unspecified :foreground ,srcery-256-green))))
 
    `(whitespace-newline
-     ((,srcery-class (:background nil :foreground ,srcery-green))
-      (,srcery-256-class (:background nil :foreground ,srcery-256-green))))
+     ((,srcery-class (:background unspecified :foreground ,srcery-green))
+      (,srcery-256-class (:background unspecified :foreground ,srcery-256-green))))
 
    `(whitespace-space
-     ((,srcery-class (:background nil :foreground ,srcery-gray-5))
-      (,srcery-256-class (:background nil :foreground ,srcery-256-gray-5))))
+     ((,srcery-class (:background unspecified :foreground ,srcery-gray-5))
+      (,srcery-256-class (:background unspecified :foreground ,srcery-256-gray-5))))
 
    `(whitespace-space-after-tab
-     ((,srcery-class (:background nil :foreground ,srcery-yellow))
-      (,srcery-256-class (:background nil :foreground ,srcery-256-yellow))))
+     ((,srcery-class (:background unspecified :foreground ,srcery-yellow))
+      (,srcery-256-class (:background unspecified :foreground ,srcery-256-yellow))))
 
    `(whitespace-space-before-tab
-     ((,srcery-class (:background nil :foreground ,srcery-yellow))
-      (,srcery-256-class (:background nil :foreground ,srcery-256-yellow))))
+     ((,srcery-class (:background unspecified :foreground ,srcery-yellow))
+      (,srcery-256-class (:background unspecified :foreground ,srcery-256-yellow))))
 
    `(whitespace-tab
-     ((,srcery-class (:background nil))
-      (,srcery-256-class (:background nil))))
+     ((,srcery-class (:background unspecified))
+      (,srcery-256-class (:background unspecified))))
 
    `(whitespace-trailing
      ((,srcery-class (:background ,srcery-red :foreground ,srcery-bright-orange))
@@ -3090,8 +3090,8 @@
       (,srcery-256-class (:foreground ,srcery-256-green))))
 
    `(trailing-whitespace
-     ((,srcery-class :foreground nil :background ,srcery-red)
-      (,srcery-256-class :foreground nil :background ,srcery-256-red)))
+     ((,srcery-class :foreground unspecified :background ,srcery-red)
+      (,srcery-256-class :foreground unspecified :background ,srcery-256-red)))
 
    `(undo-tree-visualizer-current-face
      ((,srcery-class :foreground ,srcery-red)
@@ -3288,7 +3288,7 @@
    ;;----------------------------------------------------------------------------
    `(mmm-default-submode-face
      ((,srcery-class :background ,(if srcery-transparent-background nil srcery-256-black))
-      (,srcery-256-class :background nil)))
+      (,srcery-256-class :background unspecified)))
 
    ;;----------------------------------------------------------------------------
    ;; rst
