@@ -24,7 +24,12 @@
     (add-hook 'typescript-mode-hook #'setup-tide-mode)
     (add-hook 'typescript-mode-hook #'rainbow-delimiters-mode)
     (add-hook 'typescript-mode-hook #'electric-pair-mode)
-    (add-hook 'before-save-hook 'tide-format-before-save)))
+    (add-hook 'before-save-hook 'tide-format-before-save))
+  :general
+  (:keymaps 'typescript-mode-map
+            :prefix "SPC"
+            :states '(normal visual)
+            "cr" '(tide-rename-symbol :which-key "rename symbol")))
 
 (require 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
