@@ -108,6 +108,10 @@
     (setq-default imenu-list-auto-resize t)
     (setq-default imenu-list-position 'right)))
 
+;; spellcheck
+;; (setq ispell-program-name "hunspell")
+;; (setq ispell-local-dictionary "pt_BR")
+
 ;; languages and major modes
 (my--load-file-from-home "langs/typescript.el")
 (my--load-file-from-home "langs/elisp.el")
@@ -130,8 +134,12 @@
 ;; (my--load-file-from-home "langs/carp.el")
 
 ;; start with messages buffer
-(setq initial-buffer-choice
-      (lambda ()
-        (get-buffer "*Messages*")))
+;; (setq initial-buffer-choice
+;;       (lambda ()
+;;         (get-buffer "*Messages*")))
 
 (my--load-file-from-home "themes.el")
+
+
+(add-to-list 'default-frame-alist '(height . 48))
+(add-to-list 'default-frame-alist '(width . 120))
