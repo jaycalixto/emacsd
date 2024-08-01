@@ -120,7 +120,7 @@
 ;; (my--load-file-from-home "langs/clisp.el")
 ;; (my--load-file-from-home "langs/clojure.el")
 ;; (my--load-file-from-home "langs/elixir.el")
-;; (my--load-file-from-home "langs/gdscript.el")
+(my--load-file-from-home "langs/gdscript.el")
 ;; (my--load-file-from-home "langs/scheme.el")
 (my--load-file-from-home "langs/javascript.el")
 ;; (my--load-file-from-home "langs/lua.el")
