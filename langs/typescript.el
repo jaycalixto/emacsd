@@ -17,6 +17,7 @@
   (company-mode +1))
 
 (defun my-setup-typescript-mode ()
+  (message "setting up legacy mode for typescript")
   (use-package typescript-mode
     :ensure t
     :defer t
@@ -35,6 +36,7 @@
   (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode)))
 
 (defun my-setup-ts-mode ()
+  (message "setting up treesit mode for typescript")
   (use-package typescript-ts-mode
     :ensure t
     :defer t

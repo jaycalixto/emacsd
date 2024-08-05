@@ -126,6 +126,7 @@
 ;; (my--load-file-from-home "langs/lua.el")
 (my--load-file-from-home "langs/org.el")
 (my--load-file-from-home "langs/rust.el")
+(my--load-file-from-home "langs/python.el")
 ;; (my--load-file-from-home "langs/scala.el")
 ;; (my--load-file-from-home "langs/sml.el")
 ;; (my--load-file-from-home "langs/svelte.el")
