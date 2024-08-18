@@ -1,5 +1,3 @@
-;; TODO evil keybindings for recentf-open-files
-
 (defun my--load-file-from-home (filename)
   (load-file
    (expand-file-name filename user-emacs-directory)))
@@ -35,6 +33,8 @@
   :hook
   (after-init . which-key-mode))
 
+(global-hl-line-mode 1)
+
 ;; modeline
 (use-package mood-line
   :ensure t
@@ -50,6 +50,7 @@
 (use-package rainbow-delimiters
   :ensure t
   :defer t)
+
 
 ;; ido
 (use-package ido
@@ -108,6 +109,12 @@
     (setq-default imenu-list-auto-resize t)
     (setq-default imenu-list-position 'right)))
 
+;; tab bar
+;; (global-tab-line-mode t)
+(setq tab-line-new-button-show nil)
+(setq tab-line-close-button-show nil)
+(setq tab-line-separator " ")
+
 ;; spellcheck
 ;; (setq ispell-program-name "hunspell")
 ;; (setq ispell-local-dictionary "pt_BR")
@@ -116,7 +123,7 @@
 (my--load-file-from-home "langs/typescript.el")
 (my--load-file-from-home "langs/elisp.el")
 ;; (my--load-file-from-home "langs/ada.el")
-;; (my--load-file-from-home "langs/c.el")
+(my--load-file-from-home "langs/c.el")
 ;; (my--load-file-from-home "langs/clisp.el")
 ;; (my--load-file-from-home "langs/clojure.el")
 ;; (my--load-file-from-home "langs/elixir.el")
@@ -139,8 +146,9 @@
 ;;       (lambda ()
 ;;         (get-buffer "*Messages*")))
 
-(my--load-file-from-home "themes.el")
+(my--load-file-from-home "tree.el")
 
+(my--load-file-from-home "themes.el")
 
 (add-to-list 'default-frame-alist '(height . 48))
 (add-to-list 'default-frame-alist '(width . 120))
