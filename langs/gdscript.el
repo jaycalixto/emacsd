@@ -4,3 +4,4 @@
   :config
   (progn
     (add-hook 'gdscript-mode-hook #'lsp-deferred)))
+

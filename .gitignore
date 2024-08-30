@@ -66,3 +66,5 @@ ido.last
 .lsp-eslint-choices
 .lsp-session-v1
 eln-cache/
+elpy/
+tree-sitter/

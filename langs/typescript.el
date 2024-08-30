@@ -34,6 +34,11 @@
               "cr" '(tide-rename-symbol :which-key "rename symbol")))
   (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode)))
 
+(defun my-auto-fix-on-save ()
+  (progn
+    (add-hook 'before-save-hook 'lsp-eslint-apply-all-fixes nil t)
+    (add-hook 'before-save-hook 'tide-format-before-save nil t)))
+
 (defun my-setup-ts-mode ()
   (use-package typescript-ts-mode
     :ensure t
@@ -45,7 +50,8 @@
       (add-hook 'typescript-ts-mode-hook #'setup-tide-mode)
       (add-hook 'typescript-ts-mode-hook #'rainbow-delimiters-mode)
       (add-hook 'typescript-ts-mode-hook #'electric-pair-mode)
-      (add-hook 'before-save-hook 'tide-format-before-save))
+      (add-hook 'typescript-ts-mode-hook #'my-auto-fix-on-save)
+      (add-hook 'typescript-ts-mode-hook #'lsp-deferred))
     :general
     (:keymaps 'typescript-ts-mode-map
               :prefix "SPC"
