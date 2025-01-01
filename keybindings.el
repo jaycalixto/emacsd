@@ -107,3 +107,15 @@
     (general-define-standard-keys)))
 
 (global-set-key (kbd "C-;") 'comment-line)
+
+(defun general-define-package-mode-keys ()
+  (general-define-key
+   :states '(normal visual)
+   :keymaps 'package-menu-mode-map
+   :prefix "SPC"
+   "c" '(nil :which-key "package menu major mode")
+   "cu" '(package-menu-mark-upgrades :which-key "mark upgrades")
+   "cx" '(package-menu-execute :which-key "execute marked action")))
+
+(add-hook 'package-menu-mode-hook #'general-define-package-mode-keys)
+
