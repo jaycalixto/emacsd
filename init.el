@@ -140,6 +140,7 @@
 ;; (my--load-file-from-home "langs/zig.el")
 ;; (my--load-file-from-home "langs/cmake.el")
 ;; (my--load-file-from-home "langs/carp.el")
+(my--load-file-from-home "langs/nix.el")
 
 ;; start with messages buffer
 ;; (setq initial-buffer-choice
