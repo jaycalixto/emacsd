@@ -15,6 +15,7 @@
     (progn
       (setq c-ts-mode-indent-offset 2)
       (setq c-ts-mode-indent-style 'linux)
+      (setq lsp-clients-clangd-args '("--header-insertion=never"))
       (add-hook 'c-ts-mode-hook #'electric-pair-mode)
       (add-hook 'c-ts-mode-hook #'lsp-deferred)
       (add-hook 'c-ts-mode-hook #'rainbow-delimiters-mode)
