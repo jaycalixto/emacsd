@@ -43,7 +43,7 @@
    ;; Buffers
    "b" '(nil :which-key "buffers")
    "bl" '(ido-switch-buffer :which-key "switch buffer")
-   "bd" '(kill-this-buffer :which-key "kill buffer")
+   "bd" '(kill-current-buffer :which-key "kill buffer")
    "bn" '(evil-next-buffer :which-key "next buffer")
    "bp" '(evil-prev-buffer :which-key "previous buffer")
    "bb" '(list-buffers :which-key "list buffers")
