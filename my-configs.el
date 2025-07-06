@@ -55,7 +55,7 @@
 
 ;; make frame start bigger and more centralized
 (when window-system
-  (set-frame-position (selected-frame) 350 50)
+  (set-frame-position (selected-frame) 0 0)
   (set-frame-size (selected-frame) 120 50))
 
 ;; revert buffers a when file changed in disk
@@ -67,12 +67,6 @@
             (require 'server)
             (message "starting server")
             (unless (server-running-p) (server-start))))
-
-;; theme (load theme last so i imediatly can tell if there's something wrong)
-;; misterioso
-;; tsdh-dark
-;; wombat
-;; (load-theme 'wombat t)
 
 ;; Make gc pauses faster by decreasing the threshold.
 (add-hook 'emacs-startup-hook

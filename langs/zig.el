@@ -16,3 +16,7 @@
             "ct" '(zig-test-buffer :which-key "zig test buffer")
             "cp" '(zig-toggle-format-on-save :which-key "zig toggle format on save")
             "cr" '(zig-run :which-key "zig run")))
+
+
+;; (when (treesit-language-available-p 'zig)
+;;     (add-to-list 'major-mode-remap-alist '(zig-mode . zig-ts-mode)))
