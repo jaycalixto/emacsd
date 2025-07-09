@@ -120,27 +120,29 @@
 ;; (setq ispell-local-dictionary "pt_BR")
 
 ;; languages and major modes
-(my--load-file-from-home "langs/typescript.el")
-(my--load-file-from-home "langs/elisp.el")
-;; (my--load-file-from-home "langs/ada.el")
-(my--load-file-from-home "langs/c.el")
-;; (my--load-file-from-home "langs/clisp.el")
-;; (my--load-file-from-home "langs/clojure.el")
-;; (my--load-file-from-home "langs/elixir.el")
-(my--load-file-from-home "langs/gdscript.el")
-;; (my--load-file-from-home "langs/scheme.el")
-(my--load-file-from-home "langs/javascript.el")
-;; (my--load-file-from-home "langs/lua.el")
-(my--load-file-from-home "langs/org.el")
-(my--load-file-from-home "langs/rust.el")
-(my--load-file-from-home "langs/python.el")
-;; (my--load-file-from-home "langs/scala.el")
-;; (my--load-file-from-home "langs/sml.el")
-;; (my--load-file-from-home "langs/svelte.el")
-;; (my--load-file-from-home "langs/zig.el")
-;; (my--load-file-from-home "langs/cmake.el")
-;; (my--load-file-from-home "langs/carp.el")
-(my--load-file-from-home "langs/nix.el")
+(mapcar #'my--load-file-from-home
+        '("langs/typescript.el"
+          "langs/elisp.el"
+          ;; "langs/ada.el"
+          "langs/c.el"
+          ;; "langs/clisp.el"
+          ;; "langs/clojure.el"
+          ;; "langs/elixir.el"
+          "langs/gdscript.el"
+          ;; "langs/scheme.el"
+          "langs/javascript.el"
+          ;; "langs/lua.el"
+          "langs/org.el"
+          "langs/rust.el"
+          "langs/python.el"
+          ;; "langs/scala.el"
+          ;; "langs/sml.el"
+          ;; "langs/svelte.el"
+          ;; "langs/zig.el"
+          "langs/cmake.el"
+          ;; "langs/carp.el"
+          ;; "langs/nix.el"
+          "langs/janet.el"))
 
 ;; start with messages buffer
 ;; (setq initial-buffer-choice
