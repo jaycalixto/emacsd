@@ -130,7 +130,7 @@
 (my--load-file-from-home "langs/gdscript.el")
 ;; (my--load-file-from-home "langs/scheme.el")
 (my--load-file-from-home "langs/javascript.el")
-;; (my--load-file-from-home "langs/lua.el")
+(my--load-file-from-home "langs/lua.el")
 (my--load-file-from-home "langs/org.el")
 (my--load-file-from-home "langs/rust.el")
 (my--load-file-from-home "langs/python.el")
