@@ -125,6 +125,7 @@
           "langs/elisp.el"
           ;; "langs/ada.el"
           "langs/c.el"
+          "langs/cpp.el"
           ;; "langs/clisp.el"
           ;; "langs/clojure.el"
           ;; "langs/elixir.el"
