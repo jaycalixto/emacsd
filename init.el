@@ -118,6 +118,9 @@
 ;; spellcheck
 ;; (setq ispell-program-name "hunspell")
 ;; (setq ispell-local-dictionary "pt_BR")
+(setq display-buffer-alist
+      '(("\\*compilation\\*"
+         (display-buffer-reuse-window display-buffer-same-window))))
 
 ;; languages and major modes
 (mapcar #'my--load-file-from-home
@@ -156,3 +159,12 @@
 
 (add-to-list 'default-frame-alist '(height . 48))
 (add-to-list 'default-frame-alist '(width . 120))
+
+(defun my-compile-at-project-root ()
+  "Run compile command at the project root containing a Makefile."
+  (interactive)
+  (let ((root (locate-dominating-file default-directory ".dir-locals.el")))
+    (if root
+        (let ((default-directory root))
+          (compile compile-command))
+      (compile compile-command))))
