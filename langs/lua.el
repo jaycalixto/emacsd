@@ -10,7 +10,7 @@
 
 (defun my-after-lua-mode-hook(hook-symbol)
   (setq lua-indent-level 2)
-  ;; (add-hook hook-symbol 'lsp-deferred)
+  (add-hook hook-symbol 'lsp-deferred)
   (add-hook hook-symbol 'company-mode)
   (add-hook hook-symbol 'flycheck-mode)
   (add-hook hook-symbol #'my-lua-mode-company-init)
