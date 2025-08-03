@@ -12,7 +12,7 @@
 
 (defun my-setup-cpp-mode ()
   (message "setting up legacy mode for C++")
-  (require 'c++-mode)
+  ;; (require 'c++-mode)
   (require 'semantic)
   (global-semanticdb-minor-mode 1)
   (global-semantic-idle-scheduler-mode 1)
