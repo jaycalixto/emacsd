@@ -66,6 +66,10 @@
    "w/" '(split-window-right :which-key "split right")
    "w-" '(split-window-below :which-key "split bottom")
    "wx" '(delete-window :which-key "delete window")
+   "wq" '(enlarge-window :which-key "enlarge window")
+   "wQ" '(shrink-window :which-key "shrink window")
+   "wa" '(enlarge-window-horizontally :which-key "enlarge window horizontally")
+   "wA" '(shrink-window-horizontally :which-key "shrink window horizontally")
    ;; major modes
    "m" '(which-key-show-major-mode :which-key "+major mode")
    ;; Others
