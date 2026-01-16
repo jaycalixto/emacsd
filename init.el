@@ -146,6 +146,7 @@
           "langs/cmake.el"
           ;; "langs/carp.el"
           ;; "langs/nix.el"
+          "langs/ocaml.el"
           "langs/janet.el"))
 
 ;; start with messages buffer
