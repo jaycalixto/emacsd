@@ -25,13 +25,14 @@
     :ensure t
     :defer t
     :config
-    (my-after-lua-mode-hook 'lua-mode-hook)
-    :general
-    (:keymaps 'lua-mode-map
-              :prefix "SPC"
-              :states '(normal visual)
-              "c" '(nil :which-key "lua major mode")
-              "cc" '(recompile :which-key "(re)compile"))))
+    (my-after-lua-mode-hook 'lua-mode-hook))
+  (when my--use-evil
+    (general-define-key
+     :keymaps 'lua-mode-map
+     :prefix "SPC"
+     :states '(normal visual)
+     "c" '(nil :which-key "lua major mode")
+     "cc" '(recompile :which-key "(re)compile"))))
 
 (defun my-setup-lua-treesit-mode ()
   (message "setting up treesit mode for lua")

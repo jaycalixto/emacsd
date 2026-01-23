@@ -26,13 +26,14 @@
       (add-hook 'typescript-mode-hook #'setup-tide-mode)
       (add-hook 'typescript-mode-hook #'rainbow-delimiters-mode)
       (add-hook 'typescript-mode-hook #'electric-pair-mode)
-      (add-hook 'before-save-hook 'tide-format-before-save))
-    :general
-    (:keymaps 'typescript-mode-map
-              :prefix "SPC"
-              :states '(normal visual)
-              "cr" '(tide-rename-symbol :which-key "rename symbol")))
-  (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode)))
+      (add-hook 'before-save-hook 'tide-format-before-save)))
+  (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
+  (when my--use-evil
+    (general-define-key
+     :keymaps 'typescript-mode-map
+     :prefix "SPC"
+     :states '(normal visual)
+     "cr" '(tide-rename-symbol :which-key "rename symbol"))))
 
 (defun my-auto-fix-on-save ()
   (progn
@@ -51,13 +52,14 @@
       (add-hook 'typescript-ts-mode-hook #'rainbow-delimiters-mode)
       (add-hook 'typescript-ts-mode-hook #'electric-pair-mode)
       (add-hook 'typescript-ts-mode-hook #'my-auto-fix-on-save)
-      (add-hook 'typescript-ts-mode-hook #'lsp-deferred))
-    :general
-    (:keymaps 'typescript-ts-mode-map
-              :prefix "SPC"
-              :states '(normal visual)
-              "cr" '(tide-rename-symbol :which-key "rename symbol")))
-  (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-ts-mode)))
+      (add-hook 'typescript-ts-mode-hook #'lsp-deferred)))
+  (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-ts-mode))
+  (when my--use-evil
+    (general-define-key
+     :keymaps 'typescript-ts-mode-map
+     :prefix "SPC"
+     :states '(normal visual)
+     "cr" '(tide-rename-symbol :which-key "rename symbol"))))
 
 (if (treesit-language-available-p 'typescript)
     (my-setup-ts-mode)

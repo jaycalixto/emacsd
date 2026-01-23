@@ -21,14 +21,15 @@
       (add-hook 'c-ts-mode-hook #'rainbow-delimiters-mode)
       (add-hook 'c-ts-mode-hook (lambda ()
                                   (add-hook 'before-save-hook #'clang-format-buffer nil t)))
-      (add-hook 'c-ts-mode-hook #'company-mode))
-    :general
-    (:keymaps 'c-ts-mode-map
-              :prefix "SPC"
-              :states '(normal visual)
-              "c" '(nil :which-key "c major mode")
-              "cr" '(lsp-rename :which-key "lsp rename")
-              "cf" '(lsp-execute-code-action :which-key "lsp execute code action"))))
+      (add-hook 'c-ts-mode-hook #'company-mode)))
+  (when my--use-evil
+    (general-define-key
+     :keymaps 'c-ts-mode-map
+     :prefix "SPC"
+     :states '(normal visual)
+     "c" '(nil :which-key "c major mode")
+     "cr" '(lsp-rename :which-key "lsp rename")
+     "cf" '(lsp-execute-code-action :which-key "lsp execute code action"))))
 
 (defun my-setup-c-mode ()
   (use-package cc-mode

@@ -42,14 +42,15 @@
       (add-hook 'c++-ts-mode-hook #'company-mode)
       (add-hook 'c++-ts-mode-hook (lambda ()
                                     (add-hook 'before-save-hook #'clang-format-buffer nil t)))
-      (add-hook 'c++-ts-mode-hook #'my-config-company-for-c++))
-    :general
-    (:keymaps 'c++-ts-mode-map
-              :prefix "SPC"
-              :states '(normal visual)
-              "c" '(nil :which-key "C++ major mode")
-              "cr" '(lsp-rename :which-key "lsp rename")
-              "cf" '(lsp-execute-code-action :which-key "lsp execute code action"))))
+      (add-hook 'c++-ts-mode-hook #'my-config-company-for-c++)))
+  (when my--use-evil
+    (general-define-key
+     :keymaps 'c++-ts-mode-map
+     :prefix "SPC"
+     :states '(normal visual)
+     "c" '(nil :which-key "C++ major mode")
+     "cr" '(lsp-rename :which-key "lsp rename")
+     "cf" '(lsp-execute-code-action :which-key "lsp execute code action"))))
 
 (if (treesit-language-available-p 'cpp)
     (my-setup-cpp-ts-mode)

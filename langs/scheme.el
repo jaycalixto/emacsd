@@ -8,18 +8,20 @@
 
 (use-package scheme
   :ensure t
-  :defer t
-  :general
-  (:keymaps 'scheme-mode-map
-            :prefix "SPC"
-            :states '(normal visual)
-            "cr" '(compile-and-run :which-key "scheme compile and run")))
+  :defer t)
 
 (add-hook 'scheme-mode-hook 'company-mode)
 (add-hook 'scheme-mode-hook 'show-paren-mode)
 (add-hook 'scheme-mode-hook 'electric-pair-mode)
 (add-hook 'scheme-mode-hook 'auto-highlight-symbol-mode)
 (add-hook 'scheme-mode-hook 'rainbow-delimiters-mode)
+
+(when my--use-evil
+  (general-define-key
+   :keymaps 'scheme-mode-map
+   :prefix "SPC"
+   :states '(normal visual)
+   "cr" '(compile-and-run :which-key "scheme compile and run")))
 
 (defun compile-and-run ()
   (interactive)
