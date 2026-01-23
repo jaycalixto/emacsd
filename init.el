@@ -4,6 +4,8 @@
 
 (my--load-file-from-home "my-configs.el")
 
+(setq my--use-evil t)
+
 ;; Bootstrap `use-package'
 (require 'package)
 (setq package-enable-at-startup nil)
@@ -50,7 +52,6 @@
 (use-package rainbow-delimiters
   :ensure t
   :defer t)
-
 
 ;; ido
 (use-package ido

@@ -1,6 +1,9 @@
 (use-package org
   :ensure t
   :defer t
+  :config
+  (progn
+    (add-hook 'org-mode-hook #'display-line-numbers-mode))
   :general
   (:keymaps 'org-mode-map
             :prefix "SPC"

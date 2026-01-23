@@ -13,8 +13,7 @@
   (:keymaps 'scheme-mode-map
             :prefix "SPC"
             :states '(normal visual)
-            "cr" '(compile-and-run :which-key "scheme compile and run"))
-  )
+            "cr" '(compile-and-run :which-key "scheme compile and run")))
 
 (add-hook 'scheme-mode-hook 'company-mode)
 (add-hook 'scheme-mode-hook 'show-paren-mode)
