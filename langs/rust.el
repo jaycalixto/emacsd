@@ -1,12 +1,15 @@
+;; -*- lexical-binding: t; -*-
+
 (defun after-rust-mode-loaded ()
   (progn
     (electric-pair-mode)
-    (lsp-deferred)
-    (setq indent-tabs-mode nill)
-    (prettify-symbols-mode)
+    (setq indent-tabs-mode nil)
+    ;;(prettify-symbols-mode)
     (flycheck-mode)
     (rainbow-delimiters-mode)
-    (company-mode)))
+    (company-mode)
+    (font-lock-mode 1)
+    (lsp-deferred)))
 
 (use-package rust-mode
   :ensure t

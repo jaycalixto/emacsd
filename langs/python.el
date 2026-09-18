@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 (use-package py-autopep8
   :ensure t)
 

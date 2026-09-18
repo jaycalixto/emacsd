@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 (use-package company-lua
   :ensure t
   :defer t)

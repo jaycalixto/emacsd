@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 (defun my--load-file-from-home (filename)
   (load-file
    (expand-file-name filename user-emacs-directory)))
@@ -82,7 +84,8 @@
   :config
   (progn
     (setq-default flycheck-temp-prefix ".flycheck")
-    (flycheck-add-mode 'typescript-tslint 'web-mode)))
+    ;;(flycheck-add-mode 'typescript-tslint 'web-mode)
+    ))
 
 ;; Language Server Protocol
 (use-package lsp-mode

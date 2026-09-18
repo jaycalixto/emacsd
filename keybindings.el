@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 (defun buffer-files-menu ()
   (interactive)
   (buffer-menu t))

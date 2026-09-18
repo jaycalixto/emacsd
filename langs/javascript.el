@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 ;; (defun my/disable-js-flycheck-checkers ()
 ;;   (progn
 ;;     ;; disable jshint to use eslint

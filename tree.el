@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 ;; file tree configuration
 (use-package treemacs
   :ensure t

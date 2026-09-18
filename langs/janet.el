@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 (use-package janet-mode
   :ensure t
   :defer t)
